@@ -4,6 +4,7 @@
   volume: 141
   page: 211102
   title: "Active space Decomposition with multiple sites: Density matrix renormalization group algorithm"
+  url: "http://dx.doi.org/10.1063/1.4902991"
 
 - authors: S. M. Parker, M. Smeu, I. Franco, M. A. Ratner, and T. Seideman
   year: 2014
@@ -11,6 +12,7 @@
   volume: 14
   page: 4587
   title: "Molecular Junctions: Can Pulling Influence Optical Controllability"
+  url: "http://pubs.acs.org/doi/abs/10.1021/nl501629c"
 
 - authors: S. M. Parker and T. Shiozaki
   year: 2014
@@ -18,6 +20,7 @@
   volume: 10
   page: 3738
   title: "Quasi-diabatic states from active space decomposition"
+  url: "http://dx.doi.org/10.1021/ct5004753"
 
 - authors: S. M. Parker, T. Seideman, M. A. Ratner, and T. Shiozaki
   year: 2014
@@ -25,13 +28,7 @@
   volume: 118
   page: 12700
   title: "Model Hamiltonian analysis of singlet fission from first principles"
-
-- authors: Y. Wu, V. A. Karttunen, S. Parker, A. Genest, and N. Rösch
-  year: 2013
-  journal: Organometallics
-  volume: 32
-  page: 2363
-  title: "Olefin Hydrosilylation Catalyzed by a Bis-N-Heterocyclic Carbene Rhodium Complex. A Density Functional Theory Study"
+  url: "http://dx.doi.org/10.1021/jp505082a"
 
 - authors: S. M. Parker, T. Seideman, M. A. Ratner, T. Shiozaki
   year: 2013
@@ -39,6 +36,15 @@
   volume: 139
   page: 021108
   title: "Active-space decomposition for molecular dimers"
+  url: "http://dx.doi.org/10.1063/1.4813827"
+
+- authors: Y. Wu, V. A. Karttunen, S. Parker, A. Genest, and N. Rösch
+  year: 2013
+  journal: Organometallics
+  volume: 32
+  page: 2363
+  title: "Olefin Hydrosilylation Catalyzed by a Bis-N-Heterocyclic Carbene Rhodium Complex. A Density Functional Theory Study"
+  url: "http://dx.doi.org/10.1021/om301236n"
 
 - authors: S. M. Parker, M. A. Ratner, and T. Seideman
   year: 2012
@@ -46,6 +52,7 @@
   volume: 110
   page: 1941
   title: "Simulating strong field control of axial chirality using optimal control theory"
+  url: "http://dx.doi.org/10.1080/00268976.2012.695808"
 
 - authors: S. M. Parker, M. A. Ratner, and T. Seideman
   year: 2011
@@ -53,3 +60,4 @@
   volume: 135
   page: 224301
   title: "Coherent control of molecular torsion"
+  url: "http://dx.doi.org/10.1063/1.3663710"
