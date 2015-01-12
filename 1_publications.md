@@ -4,9 +4,15 @@ title:  "publications"
 date:   2015-01-08 22:58:06
 categories: cv
 ---
-{% for paper in site.data.papers %}
-___{{forloop.rindex}}.___
-&nbsp;&nbsp;       {{ paper.authors }},
-<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _{{paper.journal}}_, __{{paper.volume}}__, {{paper.page}} ({{paper.year}})
-<br> &nbsp;&nbsp;&nbsp;&nbsp;   ["{{paper.title}}"]({{paper.url}})
-{% endfor %}
+<div>
+  <ol>
+    {% for paper in site.data.papers %}
+      <li value="{{forloop.rindex}}">
+        {% for name in paper.authors %}
+          {% if name == "me" %} <u>S. M. Parker</u>, {% else %} {{name}}, {% endif %}
+        {% endfor %}
+      <br><i>{{paper.journal}}</i>, <b>{{paper.volume}}</b>, {{paper.page}} ({{paper.year}})
+      <br><a href="{{paper.url}}">"{{paper.title}}"</a>
+    {% endfor %}
+  </ol>
+</div>

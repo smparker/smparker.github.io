@@ -1,4 +1,4 @@
-- authors: S. M. Parker and T. Shiozaki
+- authors: [me, T. Shiozaki]
   year: 2014
   journal: Journal of Chemical Physics
   volume: 141
@@ -6,7 +6,7 @@
   title: "Active space Decomposition with multiple sites: Density matrix renormalization group algorithm"
   url: "http://dx.doi.org/10.1063/1.4902991"
 
-- authors: S. M. Parker, M. Smeu, I. Franco, M. A. Ratner, and T. Seideman
+- authors: [me, M. Smeu, I. Franco, M. A. Ratner, T. Seideman]
   year: 2014
   journal: Nano Letters
   volume: 14
@@ -14,7 +14,7 @@
   title: "Molecular Junctions: Can Pulling Influence Optical Controllability"
   url: "http://pubs.acs.org/doi/abs/10.1021/nl501629c"
 
-- authors: S. M. Parker and T. Shiozaki
+- authors: [me, T. Shiozaki]
   year: 2014
   journal: Journal of Chemical Theory and Computation
   volume: 10
@@ -22,7 +22,7 @@
   title: "Quasi-diabatic states from active space decomposition"
   url: "http://dx.doi.org/10.1021/ct5004753"
 
-- authors: S. M. Parker, T. Seideman, M. A. Ratner, and T. Shiozaki
+- authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2014
   journal: Journal of Physical Chemistry C
   volume: 118
@@ -30,7 +30,7 @@
   title: "Model Hamiltonian analysis of singlet fission from first principles"
   url: "http://dx.doi.org/10.1021/jp505082a"
 
-- authors: S. M. Parker, T. Seideman, M. A. Ratner, T. Shiozaki
+- authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2013
   journal: Journal of Chemical Physics
   volume: 139
@@ -38,7 +38,7 @@
   title: "Active-space decomposition for molecular dimers"
   url: "http://dx.doi.org/10.1063/1.4813827"
 
-- authors: Y. Wu, V. A. Karttunen, S. Parker, A. Genest, and N. Rösch
+- authors: [Y. Wu, V. A. Karttunen, me, A. Genest, N. Rösch]
   year: 2013
   journal: Organometallics
   volume: 32
@@ -46,7 +46,7 @@
   title: "Olefin Hydrosilylation Catalyzed by a Bis-N-Heterocyclic Carbene Rhodium Complex. A Density Functional Theory Study"
   url: "http://dx.doi.org/10.1021/om301236n"
 
-- authors: S. M. Parker, M. A. Ratner, and T. Seideman
+- authors: [me, M. A. Ratner, T. Seideman]
   year: 2012
   journal: Molecular Physics
   volume: 110
@@ -54,7 +54,7 @@
   title: "Simulating strong field control of axial chirality using optimal control theory"
   url: "http://dx.doi.org/10.1080/00268976.2012.695808"
 
-- authors: S. M. Parker, M. A. Ratner, and T. Seideman
+- authors: [me, M. A. Ratner, T. Seideman]
   year: 2011
   journal: Journal of Chemical Physics
   volume: 135
