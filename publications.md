@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "Publications"
+title:  "publications"
 date:   2015-01-08 22:58:06
 categories: cv
 ---
