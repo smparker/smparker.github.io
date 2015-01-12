@@ -17,3 +17,19 @@ categories: cv
 {% for award in site.data.awards %}
  - _{{award.name}}_ ({{award.year}})
 {% endfor %}
+
+### Invited Lectures
+{% for lecture in site.data.lectures %}
+  - {{lecture.institution}} <br>
+    {{lecture.location}} <br>
+    {{lecture.time}}
+{% endfor %}
+
+### Posters
+{% for poster in site.data.posters %}
+  - _{{poster.title}}_ <br>
+    {{poster.authors}} <br>
+    presented at {{poster.event}} <br>
+    {{poster.location}}
+    ({{poster.time}})
+{% endfor %}
