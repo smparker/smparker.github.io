@@ -2,7 +2,13 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title" href="{{ site.baseurl }}/">
+      {% if page.bold_title %}
+        <b><i> {{ site.title }} </b></i>
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -16,13 +22,15 @@
       <div class="trigger">
         {% for p in site.pages %}
           {% if p.title %}
-            <a class="page-link" href="{{ p.url | prepend: site.baseurl }}">
-              {% if p.title != page.title%}
-                {{ p.title }}
-              {% else %}
-              <b><i>{{ p.title }}</b></i>
-              {% endif %}
-            </a>
+            {% if p.title != index %}
+              <a class="page-link" href="{{ p.url | prepend: site.baseurl }}">
+                {% if p.title != page.title %}
+                  {{ p.title }}
+                {% else %}
+                  <b><i>{{ p.title }}</b></i>
+                {% endif %}
+              </a>
+            {% endif %}
           {% endif %}
         {% endfor %}
       </div>
