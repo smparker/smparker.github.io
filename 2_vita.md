@@ -4,32 +4,57 @@ title:  "vita"
 date:   2015-01-11 15:19:00
 categories: cv
 ---
-### Positions
+<table cellpadding="5">
+  <tr>
+    <td span="2"><h1>Positions</h1></td>
+  </tr>
 {% for position in site.data.positions %}
-- _{{position.title}}_ <br>
-  {{position.institution}} ({{position.location}}) <br>
-  Advisor: {{position.advisor}} <br>
-  Interest: {{position.interest}} <br>
-  {{position.time}}
+  <tr>
+    <td valign="top" style="white-space: nowrap;" align="right"> {{position.time}} </td>
+    <td>
+      <b> {{position.title}} </b> <br>
+      {{position.institution}} ({{position.location}}) <br>
+      Advisor: {{position.advisor}} <br>
+      Interest: {{position.interest}} <br>
+    </td>
+  </tr>
 {% endfor %}
 
-### Awards
+  <tr>
+    <td span="2" valign="bottom"><h1><br>Awards</h1></td>
+  </tr>
 {% for award in site.data.awards %}
- - _{{award.name}}_ ({{award.year}})
+    <tr>
+      <td valign="top" style="white-space: nowrap;" align="right"> {{award.year}} </td>
+      <td><i> {{award.name}} </i></td>
+    </tr>
 {% endfor %}
 
-### Invited Lectures
+  <tr>
+    <td colspan="2" valign="bottom"><h1><br>Invited Lectures</h1></td>
+  </tr>
 {% for lecture in site.data.lectures %}
-  - {{lecture.institution}} <br>
-    {{lecture.location}} <br>
-    {{lecture.time}}
+    <tr>
+      <td valign="top" style="white-space: nowrap;" align="right"> {{lecture.time}} </td>
+      <td>
+        {{lecture.institution}} <br>
+        {{lecture.location}}
+      </td>
+    </tr>
 {% endfor %}
 
-### Posters
+  <tr>
+    <td colspan="2" valign="bottom"><h1><br>Posters</h1></td>
+  </tr>
 {% for poster in site.data.posters %}
-  - _{{poster.title}}_ <br>
-    {{poster.authors}} <br>
-    presented at {{poster.event}} <br>
-    {{poster.location}}
-    ({{poster.time}})
+    <tr>
+      <td valign="top" style="white-space: nowrap;" align="right"> {{poster.time}} </td>
+      <td>
+        <b>{{poster.title}}</b><br>
+        {{poster.authors}} <br>
+        presented at {{poster.event}} <br>
+        {{poster.location}}
+      </td>
+    </tr>
 {% endfor %}
+</table>
