@@ -8,7 +8,7 @@ categories: cv
   h1.category {
     color: #4D4D4D;
     font-family: Verdana, Geneva, sans-serif;
-    font-weight: bold;
+    font-weight: 500;
   }
 </style>
 
@@ -22,8 +22,8 @@ categories: cv
     <td>
       <b> {{position.title}} </b> <br>
       {{position.institution}} ({{position.location}}) <br>
-      Advisor: {{position.advisor}} <br>
-      Interest: {{position.interest}} <br>
+      <i>Advisor</i>: {{position.advisor}} <br>
+      <i>Interest</i>: {{position.interest}} <br>
     </td>
   </tr>
 {% endfor %}
