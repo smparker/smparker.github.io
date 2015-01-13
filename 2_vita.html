@@ -4,9 +4,17 @@ title:  "vita"
 date:   2015-01-11 15:19:00
 categories: cv
 ---
+<style>
+  h1.category {
+    color: #4D4D4D;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+  }
+</style>
+
 <table cellpadding="5">
   <tr>
-    <td span="2"><h1>Positions</h1></td>
+    <td colspan="2"><h1 class="category">Positions</h1></td>
   </tr>
 {% for position in site.data.positions %}
   <tr>
@@ -21,7 +29,7 @@ categories: cv
 {% endfor %}
 
   <tr>
-    <td span="2" valign="bottom"><h1><br>Awards</h1></td>
+    <td span="2" valign="bottom"><h1 class="category"><br>Awards</h1></td>
   </tr>
 {% for award in site.data.awards %}
     <tr>
@@ -31,7 +39,7 @@ categories: cv
 {% endfor %}
 
   <tr>
-    <td colspan="2" valign="bottom"><h1><br>Invited Lectures</h1></td>
+    <td colspan="2" valign="bottom"><h1 class="category"><br>Invited Lectures</h1></td>
   </tr>
 {% for lecture in site.data.lectures %}
     <tr>
@@ -44,7 +52,7 @@ categories: cv
 {% endfor %}
 
   <tr>
-    <td colspan="2" valign="bottom"><h1><br>Posters</h1></td>
+    <td colspan="2" valign="bottom"><h1 class="category"><br>Posters</h1></td>
   </tr>
 {% for poster in site.data.posters %}
     <tr>
