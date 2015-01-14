@@ -3,19 +3,28 @@ layout: default
 bold_title: true
 ---
 
-<div class="home">
-    {{page.title}}
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+<div class="home" style="left:clear;">
+  <h1>My projects</h1>
+  <div class="project-list">
+    {% for proj in site.data.myprojects %}
+      <div class="{% cycle 'primary': 'project-left', 'project-right' %}">
+        <a class="image-link-text" href="{{proj.url}}">
+          <img src="{{ proj.image }}">
+          <h2 class="project-text">{{ proj.text }}</h2>
+        </a>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 
+  <h1 style="clear:both;">Contributing projects</h1>
+  <div class="project-list">
+    {% for proj in site.data.coprojects %}
+      <div class="{% cycle 'contributing': 'project-left', 'project-right' %}">
+        <a class="image-link-text" href="{{proj.url}}">
+          <img src="{{ proj.image }}">
+          <h2 class="project-text">{{ proj.text }}</h2>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </div>
