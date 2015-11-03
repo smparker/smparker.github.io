@@ -45,6 +45,7 @@ categories: cv
     <tr>
       <td valign="top" style="white-space: nowrap;" align="right"> {{lecture.time}} </td>
       <td>
+        <b>{{lecture.title}}</b> <br>
         {{lecture.institution}} <br>
         {{lecture.location}}
       </td>
@@ -60,8 +61,21 @@ categories: cv
       <td>
         <b>{{poster.title}}</b><br>
         {{poster.authors}} <br>
-        presented at {{poster.event}} <br>
+        presented at {{poster.event}}<br>
         {{poster.location}}
+      </td>
+    </tr>
+{% endfor %}
+
+  <tr>
+    <td colspan="2" valign="bottom"><h1 class="category"><br>Selected Teaching</h1></td>
+  </tr>
+{% for teach in site.data.teaching %}
+    <tr>
+      <td valign="top" style="white-space: nowrap;" align="right"> {{teach.time}} </td>
+      <td>
+        <i>{{teach.role}}</i> for <b>{{teach.title}}</b><br>
+        {{teach.level}}, {{teach.location}}
       </td>
     </tr>
 {% endfor %}
