@@ -76,11 +76,11 @@
   \color{white}%
 }
 
-\newcommand{\header}[3]{%
+\newcommand{\header}[4]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-    \node [rectangle, anchor=center, minimum width=\paperwidth - 3cm, minimum height=4cm] (innerbox) at (box.center){};
-    \node [anchor=west] (name) at (innerbox.west) {%
+    \node [rectangle, anchor=south, minimum width=\paperwidth - 2.5cm, minimum height=2cm] (innerbox) at (box.south){};
+    \node [anchor=south west] (name) at (innerbox.west) {%
       \fontsize{40pt}{40pt}\color{header}%
       {\thinfont #1}
     };
@@ -88,8 +88,16 @@
       \fontsize{40pt}{40pt}\color{header}%
       {\bodyfont #2}
     };
+    \node[anchor=south east] (email) at (innerbox.east) {%
+      \fontsize{18pt}{18pt}\color{header}
+      {\thinfont e-mail: #3}
+    };
+    \node[anchor=north east] (web) at (innerbox.east) {%
+      \fontsize{18pt}{18pt}\color{header}
+      {\thinfont web: #4}
+    };
   \end{tikzpicture}
-  \vspace{2.5cm}
+  \vspace{2.0cm}
 }
 
 

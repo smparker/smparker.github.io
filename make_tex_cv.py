@@ -54,7 +54,7 @@ def header(to_print = True):
     print
     print r'\begin{document}'
     print
-    print r'\header{Shane M.}{Parker}{}'
+    print r'\header{Shane M.}{Parker}{smparker@uci.edu}{smparker.github.io}'
     print
     print r'%----------------------------------------------------------------------------------------'
 
