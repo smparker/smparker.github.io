@@ -114,6 +114,8 @@ if __name__ == "__main__":
 
     section_footer("enumerate")
 
+    print "\\vspace{0.25cm}"
+
     awards = pull_data("awards")
     section_header("awards")
 

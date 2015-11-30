@@ -144,19 +144,23 @@
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
 
+\RequirePackage{longtable}
+\RequirePackage{tabu}
+
 \setlength{\tabcolsep}{0pt}
 \newenvironment{entrylist}{%
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+  \begin{longtabu}{@{\extracolsep{\fill}}ll}
 }{%
-  \end{tabular*}
+  \end{longtabu}
+  \vspace{-0.5cm}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{15.8cm}{%
+  \parbox[t]{3cm}{#1}&\parbox[t]{15.8cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}%
+    #4\vspace{0.5\parsep}%
   }\\}
 
 
