@@ -1,6 +1,11 @@
 \ProvidesClass{parker-cv}[2012/04/30 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Based on Friggeris CV class                 %
+% Modified by Shane Parker                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
@@ -74,17 +79,17 @@
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
-      \fontsize{40pt}{48pt}\color{header}%
-      {\thinfont #1} {\thinfont  #2}
+    \node [rectangle, anchor=center, minimum width=\paperwidth - 3cm, minimum height=4cm] (innerbox) at (box.center){};
+    \node [anchor=west] (name) at (innerbox.west) {%
+      \fontsize{40pt}{40pt}\color{header}%
+      {\thinfont #1}
     };
-    \node [anchor=north] at (name.south) {%
-      \fontsize{14pt}{24pt}\color{header}%
-      \thinfont #3%
+    \node [anchor=north west] at (name.south west) {%
+      \fontsize{40pt}{40pt}\color{header}%
+      {\bodyfont #2}
     };
   \end{tikzpicture}
-  \vspace{0.5cm}
-  %\vspace{-2\parskip}
+  \vspace{2.5cm}
 }
 
 
