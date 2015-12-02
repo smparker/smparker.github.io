@@ -75,13 +75,11 @@ def section_footer(env = "entrylist"):
     print "\end{%s}" % (env)
     print
 
-if __name__ == "__main__":
-    header()
-
-    positions = pull_data("positions")
+def positions():
+    pos = pull_data("positions")
     section_header("positions")
 
-    for p in positions:
+    for p in pos:
         time = de_html(p["time"])
         title = de_html(p["title"])
         location = de_html(p["location"])
@@ -101,13 +99,16 @@ if __name__ == "__main__":
 
     section_footer()
 
+def papers():
     # papers are kind of special so will use a raw enumerate
-    papers = pull_data("papers")
+    pubs = pull_data("papers")
     section_header("publications", "enumerate")
 
-    for i, pub in enumerate(papers):
-        ir = len(papers) - i
-        authors = de_html(", ".join([ "\\underline{S. M. Parker}" if x=="me" else x for x in pub["authors"] ]))
+    for i, pub in enumerate(pubs):
+        ir = len(pubs) - i
+        authors = de_html(", ".join(
+            ["\\underline{S. M. Parker}" if x=="me" else x for x in pub["authors"]
+        ]))
         journal = "\\textit{%s}" % (de_html(pub["journal"]))
         volume = "\\textbf{%s}" % (de_html(pub["volume"]))
         page = de_html(pub["page"])
@@ -123,10 +124,11 @@ if __name__ == "__main__":
 
     print "\\vspace{0.25cm}"
 
-    awards = pull_data("awards")
+def awards():
+    award = pull_data("awards")
     section_header("awards")
 
-    for a in awards:
+    for a in award:
         des = de_html(a.get("description", ""))
         name = de_html(a["name"])
         year = de_html(a["year"])
@@ -139,14 +141,15 @@ if __name__ == "__main__":
 
     section_footer()
 
-    lectures = pull_data("lectures")
+def lectures():
+    lect = pull_data("lectures")
     section_header("lectures")
 
-    for lec in lectures:
-        time = de_html(lec["time"])
-        title = de_html(lec["title"])
-        location = de_html(lec["location"])
-        institution = de_html(lec["institution"])
+    for l in lect:
+        time = de_html(l["time"])
+        title = de_html(l["title"])
+        location = de_html(l["location"])
+        institution = de_html(l["institution"])
         print "\\entry"
         print "{%s}" % (time)
         print "{%s}" % (title)
@@ -158,10 +161,11 @@ if __name__ == "__main__":
 
     section_footer()
 
-    posters = pull_data("posters")
+def posters():
+    post = pull_data("posters")
     section_header("posters")
 
-    for p in posters:
+    for p in post:
         time = de_html(p["time"])
         title = de_html(p["title"])
         location = de_html(p["location"])
@@ -179,10 +183,11 @@ if __name__ == "__main__":
 
     section_footer()
 
-    teaching = pull_data("teaching")
+def teaching():
+    teach = pull_data("teaching")
     section_header("selected teaching")
 
-    for t in teaching:
+    for t in teach:
         time = de_html(t["time"])
         title = de_html(t["title"])
         role = de_html(t["role"])
@@ -199,4 +204,12 @@ if __name__ == "__main__":
 
     section_footer()
 
+if __name__ == "__main__":
+    header()
+    positions()
+    papers()
+    awards()
+    lectures()
+    posters()
+    teaching()
     footer()
