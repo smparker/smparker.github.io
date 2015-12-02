@@ -82,14 +82,20 @@ if __name__ == "__main__":
     section_header("positions")
 
     for p in positions:
+        time = de_html(p["time"])
+        title = de_html(p["title"])
+        location = de_html(p["location"])
+        institution = de_html(p["institution"])
+        advisor = de_html(p["advisor"])
+        interest = de_html(p["interest"])
         print "\\entry"
-        print "{%s}" % (de_html(p["time"]))
-        print "{%s}" % (de_html(p["title"]))
-        print "{%s}" % (de_html(p["location"]))
+        print "{%s}" % (time)
+        print "{%s}" % (title)
+        print "{%s}" % (location)
         print "{"
-        print "%s \\\\" % (de_html(p["institution"]))
-        print "\emph{Advisor}: %s \\\\" % (de_html(p["advisor"]))
-        print "\emph{Interest}: %s \\\\" % (de_html(p["interest"]))
+        print "%s \\\\" % (institution)
+        print "\emph{Advisor}: %s \\\\" % (advisor)
+        print "\emph{Interest}: %s \\\\" % (interest)
         print "}"
         print
 
@@ -107,9 +113,10 @@ if __name__ == "__main__":
         page = de_html(pub["page"])
         year = de_html(pub["year"])
         title = de_html(pub["title"])
+        url = pub["url"]
         print "\\item[%d] %s \\\\" % (ir, authors)
         print "%s, %s, %s (%s) \\\\" % (journal, volume, page, year)
-        print "\href{%s}{%s}" % (pub["url"], title)
+        print "\href{%s}{%s}" % (url, title)
         print
 
     section_footer("enumerate")
@@ -120,9 +127,12 @@ if __name__ == "__main__":
     section_header("awards")
 
     for a in awards:
+        des = de_html(a.get("description", ""))
+        name = de_html(a["name"])
+        year = de_html(a["year"])
         print "\\entry"
-        print "{%s}" % (de_html(a["year"]))
-        print "{{\\normalfont %s}}" % (de_html(a["name"]))
+        print "{%s}" % (year)
+        print "{%s {\\normalfont %s}}" % (name, des)
         print "{}"
         print "{}"
         print
@@ -133,12 +143,16 @@ if __name__ == "__main__":
     section_header("lectures")
 
     for lec in lectures:
+        time = de_html(lec["time"])
+        title = de_html(lec["title"])
+        location = de_html(lec["location"])
+        institution = de_html(lec["institution"])
         print "\\entry"
-        print "{%s}" % (de_html(lec["time"]))
-        print "{%s}" % (de_html(lec["title"]))
-        print "{%s}" % (de_html(lec["location"]))
+        print "{%s}" % (time)
+        print "{%s}" % (title)
+        print "{%s}" % (location)
         print "{"
-        print "%s" % (de_html(lec["institution"]))
+        print "%s" % (institution)
         print "}"
         print
 
@@ -148,13 +162,18 @@ if __name__ == "__main__":
     section_header("posters")
 
     for p in posters:
+        time = de_html(p["time"])
+        title = de_html(p["title"])
+        location = de_html(p["location"])
+        authors = de_html(p["authors"])
+        event = de_html(p["event"])
         print "\\entry"
-        print "{%s}" % (de_html(p["time"]))
-        print "{%s}" % (de_html(p["title"]))
-        print "{%s}" % (de_html(p["location"]))
+        print "{%s}" % (time)
+        print "{%s}" % (title)
+        print "{%s}" % (location)
         print "{"
-        print "%s \\\\" % (de_html(p["authors"]))
-        print "presented at %s" % (de_html(p["event"]))
+        print "%s \\\\" % (authors)
+        print "presented at %s" % (event)
         print "}"
         print
 
@@ -164,12 +183,17 @@ if __name__ == "__main__":
     section_header("selected teaching")
 
     for t in teaching:
+        time = de_html(t["time"])
+        title = de_html(t["title"])
+        role = de_html(t["role"])
+        level = de_html(t["level"])
+        location = de_html(t["location"])
         print "\\entry"
-        print "{%s}" % (de_html(t["time"]))
-        print "{{\\normalfont %s for} %s}" % (de_html(t["role"]), de_html(t["title"]))
+        print "{%s}" % (time)
+        print "{{\\normalfont %s for} %s}" % (role, title)
         print "{}"
         print "{"
-        print "%s, %s \\\\" % (de_html(t["level"]), de_html(t["location"]))
+        print "%s, %s \\\\" % (level, location)
         print "}"
         print
 
