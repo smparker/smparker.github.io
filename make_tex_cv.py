@@ -52,6 +52,9 @@ def header(to_print = True):
     print r''
     print r'\documentclass[%s]{parker-cv}' % (option)
     print
+    print r'\renewcommand{\normalsize}{\fontsize{11}{13}\selectfont}'
+    print r'\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}'
+    print
     print r'\begin{document}'
     print
     print r'\header{Shane M.}{Parker}{smparker@uci.edu}{smparker.github.io}'

@@ -1,4 +1,4 @@
-\ProvidesClass{parker-cv}[2012/04/30 CV class]
+\ProvidesClass{parker-cv}[2015/12/01 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,26 +78,26 @@
 
 \newcommand{\header}[4]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-    \node [rectangle, anchor=south, minimum width=\paperwidth - 2.5cm, minimum height=2cm] (innerbox) at (box.south){};
-    \node [anchor=south west] (name) at (innerbox.west) {%
-      \fontsize{40pt}{40pt}\color{header}%
-      {\thinfont #1}
+    \node [rectangle, anchor=north, minimum width=\paperwidth, minimum height=3.5cm] (box) at (current page.north){};
+    \node [rectangle, anchor=south, minimum width=\textwidth, minimum height=2cm] (innerbox) at (box.south){};
+    \node [anchor=west] (shanem) at (innerbox.west) {%
+      \fontsize{32pt}{32pt}\color{header}%
+      {\thinfont #1} {\bodyfont #2}
     };
-    \node [anchor=north west] at (name.south west) {%
-      \fontsize{40pt}{40pt}\color{header}%
-      {\bodyfont #2}
-    };
+    %\node [anchor=north west] at (name.south west) {%
+    %  \fontsize{24pt}{24pt}\color{header}%
+    %  {\bodyfont #2}
+    %};
     \node[anchor=south east] (email) at (innerbox.east) {%
-      \fontsize{18pt}{18pt}\color{header}
+      \fontsize{14pt}{14pt}\color{header}
       {\thinfont e-mail: #3}
     };
     \node[anchor=north east] (web) at (innerbox.east) {%
-      \fontsize{18pt}{18pt}\color{header}
+      \fontsize{14pt}{14pt}\color{header}
       {\thinfont web: #4}
     };
   \end{tikzpicture}
-  \vspace{2.0cm}
+  \vspace{1.5cm}
 }
 
 
@@ -155,6 +155,12 @@
 \RequirePackage{longtable}
 \RequirePackage{tabu}
 
+\newlength{\timelength}
+\newlength{\desclength}
+
+\setlength{\timelength}{2.25cm}
+\setlength{\desclength}{15.35cm}
+
 \setlength{\tabcolsep}{0pt}
 \newenvironment{entrylist}{%
   \begin{longtabu}{@{\extracolsep{\fill}}ll}
@@ -164,7 +170,7 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  \parbox[t]{3cm}{#1}&\parbox[t]{15.8cm}{%
+  \parbox[t]{\timelength}{#1}&\parbox[t]{\desclength}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
