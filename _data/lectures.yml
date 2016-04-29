@@ -2,13 +2,16 @@
   institution: 251st American Chemical Society National Meeting & Exposition
   location: San Diego, California
   time: March 2016
+  invited: false
 
 - title: Non-adiabatic molecular dynamics
   institution: 98th Meeting of the Canadian Society of Chemistry
   location: Ottawa, Ontario
   time: June 2015
+  invited: true
 
 - title: Model Hamiltonians from the Active-space Decomposition Method
   institution: McMaster University, Department of Chemistry
   location: Hamilton, Ontario
   time: June 2014
+  invited: true
