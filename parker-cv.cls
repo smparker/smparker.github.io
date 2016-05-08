@@ -7,6 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \DeclareOption{print}{\def\@cv@print{}}
+\DeclareOption{resume}{\def\@cv@resume{}}
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
 }
@@ -84,10 +85,6 @@
       \fontsize{32pt}{32pt}\color{header}%
       {\thinfont #1} {\bodyfont #2}
     };
-    %\node [anchor=north west] at (name.south west) {%
-    %  \fontsize{24pt}{24pt}\color{header}%
-    %  {\bodyfont #2}
-    %};
     \node[anchor=south east] (email) at (innerbox.east) {%
       \fontsize{14pt}{14pt}\color{header}
       {\thinfont e-mail: #3}
@@ -158,8 +155,13 @@
 \newlength{\timelength}
 \newlength{\desclength}
 
-\setlength{\timelength}{2.25cm}
-\setlength{\desclength}{15.35cm}
+\ifdefined\@cv@resume
+  \setlength{\timelength}{2.25cm}
+  \setlength{\desclength}{10.35cm}
+\else
+  \setlength{\timelength}{2.25cm}
+  \setlength{\desclength}{15.35cm}
+\fi
 
 \setlength{\tabcolsep}{0pt}
 \newenvironment{entrylist}{%
@@ -169,36 +171,39 @@
   \vspace{-0.5cm}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
+
 \newcommand{\entry}[4]{%
   \parbox[t]{\timelength}{#1}&\parbox[t]{\desclength}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{0.5\parsep}%
-  }\\}
-
+  }\\
+}
 
 %%%%%%%%%%%%%%
 % Side block %
 %%%%%%%%%%%%%%
 
-%\RequirePackage[absolute,overlay]{textpos}
-%\setlength{\TPHorizModule}{1cm}
-%\setlength{\TPVertModule}{1cm}
-%\newenvironment{aside}{%
-%  \let\oldsection\section
-%  \renewcommand{\section}[1]{
-%    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
-%  }
-%  \begin{textblock}{3.6}(1.5, 4.33)
-%  \begin{flushright}
-%  \obeycr
-%}{%
-%  \restorecr
-%  \end{flushright}
-%  \end{textblock}
-%  \let\section\oldsection
-%}
+\ifdefined\@cv@resume
+  \RequirePackage[absolute,overlay]{textpos}
+  \setlength{\TPHorizModule}{1cm}
+  \setlength{\TPVertModule}{1cm}
+  \newenvironment{aside}{%
+    \let\oldsection\section
+    \renewcommand{\section}[1]{
+      \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+    }
+    \begin{textblock}{3.6}(1.5, 4.33)
+    \begin{flushright}
+    \obeycr
+  }{%
+    \restorecr
+    \end{flushright}
+    \end{textblock}
+    \let\section\oldsection
+  }
+\fi
 
 %%%%%%%%%%%%%%%%
 % Bibliography %
@@ -338,7 +343,11 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=1.5cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\ifdefined\@cv@resume
+  \RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\else
+  \RequirePackage[left=1.5cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\fi
 \RequirePackage{hyperref}
 \hypersetup{
     colorlinks=false,       

@@ -24,8 +24,10 @@ def de_html(inp):
         print out
     return out
 
-def header(to_print = True):
-    option = "print" if to_print else ""
+def header(style, to_print = True):
+    opts = [ style ]
+    if to_print: opts.append("print")
+    options = ",".join(opts)
     print r'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
     print r'% Friggeri Resume/CV'
     print r'% XeLaTeX Template'
@@ -50,7 +52,7 @@ def header(to_print = True):
     print r'%'
     print r'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
     print r''
-    print r'\documentclass[%s]{parker-cv}' % (option)
+    print r'\documentclass[%s]{parker-cv}' % (options)
     print
     print r'\renewcommand{\normalsize}{\fontsize{11}{13}\selectfont}'
     print r'\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}'
@@ -60,6 +62,17 @@ def header(to_print = True):
     print r'\header{Shane M.}{Parker}{smparker@uci.edu}{smparker.github.io}'
     print
     print r'%----------------------------------------------------------------------------------------'
+
+def aside():
+    print r'\begin{aside}'
+    print r'\section{programming}'
+    for lang in ['C/C++', 'Fortran', 'Python', 'bash']:
+        print r'%s' % (lang)
+
+    print r'\section{languages}'
+    for lang in ['English (native)', 'German (conversational)']:
+        print r'%s' % (lang)
+    print r'\end{aside}'
 
 def footer():
     print r'%----------------------------------------------------------------------------------------'
@@ -207,8 +220,10 @@ def teaching():
 
     section_footer()
 
-if __name__ == "__main__":
-    header()
+def make_tex(style, printcolors):
+    header(style, printcolors)
+    if (style == "resume"):
+        aside()
     positions()
     papers()
     awards()
@@ -216,3 +231,17 @@ if __name__ == "__main__":
     posters()
     teaching()
     footer()
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Script to auto-generate a CV or a Resume from collected yaml files")
+    parser.add_argument("-t", "--type", type=str, dest="style", choices=("cv", "resume"), default="cv")
+    parser.add_argument("-p", "--print", dest="printcolors", action="store_true")
+
+    args = parser.parse_args()
+
+    style = args.style
+    printcolors = args.printcolors
+
+    make_tex(style, printcolors)
