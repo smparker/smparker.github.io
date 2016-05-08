@@ -11,4 +11,4 @@ google_scholar: smparker
 
 
 # Build settings
-markdown: maruku
+markdown: kramdown
