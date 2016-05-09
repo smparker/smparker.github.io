@@ -9,6 +9,18 @@ url: "http://smparker.github.io" # the base hostname & protocol for your site
 github_username:  smparker
 google_scholar: smparker
 
-
 # Build settings
 markdown: kramdown
+
+exclude: [ latex_cv, launch ]
+
+# Collections
+collections:
+  notes:
+    output: true
+    defaults:
+      scope:
+        path = ""
+        type = notes
+      values:
+        layout = page

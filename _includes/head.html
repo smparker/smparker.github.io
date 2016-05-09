@@ -8,4 +8,16 @@
 
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    {% if page.use_math %}
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    {% endif %}
+
+    {% if page.use_3dmol %}
+    <script type="text/javascript"
+      src="http://3Dmol.csb.pitt.edu/build/3Dmol-min.js">
+    </script>
+    {% endif %}
 </head>

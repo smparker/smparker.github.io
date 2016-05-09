@@ -29,7 +29,7 @@
       </a>
 
       <div class="trigger">
-        {% for p in site.pages %}
+        {% for p in site.pages | sort: 'header_order' %}
           {% if p.title %}
             {% if p.title != index %}
               <a class="page-link" href="{{ p.url | prepend: site.baseurl }}">
