@@ -8,16 +8,21 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+html {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 300;
 
+  @include respond-to(handhelds)       { font-size: 75%; }
+  @include respond-to(medium-screens) { font-size: 100%; }
+  @include respond-to(wide-screens)   { font-size: 100%; }
+}
 
 /**
  * Basic styling
  */
 body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    font-weight: 300;
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
@@ -55,7 +60,7 @@ figure > img {
 }
 
 figcaption {
-    font-size: $small-font-size;
+    font-size: 87.5%;
 }
 
 
@@ -111,7 +116,7 @@ blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
-    font-size: 18px;
+    font-size: 110%;
     letter-spacing: -1px;
     font-style: italic;
 
@@ -127,7 +132,7 @@ blockquote {
  */
 pre,
 code {
-    font-size: 15px;
+    font-size: 95%;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
     background-color: #eef;
