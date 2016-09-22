@@ -12,8 +12,13 @@ permalink: /publications/
         {% for name in paper.authors %}
           {% if name == "me" %} <u>S. M. Parker</u>, {% else %} {{name}}, {% endif %}
         {% endfor %}
-      <br><i>{{paper.journal}}</i>, <b>{{paper.volume}}</b>, {{paper.page}} ({{paper.year}})
-      <br><a href="{{paper.url}}">"{{paper.title}}"</a>
+          <br>
+          {% if paper.journal %}<i>{{paper.journal}}</i>{% endif %}{% if paper.volume %},
+                                 <b>{{paper.volume}}</b>{% endif %}{% if paper.page %},
+                                      {{paper.page}}    {% endif %}
+                                     ({{paper.year}})
+           {% if paper.note %} {{paper.note}} {% endif %}
+      <br> {% if paper.url %}<a href="{{paper.url}}">{% endif %}"{{paper.title}}"{% if paper.url %}</a>{% endif %}
     {% endfor %}
   </ol>
 </div>

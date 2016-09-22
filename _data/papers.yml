@@ -1,4 +1,10 @@
-- authors: [V. A. Nasluzov, me, A. Genest, A. M. Shor, E. A. Ivanova-Shor, and N. R&ouml;sch]
+- authors: [me, S. Roy, and F. Furche]
+  year: 2016
+  journal: The Journal of Chemical Physics
+  title: Unphysical divergences in response theory
+  note: accepted
+
+- authors: [V. A. Nasluzov, me, A. Genest, A. M. Shor, E. A. Ivanova-Shor, N. R&ouml;sch]
   year: 2015
   journal: Kinetics and Catalysis
   volume: 56
@@ -16,7 +22,7 @@
 
 - authors: [me, T. Shiozaki]
   year: 2014
-  journal: Journal of Chemical Physics
+  journal: The Journal of Chemical Physics
   volume: 141
   page: 211102
   title: "Active space Decomposition with multiple sites: Density matrix renormalization group algorithm"
@@ -50,7 +56,7 @@
 
 - authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2013
-  journal: Journal of Chemical Physics
+  journal: The Journal of Chemical Physics
   volume: 139
   page: 021108
   title: "Active-space decomposition for molecular dimers"
@@ -74,7 +80,7 @@
 
 - authors: [me, M. A. Ratner, T. Seideman]
   year: 2011
-  journal: Journal of Chemical Physics
+  journal: The Journal of Chemical Physics
   volume: 135
   page: 224301
   title: "Coherent control of molecular torsion"
