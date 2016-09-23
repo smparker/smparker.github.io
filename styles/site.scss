@@ -5,13 +5,8 @@ $font-size-base: 17px;
 
 @import "bootstrap";
 
-ol.publications {
+.publications {
   font-size: 100%;
-}
-
-div.mug {
-  max-width: 50%;
-  margin: auto;
 }
 
 body {
@@ -19,9 +14,16 @@ body {
   padding-bottom: 70 px;
 }
 
+.mug {
+  img {
+    max-width: 25%;
+  }
+  margin: auto;
+  horizontal-align: center;
+}
+
  // Icons
 .icon {
-
     > svg {
         display: inline-block;
         width: 16px;
@@ -32,4 +34,24 @@ body {
             fill: #222;
         }
     }
+}
+
+.ul-footer {
+  .contact-list,
+  .social-media-list {
+      list-style: none;
+      margin-left: 0;
+  }
+  > li {
+    display: table-cell;
+    width: 1%;
+    float: none;
+  }
+
+}
+
+.navbar-footer {
+  background-color: #fff;
+  border-bottom: 0;
+  padding-top: 20px;
 }
