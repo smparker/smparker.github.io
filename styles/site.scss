@@ -5,35 +5,15 @@ $font-size-base: 17px;
 
 @import "bootstrap";
 
-.publications {
-  font-size: 100%;
-}
-
+// Default layout
 body {
-  padding-top: 70px;
-  padding-bottom: 70 px;
+  padding-top: 60px;
+  padding-bottom: 0px;
 }
 
-.mug {
-  img {
-    max-width: 25%;
-  }
-  margin: auto;
-  horizontal-align: center;
-}
-
- // Icons
-.icon {
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: #222;
-        }
-    }
+// Footer
+.site-footer {
+  margin-top: 25px;
 }
 
 .ul-footer {
@@ -54,4 +34,65 @@ body {
   background-color: #fff;
   border-bottom: 0;
   padding-top: 20px;
+}
+
+.icon {
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: #222;
+        }
+    }
+}
+
+// landing page
+.mug {
+  img {
+    max-width: 25%;
+  }
+  margin: auto;
+  horizontal-align: center;
+}
+
+// Publications table
+.publications {
+  li{
+    margin-top: 10px;
+  }
+
+  li:first-child {
+    margin-top: 0;
+  }
+}
+
+// vita table
+.vita {
+  td {
+    padding: 5px;
+  }
+
+  .category {
+    color: #4D4D4D;
+    border-bottom: 2px solid #888;
+    padding: 0px;
+
+    h1 {
+      font-size: 150%;
+    }
+
+    td {
+      padding-top: 5px;
+      padding-bottom: 0px;
+    }
+  }
+}
+
+.vita-nowrap {
+  white-space: nowrap;
+  vertical-align: top;
+  text-align: right;
 }

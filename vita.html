@@ -1,25 +1,17 @@
 ---
-layout: page
+layout: default
 title:  vita
 categories: cv
 header_order: 2
 permalink: /vita/
 ---
-<style>
-  h1.category {
-    color: #4D4D4D;
-    font-family: Verdana, Geneva, sans-serif;
-    font-weight: 500;
-  }
-</style>
-
-<table cellpadding="5">
-  <tr>
-    <td colspan="2"><h1 class="category">Positions</h1></td>
+<table class="vita">
+  <tr class="category" id="positions">
+    <td colspan="2"><h1>Positions</h1></td>
   </tr>
 {% for position in site.data.positions %}
   <tr>
-    <td valign="top" style="white-space: nowrap;" align="right"> {{position.time}} </td>
+    <td class="vita-nowrap"> {{position.time}} </td>
     <td>
       <b> {{position.title}} </b> <br>
       {{position.institution}} ({{position.location}}) <br>
@@ -29,55 +21,55 @@ permalink: /vita/
   </tr>
 {% endfor %}
 
-  <tr>
-    <td span="2" valign="bottom"><h1 class="category"><br>Awards</h1></td>
+  <tr class="category"  id="awards">
+    <td colspan="2" valign="bottom"><h1>Awards</h1></td>
   </tr>
 {% for award in site.data.awards %}
-    <tr>
-      <td valign="top" style="white-space: nowrap;" align="right"> {{award.year}} </td>
-      <td> <b>{{award.name}}</b>{% if award.description != null %}, {{award.description}}{% endif %}</td>
-    </tr>
+  <tr>
+    <td class="vita-nowrap"> {{award.year}} </td>
+    <td> <b>{{award.name}}</b>{% if award.description != null %}, {{award.description}}{% endif %}</td>
+  </tr>
 {% endfor %}
 
-  <tr>
-    <td colspan="2" valign="bottom"><h1 class="category"><br>Talks</h1></td>
+  <tr class="category" id="lectures">
+    <td colspan="2" valign="bottom"><h1>Talks</h1></td>
   </tr>
 {% for lecture in site.data.lectures %}
-    <tr>
-      <td valign="top" style="white-space: nowrap;" align="right"> {{lecture.time}} </td>
-      <td>
-        <b>{{lecture.title}}</b> {% if lecture.invited %} (<i>invited</i>) {% endif %} <br>
-        {{lecture.institution}} <br>
-        {{lecture.location}}
-      </td>
-    </tr>
+  <tr>
+    <td class="vita-nowrap"> {{lecture.time}} </td>
+    <td>
+      <b>{{lecture.title}}</b> {% if lecture.invited %} (<i>invited</i>) {% endif %} <br>
+      {{lecture.institution}} <br>
+      {{lecture.location}}
+    </td>
+  </tr>
 {% endfor %}
 
-  <tr>
-    <td colspan="2" valign="bottom"><h1 class="category"><br>Posters</h1></td>
+  <tr class="category" id="posters">
+    <td colspan="2" valign="bottom"><h1>Posters</h1></td>
   </tr>
 {% for poster in site.data.posters %}
-    <tr>
-      <td valign="top" style="white-space: nowrap;" align="right"> {{poster.time}} </td>
-      <td>
-        <b>{{poster.title}}</b><br>
-        {{poster.authors}} <br>
-        presented at {{poster.event}}<br>
-        {{poster.location}}
-      </td>
-    </tr>
+  <tr>
+    <td class="vita-nowrap"> {{poster.time}} </td>
+    <td>
+      <b>{{poster.title}}</b><br>
+      {{poster.authors}} <br>
+      presented at {{poster.event}}<br>
+      {{poster.location}}
+    </td>
+  </tr>
 {% endfor %}
 
-  <tr>
-    <td colspan="2" valign="bottom"><h1 class="category"><br>Selected Teaching</h1></td>
+  <tr class="category" id="teaching">
+    <td colspan="2" valign="bottom"><h1>Selected Teaching</h1></td>
   </tr>
 {% for teach in site.data.teaching %}
-    <tr>
-      <td valign="top" style="white-space: nowrap;" align="right"> {{teach.time}} </td>
-      <td>
-        <i>{{teach.role}}</i> for <b>{{teach.title}}</b><br>
-        {{teach.level}}, {{teach.location}}
-      </td>
-    </tr>
+  <tr>
+    <td class="vita-nowrap"> {{teach.time}} </td>
+    <td>
+      <i>{{teach.role}}</i> for <b>{{teach.title}}</b><br>
+      {{teach.level}}, {{teach.location}}
+    </td>
+  </tr>
 {% endfor %}
 </table>
