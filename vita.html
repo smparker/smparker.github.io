@@ -27,7 +27,7 @@ permalink: /vita/
 {% for award in site.data.awards %}
   <tr>
     <td class="vita-nowrap"> {{award.year}} </td>
-    <td> <b>{{award.name}}</b>{% if award.description != null %}, {{award.description}}{% endif %}</td>
+    <td> <b>{{award.name}}</b>{% if award.description %}, {{award.description}}{% endif %}</td>
   </tr>
 {% endfor %}
 
