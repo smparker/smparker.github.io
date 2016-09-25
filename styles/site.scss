@@ -15,17 +15,38 @@ body {
 }
 
 .ul-footer {
+  margin: 0;
+  padding: 0;
+
   .contact-list,
   .social-media-list {
-      list-style: none;
-      margin-left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .social-media-list {
+    text-align: center;
+    @media (max-width: $screen-sm-max) {
+      text-align: right;
+    }
+    @media (min-width: $screen-sm-min) {
+      text-align: center;
+    }
   }
   > li {
     display: table-cell;
     width: 1%;
     float: none;
   }
+}
 
+.motto {
+  @media (max-width: $screen-sm-max) {
+    text-align: center;
+  }
+  @media (min-width: $screen-sm-min) {
+    text-align: right;
+  }
 }
 
 .navbar-footer {
