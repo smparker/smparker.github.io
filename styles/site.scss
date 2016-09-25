@@ -79,10 +79,13 @@ body {
 
 // Publications table
 .publications {
+  @media (max-width: $screen-xs-max) {
+    padding-left: 1em;
+  }
+
   li{
     margin-top: 10px;
   }
-
   li:first-child {
     margin-top: 0;
   }
