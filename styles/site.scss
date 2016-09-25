@@ -43,6 +43,8 @@ body {
 .motto {
   @media (max-width: $screen-sm-max) {
     text-align: center;
+    vertical-align: bottom;
+    padding-top: 1em;
   }
   @media (min-width: $screen-sm-min) {
     text-align: right;
