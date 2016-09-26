@@ -5,71 +5,115 @@ categories: cv
 header_order: 2
 permalink: /vita/
 ---
-<table class="vita">
-  <tr class="category" id="positions">
-    <td colspan="2"><h1>Positions</h1></td>
-  </tr>
-{% for position in site.data.positions %}
-  <tr>
-    <td class="vita-nowrap"> {{position.time}} </td>
-    <td>
-      <b> {{position.title}} </b> <br>
-      {{position.institution}} ({{position.location}}) <br>
-      <i>Advisor</i>: {{position.advisor}} <br>
-      <i>Interest</i>: {{position.interest}} <br>
-    </td>
-  </tr>
-{% endfor %}
+<script>
+// Add scrollspy and smooth scrolling
+$(function(){
+  var navOffset = $('#primary-nav').height();
 
-  <tr class="category"  id="awards">
-    <td colspan="2" valign="bottom"><h1>Awards</h1></td>
-  </tr>
-{% for award in site.data.awards %}
-  <tr>
-    <td class="vita-nowrap"> {{award.year}} </td>
-    <td> <b>{{award.name}}</b>{% if award.description %}, {{award.description}}{% endif %}</td>
-  </tr>
-{% endfor %}
+  $('body').scrollspy({target: "#scrollbar", offset: navOffset});
 
-  <tr class="category" id="lectures">
-    <td colspan="2" valign="bottom"><h1>Talks</h1></td>
-  </tr>
-{% for lecture in site.data.lectures %}
-  <tr>
-    <td class="vita-nowrap"> {{lecture.time}} </td>
-    <td>
-      <b>{{lecture.title}}</b> {% if lecture.invited %} (<i>invited</i>) {% endif %} <br>
-      {{lecture.institution}} <br>
-      {{lecture.location}}
-    </td>
-  </tr>
-{% endfor %}
+  // Add smooth scrolling on all links inside the navbar
+  $(".vita-cats li a").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
 
-  <tr class="category" id="posters">
-    <td colspan="2" valign="bottom"><h1>Posters</h1></td>
-  </tr>
-{% for poster in site.data.posters %}
-  <tr>
-    <td class="vita-nowrap"> {{poster.time}} </td>
-    <td>
-      <b>{{poster.title}}</b><br>
-      {{poster.authors}} <br>
-      presented at {{poster.event}}<br>
-      {{poster.location}}
-    </td>
-  </tr>
-{% endfor %}
+      // Store hash
+      var hash = this.hash;
 
-  <tr class="category" id="teaching">
-    <td colspan="2" valign="bottom"><h1>Selected Teaching</h1></td>
-  </tr>
-{% for teach in site.data.teaching %}
-  <tr>
-    <td class="vita-nowrap"> {{teach.time}} </td>
-    <td>
-      <i>{{teach.role}}</i> for <b>{{teach.title}}</b><br>
-      {{teach.level}}, {{teach.location}}
-    </td>
-  </tr>
-{% endfor %}
-</table>
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (400) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top - navOffset
+      }, 400, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    }  // End if
+  });
+});
+</script>
+
+<div class="row">
+  <div class="col-md-10">
+    <table class="vita">
+      <tr class="category" id="positions">
+        <td colspan="2"><h1>Positions</h1></td>
+      </tr>
+    {% for position in site.data.positions %}
+      <tr>
+        <td class="vita-nowrap"> {{position.time}} </td>
+        <td>
+          <b> {{position.title}} </b> <br>
+          {{position.institution}} ({{position.location}}) <br>
+          <i>Advisor</i>: {{position.advisor}} <br>
+          <i>Interest</i>: {{position.interest}} <br>
+        </td>
+      </tr>
+    {% endfor %}
+
+      <tr class="category"  id="awards">
+        <td colspan="2" valign="bottom"><h1>Awards</h1></td>
+      </tr>
+    {% for award in site.data.awards %}
+      <tr>
+        <td class="vita-nowrap"> {{award.year}} </td>
+        <td> <b>{{award.name}}</b>{% if award.description %}, {{award.description}}{% endif %}</td>
+      </tr>
+    {% endfor %}
+
+      <tr class="category" id="talks">
+        <td colspan="2" valign="bottom"><h1>Talks</h1></td>
+      </tr>
+    {% for lecture in site.data.lectures %}
+      <tr>
+        <td class="vita-nowrap"> {{lecture.time}} </td>
+        <td>
+          <b>{{lecture.title}}</b> {% if lecture.invited %} (<i>invited</i>) {% endif %} <br>
+          {{lecture.institution}} <br>
+          {{lecture.location}}
+        </td>
+      </tr>
+    {% endfor %}
+
+      <tr class="category" id="posters">
+        <td colspan="2" valign="bottom"><h1>Posters</h1></td>
+      </tr>
+    {% for poster in site.data.posters %}
+      <tr>
+        <td class="vita-nowrap"> {{poster.time}} </td>
+        <td>
+          <b>{{poster.title}}</b><br>
+          {{poster.authors}} <br>
+          presented at {{poster.event}}<br>
+          {{poster.location}}
+        </td>
+      </tr>
+    {% endfor %}
+
+      <tr class="category" id="teaching">
+        <td colspan="2" valign="bottom"><h1>Selected Teaching</h1></td>
+      </tr>
+    {% for teach in site.data.teaching %}
+      <tr>
+        <td class="vita-nowrap"> {{teach.time}} </td>
+        <td>
+          <i>{{teach.role}}</i> for <b>{{teach.title}}</b><br>
+          {{teach.level}}, {{teach.location}}
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+  </div>
+  <nav class="col-md-2" id="scrollbar">
+    <ul class="nav nav-stacked vita-cats">
+      <li class="active"> <a href="#positions">Positions</a> </li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#posters">Posters</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+  </nav>
+</div>

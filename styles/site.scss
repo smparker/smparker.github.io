@@ -5,7 +5,7 @@
 
 // Default layout
 body {
-  padding-top: 60px;
+  padding-top: 50px;
   padding-bottom: 0px;
 }
 
@@ -112,6 +112,14 @@ body {
       padding-top: 5px;
       padding-bottom: 0px;
     }
+  }
+}
+
+ul.vita-cats {
+  position: fixed;
+
+  li.active {
+    font-weight: bold;
   }
 }
 
