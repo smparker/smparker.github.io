@@ -115,12 +115,22 @@ body {
   }
 }
 
+// Side scroller on vita page
 ul.vita-cats {
   position: fixed;
+  padding-top: 2em;
+}
 
-  li.active {
-    font-weight: bold;
-  }
+li.cat-item {
+  font-size: 112.5%;
+  a {color: lighten(black, 10%);}
+  padding: 0 0 0 0.2em!important;
+  margin: 0 !important;
+}
+
+li.cat-item.active {
+  border-left: 0.2em solid lighten(black, 40%);
+  padding: 0 !important;
 }
 
 .vita-nowrap {

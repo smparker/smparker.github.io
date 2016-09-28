@@ -5,39 +5,8 @@ categories: cv
 header_order: 2
 permalink: /vita/
 ---
-<script>
-// Add scrollspy and smooth scrolling
-$(function(){
-  var navOffset = $('#primary-nav').height();
-
-  $('body').scrollspy({target: "#scrollbar", offset: navOffset});
-
-  // Add smooth scrolling on all links inside the navbar
-  $(".vita-cats li a").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (400) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top - navOffset
-      }, 400, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    }  // End if
-  });
-});
-</script>
-
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-sm-10">
     <table class="vita">
       <tr class="category" id="positions">
         <td colspan="2"><h1>Positions</h1></td>
@@ -107,13 +76,44 @@ $(function(){
     {% endfor %}
     </table>
   </div>
-  <nav class="col-md-2" id="scrollbar">
+  <div class="col-sm-2" id="scrollbar">
     <ul class="nav nav-stacked vita-cats">
-      <li class="active"> <a href="#positions">Positions</a> </li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#talks">Talks</a></li>
-      <li><a href="#posters">Posters</a></li>
-      <li><a href="#teaching">Teaching</a></li>
+      <li class="cat-item active"> <a href="#positions">Positions</a> </li>
+      <li class="cat-item"><a href="#awards">Awards</a></li>
+      <li class="cat-item"><a href="#talks">Talks</a></li>
+      <li class="cat-item"><a href="#posters">Posters</a></li>
+      <li class="cat-item"><a href="#teaching">Teaching</a></li>
     </ul>
-  </nav>
+  </div>
 </div>
+
+<script>
+// Add scrollspy and smooth scrolling
+$(function(){
+  var navOffset = $('#primary-nav').height();
+
+  $('body').scrollspy({target: "#scrollbar", offset: navOffset});
+
+  // Add smooth scrolling on all links inside the navbar
+  $(".vita-cats li a").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (400) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top - navOffset
+      }, 400, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    }  // End if
+  });
+});
+</script>
