@@ -17,6 +17,6 @@ permalink: /publications/
                                     {{paper.page}}    {% endif %}
                                    ({{paper.year}})
          {% if paper.note %} {{paper.note}} {% endif %}
-    <br> {% if paper.url %}<a href="{{paper.url}}">{% endif %}"{{paper.title}}"{% if paper.url %}</a>{% endif %}
+    <br> {% if paper.url %}<a href="{{paper.url}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.url %}</a>{% endif %}
   {% endfor %}
 </ol>

@@ -2,7 +2,10 @@
   year: 2016
   journal: The Journal of Chemical Physics
   title: Unphysical divergences in response theory
-  note: accepted
+  volume: 145
+  page: 134105
+  doi:  10.1063/1.4963749
+  url:  "http://dx.doi.org/10.1063/1.4963749"
 
 - authors: [V. A. Nasluzov, me, A. Genest, A. M. Shor, E. A. Ivanova-Shor, N. R&ouml;sch]
   year: 2015
@@ -10,7 +13,8 @@
   volume: 56
   page: 631
   title: "Trinuclear tantalum clusters grafted to hydroxylated silica surfaces: A density-functional embedded-cluster study"
-  url: "http://link.springer.com/10.1134/S0023158415050134"
+  doi: 10.1134/S0023158415050134
+  url: "http://dx.doi.org/10.1134/S0023158415050134"
 
 - authors: [I. Kim, me, T. Shiozaki]
   year: 2015
@@ -18,7 +22,8 @@
   volume: 11
   page: 3636
   title: "Orbital Optimization in the Active Space Decomposition Model"
-  url: "http://pubs.acs.org/doi/abs/10.1021/acs.jctc.5b00429"
+  doi: 10.1021/acs.jctc.5b00429
+  url: "http://dx.doi.org/10.1021/acs.jctc.5b00429"
 
 - authors: [me, T. Shiozaki]
   year: 2014
@@ -35,7 +40,8 @@
   volume: 14
   page: 4587
   title: "Molecular Junctions: Can Pulling Influence Optical Controllability"
-  url: "http://pubs.acs.org/doi/abs/10.1021/nl501629c"
+  doi: 10.1021/nl501629c
+  url: "http://dx.doi.org/10.1021/nl501629c"
 
 - authors: [me, T. Shiozaki]
   year: 2014
