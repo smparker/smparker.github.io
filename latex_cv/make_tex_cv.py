@@ -4,7 +4,7 @@ import yaml
 import re
 
 def pull_data(name):
-    return yaml.load(open("_data/" + name + ".yml"))
+    return yaml.load(open("../_data/" + name + ".yml"))
 
 # search-replace pairs to convert html special characters to latex
 de_html_impl = [ ("--", re.compile(r"&ndash;")),
