@@ -1,7 +1,7 @@
 language: ruby
 rvm: 2.4
 install: gem install jekyll html-proofer
-script: jekyll build && htmlproofer --check-html --check-favicon --check-opengraph -url-ignore '*.scholar.google.com/*' _site
+script: jekyll build && htmlproofer --check-html --check-favicon --check-opengraph --url-ignore '*.scholar.google.com/*' _site
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
