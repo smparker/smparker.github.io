@@ -125,16 +125,26 @@ def papers():
         authors = de_html(", ".join(
             ["\\underline{S. M. Parker}" if x=="me" else x for x in pub["authors"]
         ]))
+        has_notes = "note" in pub
+
         journal = "\\textit{%s}" % (de_html(pub["journal"]))
-        volume = "\\textbf{%s}" % (de_html(pub["volume"]))
-        page = de_html(pub["page"])
         year = de_html(pub["year"])
         title = de_html(pub["title"])
         url = pub["url"]
-        print "\\item[%d] %s \\\\" % (ir, authors)
-        print "%s, %s, %s (%s) \\\\" % (journal, volume, page, year)
-        print "\href{%s}{%s}" % (url, title)
-        print
+
+        if not has_notes:
+            volume = "\\textbf{%s}" % (de_html(pub["volume"]))
+            page = de_html(pub["page"])
+            print "\\item[%d] %s \\\\" % (ir, authors)
+            print "%s, %s, %s (%s) \\\\" % (journal, volume, page, year)
+            print "\href{%s}{%s}" % (url, title)
+            print
+        else:
+            notes = de_html(pub["note"])
+            print "\\item[%d] %s \\\\" % (ir, authors)
+            print "%s, (%s), %s \\\\" % (journal, year, notes)
+            print "\href{%s}{%s}" % (url, title)
+            print
 
     section_footer("enumerate")
 
