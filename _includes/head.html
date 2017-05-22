@@ -9,9 +9,9 @@
     <!-- facebook open graph tags -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{page.url | replace: 'index.html', '' | prepend: site.url}}" />
-    <meta property="og:title" content="{% if page.title %}{{page.title}}{% else %}{{ site.title }}{% endif %}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
     <meta property="og:description" content="{{site.description}}" />
-    <meta property="og:image" content="{% if page.preview %}{{ page.preview }}{% else %}{{ site.preview }}{% endif %}" />
+    {% if page.preview || site.preview %} <meta property="og:image" content="{% if page.preview %}{{ page.preview }}{% else %}{{ site.preview }}{% endif %}" /> {% endif %}
 
     <!-- twitter card tags additive with the og: tags -->
     <meta name="twitter:card" content="summary_large_image">
