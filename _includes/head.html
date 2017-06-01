@@ -17,8 +17,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:domain" value="{{site.url}}" />
     <meta name="twitter:title" value="{% if page.title %}{{page.title}}{% else %}{{ site.title }}{% endif %}" />
-    <meta name="twitter:description" value="Shane and Brit are having a wedding!" />
-    <meta name="twitter:image" content="https://www.whatashitwedding.com/img/landing-preview.jpg" />
+    <meta name="twitter:description" value="{{site.description}}" />
+    {% if page.preview || site.preview %} <meta name="twitter:image" content="{% if page.preview %}{{ page.preview }}{% else %}{{ site.preview }}{% endif %}" /> {% endif %}
     <meta name="twitter:url" value="{{page.url | replace: 'index.html', '' | prepend: site.url}}" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
