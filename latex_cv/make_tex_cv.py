@@ -13,7 +13,9 @@ de_html_impl = [ ("--", re.compile(r"&ndash;")),
                  ("\\\"{u}", re.compile(r"&uuml;")),
                  ("\\\"{A}", re.compile(r"&Auml;")),
                  ("\\\"{O}", re.compile(r"&Ouml;")),
-                 ("\\\"{U}", re.compile(r"&Uuml;")) ]
+                 ("\\\"{U}", re.compile(r"&Uuml;")),
+                 ("$_{\\\\text{", re.compile(r"<sub>")),
+                 ("}}$", re.compile(r"<\/sub>")) ]
 
 def de_html(inp):
     out = str(inp)
@@ -176,9 +178,32 @@ def lectures():
         title = de_html(l["title"])
         location = de_html(l["location"])
         institution = de_html(l["institution"])
+        invited = l["invited"]
+        if invited:
+            title += r" \textit{(invited)}"
         print "\\entry"
         print "{%s}" % (time)
         print "{%s}" % (title)
+        print "{%s}" % (location)
+        print "{"
+        print "%s" % (institution)
+        print "}"
+        print
+
+    section_footer()
+
+def pedagogy():
+    lect = pull_data("pedagogy")
+    section_header("pedagogical lectures")
+
+    for l in lect:
+        time = de_html(l["time"])
+        topic = de_html(l["topic"])
+        location = de_html(l["location"])
+        institution = de_html(l["institution"])
+        print "\\entry"
+        print "{%s}" % (time)
+        print "{%s}" % (topic)
         print "{%s}" % (location)
         print "{"
         print "%s" % (institution)
@@ -238,6 +263,7 @@ def make_tex(style, printcolors):
     papers()
     awards()
     lectures()
+    pedagogy()
     posters()
     teaching()
     footer()

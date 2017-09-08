@@ -47,6 +47,19 @@ permalink: /vita/
       </tr>
     {% endfor %}
 
+      <tr class="category" id="pedagogy">
+        <td colspan="2" valign="bottom"><h1>Pedagogical Talks</h1></td>
+      </tr>
+    {% for lecture in site.data.pedagogy %}
+      <tr>
+        <td class="vita-nowrap"> {{lecture.time}} </td>
+        <td>
+          <b>{{lecture.topic}}</b> <br>
+          {{lecture.institution}} <br>
+          {{lecture.location}}
+        </td>
+      </tr>
+    {% endfor %}
       <tr class="category" id="posters">
         <td colspan="2" valign="bottom"><h1>Posters</h1></td>
       </tr>
@@ -81,6 +94,7 @@ permalink: /vita/
       <li class="cat-item active"> <a href="#positions">Positions</a> </li>
       <li class="cat-item"><a href="#awards">Awards</a></li>
       <li class="cat-item"><a href="#talks">Talks</a></li>
+      <li class="cat-item"><a href="#pedagogy">Pedagogical talks</a></li>
       <li class="cat-item"><a href="#posters">Posters</a></li>
       <li class="cat-item"><a href="#teaching">Teaching</a></li>
     </ul>
