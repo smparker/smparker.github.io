@@ -14,6 +14,12 @@ de_html_impl = [ ("--", re.compile(r"&ndash;")),
                  ("\\\"{A}", re.compile(r"&Auml;")),
                  ("\\\"{O}", re.compile(r"&Ouml;")),
                  ("\\\"{U}", re.compile(r"&Uuml;")),
+                 ("\\\'{a}", re.compile(r"&aacute;")),
+                 ("\\\'{e}", re.compile(r"&eacute;")),
+                 ("\\\'{o}", re.compile(r"&oacute;")),
+                 ("\\\'{A}", re.compile(r"&Aacute;")),
+                 ("\\\'{E}", re.compile(r"&Eacute;")),
+                 ("\\\'{O}", re.compile(r"&Oacute;")),
                  ("$_{\\\\text{", re.compile(r"<sub>")),
                  ("}}$", re.compile(r"<\/sub>")) ]
 
@@ -129,24 +135,65 @@ def papers():
         ]))
         has_notes = "note" in pub
 
-        journal = "\\textit{%s}" % (de_html(pub["journal"]))
-        year = de_html(pub["year"])
+        journal = de_html(pub.get("journal",""))
+        if journal:
+            journal = "\\textit{%s}" % (journal)
+        year = "(%s)" % de_html(pub["year"])
         title = de_html(pub["title"])
-        url = pub["url"]
+        url = pub.get("url","")
+        if url:
+            title = "\href{%s}{%s}" % (url, title)
 
         if not has_notes:
             volume = "\\textbf{%s}" % (de_html(pub["volume"]))
             page = de_html(pub["page"])
             print "\\item[%d] %s \\\\" % (ir, authors)
-            print "%s, %s, %s (%s) \\\\" % (journal, volume, page, year)
-            print "\href{%s}{%s}" % (url, title)
+            jvpy = ", ".join(filter(None, [journal, volume, page])) + " " + year
+            print "%s \\\\" % (jvpy)
+            print title
             print
         else:
             notes = de_html(pub["note"])
             print "\\item[%d] %s \\\\" % (ir, authors)
-            print "%s, (%s), %s \\\\" % (journal, year, notes)
-            print "\href{%s}{%s}" % (url, title)
+            jyn = ", ".join(filter(None, [ journal, year, notes ]))
+            print "%s \\\\" % (jyn)
+            print title
             print
+
+    section_footer("enumerate")
+
+    print "\\vspace{0.25cm}"
+
+def chapters():
+    # chapters are modeled off of papers
+    pubs = pull_data("chapters")
+    section_header("book chapters", "enumerate")
+
+    for i, pub in enumerate(pubs):
+        ir = len(pubs) - i
+        authors = de_html(", ".join(
+            ["\\underline{S. M. Parker}" if x=="me" else x for x in pub["authors"]
+        ]))
+        has_notes = "note" in pub
+
+        book = de_html(pub["book"])
+        if book:
+            book = "\\textit{%s}" % book
+        editor = de_html(pub["editor"])
+        if editor:
+            editor = "edited by %s" % editor
+        publisher = de_html(pub["publisher"])
+        year = "(%s)" % de_html(pub["year"])
+        title = de_html(pub["title"])
+        url = pub.get("url","")
+        if url:
+            title = "\href{%s}{%s}" % (url, title)
+
+        print "\\item[%d] %s \\\\" % (ir, authors)
+        bepy = ", ".join(filter(None, [book, editor, publisher])) + " " + year
+        print "%s \\\\" % (bepy)
+        print title
+        print
 
     section_footer("enumerate")
 
@@ -261,6 +308,7 @@ def make_tex(style, printcolors):
         aside()
     positions()
     papers()
+    #chapters()
     awards()
     lectures()
     pedagogy()

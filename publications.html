@@ -5,6 +5,7 @@ categories: cv
 header_order: 1
 permalink: /publications/
 ---
+<h3>Journal articles</h3>
 <ol class="publications">
   {% for paper in site.data.papers %}
     <li value="{{forloop.rindex}}">
@@ -20,3 +21,16 @@ permalink: /publications/
     <br> {% if paper.url %}<a href="{{paper.url}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.url %}</a>{% endif %}
   {% endfor %}
 </ol>
+
+<!-- <h3>Book chapters</h3>
+<ol class="publications">
+  {% for chapter in site.data.chapters %}
+    <li value="{{forloop.rindex}}">
+      {% for name in chapter.authors %}
+        {% if name == "me" %} <u>S. M. Parker</u>, {% else %} {{name}}, {% endif %}
+      {% endfor %}
+        <br>
+        <i>{{chapter.book}}</i>, edited by {{chapter.editor}}, {{chapter.publisher}} ({{chapter.year}}) <br>
+        {% if chapter.url %}<a href="{{chapter.url}}" target="_blank">{% endif %}"{{chapter.title}}"{% if chapter.url %}</a>{% endif %}
+  {% endfor %}
+</ol> -->
