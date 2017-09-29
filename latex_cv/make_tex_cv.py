@@ -308,7 +308,7 @@ def make_tex(style, printcolors):
         aside()
     positions()
     papers()
-    #chapters()
+    chapters()
     awards()
     lectures()
     pedagogy()
