@@ -154,7 +154,7 @@ def papers():
             print
         else:
             notes = de_html(pub["note"])
-            print "\\item[%d] %s \\\\" % (ir, authors)
+            print "\\item[---] %s \\\\" % (authors)
             jyn = ", ".join(filter(None, [ journal, year, notes ]))
             print "%s \\\\" % (jyn)
             print title
