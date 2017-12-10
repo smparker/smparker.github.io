@@ -10,7 +10,6 @@
   volume: 8
   page: "2179-2183"
   doi: 10.1039/C6SC04378J
-  url: "http://dx.doi.org/10.1039/C6SC04378J"
 
 - authors: [me, S. Roy, and F. Furche]
   year: 2016
@@ -19,7 +18,6 @@
   volume: 145
   page: 134105
   doi:  10.1063/1.4963749
-  url:  "http://dx.doi.org/10.1063/1.4963749"
 
 - authors: [V. A. Nasluzov, me, A. Genest, A. M. Shor, E. A. Ivanova-Shor, N. R&ouml;sch]
   year: 2015
@@ -28,7 +26,6 @@
   page: 631
   title: "Trinuclear tantalum clusters grafted to hydroxylated silica surfaces: A density-functional embedded-cluster study"
   doi: 10.1134/S0023158415050134
-  url: "http://dx.doi.org/10.1134/S0023158415050134"
 
 - authors: [I. Kim, me, T. Shiozaki]
   year: 2015
@@ -37,7 +34,6 @@
   page: 3636
   title: "Orbital Optimization in the Active Space Decomposition Model"
   doi: 10.1021/acs.jctc.5b00429
-  url: "http://dx.doi.org/10.1021/acs.jctc.5b00429"
 
 - authors: [me, T. Shiozaki]
   year: 2014
@@ -45,7 +41,7 @@
   volume: 141
   page: 211102
   title: "Active space Decomposition with multiple sites: Density matrix renormalization group algorithm"
-  url: "http://dx.doi.org/10.1063/1.4902991"
+  doi: 10.1063/1.4902991
   special: "2014 JCP Editors' Choice"
 
 - authors: [me, M. Smeu, I. Franco, M. A. Ratner, T. Seideman]
@@ -55,7 +51,6 @@
   page: 4587
   title: "Molecular Junctions: Can Pulling Influence Optical Controllability"
   doi: 10.1021/nl501629c
-  url: "http://dx.doi.org/10.1021/nl501629c"
 
 - authors: [me, T. Shiozaki]
   year: 2014
@@ -63,7 +58,7 @@
   volume: 10
   page: 3738
   title: "Quasi-diabatic states from active space decomposition"
-  url: "http://dx.doi.org/10.1021/ct5004753"
+  doi: 10.1021/ct5004753
   special: "ACS Editors' Choice on August 9, 2014"
 
 - authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
@@ -72,7 +67,7 @@
   volume: 118
   page: 12700
   title: "Model Hamiltonian analysis of singlet fission from first principles"
-  url: "http://dx.doi.org/10.1021/jp505082a"
+  doi: 10.1021/jp505082a
 
 - authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2013
@@ -80,7 +75,7 @@
   volume: 139
   page: 021108
   title: "Active-space decomposition for molecular dimers"
-  url: "http://dx.doi.org/10.1063/1.4813827"
+  doi: 10.1063/1.4813827
 
 - authors: [Y. Wu, V. A. Karttunen, me, A. Genest, N. R&ouml;sch]
   year: 2013
@@ -88,7 +83,7 @@
   volume: 32
   page: 2363
   title: "Olefin Hydrosilylation Catalyzed by a Bis-N-Heterocyclic Carbene Rhodium Complex. A Density Functional Theory Study"
-  url: "http://dx.doi.org/10.1021/om301236n"
+  doi: 10.1021/om301236n
 
 - authors: [me, M. A. Ratner, T. Seideman]
   year: 2012
@@ -96,7 +91,7 @@
   volume: 110
   page: 1941
   title: "Simulating strong field control of axial chirality using optimal control theory"
-  url: "http://dx.doi.org/10.1080/00268976.2012.695808"
+  doi: 10.1080/00268976.2012.695808
 
 - authors: [me, M. A. Ratner, T. Seideman]
   year: 2011
@@ -104,4 +99,4 @@
   volume: 135
   page: 224301
   title: "Coherent control of molecular torsion"
-  url: "http://dx.doi.org/10.1063/1.3663710"
+  doi: 10.1063/1.3663710

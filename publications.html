@@ -18,7 +18,8 @@ permalink: /publications/
                                     {{paper.page}}    {% endif %}
                                    ({{paper.year}})
          {% if paper.note %} {{paper.note}} {% endif %}
-    <br> {% if paper.url %}<a href="{{paper.url}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.url %}</a>{% endif %}
+    {% if paper.doi %}<br>doi: {{paper.doi}} {% endif %}
+    <br> {% if paper.doi %}<a href="https://dx.doi.org/{{paper.doi}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.doi %}</a>{% endif %}
   {% endfor %}
 </ol>
 
@@ -30,7 +31,9 @@ permalink: /publications/
         {% if name == "me" %} <u>S. M. Parker</u>, {% else %} {{name}}, {% endif %}
       {% endfor %}
         <br>
-        <i>{{chapter.book}}</i>, edited by {{chapter.editor}}, {{chapter.publisher}} ({{chapter.year}}) <br>
-        {% if chapter.url %}<a href="{{chapter.url}}" target="_blank">{% endif %}"{{chapter.title}}"{% if chapter.url %}</a>{% endif %}
+        {{chapter.page}}, ({{chapter.year}}){% if chapter.doi %}, doi: {{chapter.doi}} {% endif %} <br>
+        {% if chapter.doi %}<a href="https://dx.doi.org/{{chapter.doi}}" target="_blank">{% endif %}"{{chapter.title}}"{% if chapter.doi %}</a>{% endif %} <br>
+        in {% if chapter.bookdoi %} <a href="https://dx.doi.org/{{chapter.bookdoi}}" target="_blank"> {% endif %}
+          <i>{{chapter.book}}</i>{% if chapter.bookdoi %}</a>{% endif %}, edited by {{chapter.editor}}, {{chapter.publisher}} <br>
   {% endfor %}
 </ol>
