@@ -5,7 +5,7 @@ addons:
     packages:
       - libcurl4-openssl-dev # required to avoid SSL errors
 install: gem install jekyll html-proofer
-script: test.sh
+script: ./test.sh
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
