@@ -44,7 +44,7 @@
   \colorlet{header}{gray}
 \else
   \colorlet{fillheader}{gray}
-  \colorlet{header}{white}
+  \colorlet{header}{gray}
 \fi
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
@@ -58,7 +58,7 @@
 \RequirePackage{amsmath}
 
 \newfontfamily\bodyfont[]{Helvetica Neue}
-\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
+\newfontfamily\thinfont[]{Helvetica Neue Light}
 \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
@@ -77,22 +77,27 @@
   \thinfont%
   \color{white}%
 }
+\newcommand{\timesize}{\fontsize{10pt}{12pt}\selectfont}
 
-\newcommand{\header}[4]{%
+\newcommand{\header}[5]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node [rectangle, anchor=north, minimum width=\paperwidth, minimum height=3.5cm] (box) at (current page.north){};
-    \node [rectangle, anchor=south, minimum width=\textwidth, minimum height=2cm] (innerbox) at (box.south){};
+    \node [rectangle, anchor=south, minimum width=\paperwidth-4cm, minimum height=2cm] (innerbox) at (box.south){};
     \node [anchor=west] (shanem) at (innerbox.west) {%
       \fontsize{32pt}{32pt}\color{header}%
       {\thinfont #1} {\bodyfont #2}
     };
-    \node[anchor=south east] (email) at (innerbox.east) {%
-      \fontsize{14pt}{14pt}\color{header}
+    \node[anchor=north east] (email) at (innerbox.north east) {%
+      \fontsize{12pt}{16pt}\color{header}
       {\thinfont e-mail: #3}
     };
-    \node[anchor=north east] (web) at (innerbox.east) {%
-      \fontsize{14pt}{14pt}\color{header}
+    \node[anchor=east] (web) at (innerbox.east) {%
+      \fontsize{12pt}{16pt}\color{header}
       {\thinfont web: #4}
+    };
+    \node[anchor=south east] (ph) at (innerbox.south east) {%
+      \fontsize{12pt}{16pt}\color{header}
+      {\thinfont ph: #5}
     };
   \end{tikzpicture}
   \vspace{1.5cm}
@@ -125,8 +130,7 @@
   \par\vspace{\parskip}
   {%
     \LARGE\headingfont\color{headercolor}%
-    %\@sectioncolor #1%
-    #1%
+    \@sectioncolor #1%
   }
   \par\vspace{\parskip}
 }
@@ -158,7 +162,7 @@
 
 \ifdefined\@cv@resume
   \setlength{\timelength}{2.25cm}
-  \setlength{\desclength}{10.35cm}
+  \setlength{\desclength}{11.5cm}
 \else
   \setlength{\timelength}{2.25cm}
   \setlength{\desclength}{15.35cm}
@@ -174,7 +178,7 @@
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 
 \newcommand{\entry}[4]{%
-  \parbox[t]{\timelength}{#1}&\parbox[t]{\desclength}{%
+  \parbox[t]{\timelength}{\timesize #1}&\parbox[t]{\desclength}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
@@ -193,9 +197,9 @@
   \newenvironment{aside}{%
     \let\oldsection\section
     \renewcommand{\section}[1]{
-      \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+      \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}\vspace{0.5em}
     }
-    \begin{textblock}{3.6}(1.5, 4.33)
+    \begin{textblock}{3.6}(1.5, 3.6)
     \begin{flushright}
     \obeycr
   }{%
