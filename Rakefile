@@ -14,7 +14,8 @@ task :test => [:build] do
     :check_favicon => true,
     :check_img_http => true,
     :check_opengraph => true,
-    :empty_alt_ignore => true,
+    :empty_alt_ignore => false,
+    :enforce_https => true,
     :url_ignore => ['https://scholar.google.com/citations?user=OqC2Vc8AAAAJ&hl=en'],
     :url_swap => { 'https://quantumparker.com' => '' },
     :cache => {
