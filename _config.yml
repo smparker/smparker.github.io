@@ -8,6 +8,9 @@ url: "https://quantumparker.com" # the base hostname & protocol for your site
 #twitter_username: sparkadocious
 github_username:  smparker
 google_scholar: smparker
+sass:
+  sass_dir: _sass
+  style: compress
 
 # Build settings
 markdown: kramdown
