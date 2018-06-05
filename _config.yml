@@ -23,7 +23,16 @@ collections:
     output: true
     defaults:
       scope:
-        path = ""
-        type = notes
+        path: ""
+        type: notes
       values:
-        layout = page
+        layout: page
+  collab:
+    output: true
+    permalink: /:collection/:path/
+    defaults:
+      scope:
+        path: ""
+        type: collab
+      values:
+        layout: page
