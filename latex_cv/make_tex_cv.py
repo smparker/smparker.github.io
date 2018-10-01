@@ -283,7 +283,7 @@ def posters():
 
 def teaching():
     teach = pull_data("teaching")
-    section_header("selected teaching")
+    section_header("select teaching")
 
     for t in teach:
         time = de_html(t["time"])
