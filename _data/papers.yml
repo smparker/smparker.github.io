@@ -1,9 +1,10 @@
 - authors: [me, D. Rappoport, F. Furche]
   title: "Quadratic response properties from TDDFT: trials and tribulations"
   journal: "Journal of Chemical Theory and Computation"
-  year: 2017
+  year: 2018
+  volume: 14
+  page: "807-819"
   doi: 10.1021/acs.jctc.7b01008
-  note: accepted
 
 - authors: [M. Muuronen, me, E. Berardo, A. Le, M. Zwijnenburg, F. Furche]
   title: Mechanism of Photocatalytic Water Oxidation on Small TiO<sub>2</sub> Nanoparticles

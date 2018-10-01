@@ -1,3 +1,21 @@
+- title: "Excited-State Chemistry with TDDFT"
+  institution: "256th American Chemical Society National Meeting and Exposition"
+  location: Boston, Massachussetts
+  time: August 2018
+  invited: true
+
+- title: "Ensemble Optimized Time-Dependent Density Functional Theory"
+  institution: "256th American Chemical Society National Meeting and Exposition"
+  location: Boston, Massachussetts
+  time: August 2018
+  invited: true
+
+- title: "Quadratic response properties from TDDFT: trials and tribulations"
+  institution: "APS March Meeting"
+  location: Los Angeles, California
+  time: March 2018
+  invited: false
+
 - title: "Nonlinear properties from TDDFT: trials and tribulations"
   institution: "Excited States: Electronic Structure and Dynamics"
   location: Telluride, Colorado
