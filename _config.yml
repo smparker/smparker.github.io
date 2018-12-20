@@ -14,6 +14,7 @@ sass:
 
 # Build settings
 markdown: kramdown
+mathjax: true
 
 exclude: [ latex_cv, launch, Gemfile, Rakefile ]
 
