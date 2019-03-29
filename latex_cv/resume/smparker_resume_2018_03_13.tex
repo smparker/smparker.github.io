@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.2 (3/5/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% Edited by:
+% Shane Parker
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[resume]{parker-cv}
+
+\renewcommand{\normalsize}{\fontsize{11}{13}\selectfont}
+\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}
+\renewcommand{\timesize}{\fontsize{10}{12}\selectfont}
+
+\newcommand{\askip}{\vspace{0.5em}}
+
+\usepackage{enumitem}
+
+\begin{document}
+
+\header{Shane M.}{Parker}{smparker@uci.edu}{quantumparker.com}{(847) 644-4804}
+
+%----------------------------------------------------------------------------------------
+\begin{aside}
+\section{quantum chemistry}
+Excited states \askip
+Photochemistry \askip
+TD/DFT \askip
+Active-space methods \askip
+Tensor networks \askip
+Nonadiabatic molecular dynamics \askip
+Response theory \askip
+Nonlinear spectroscopy \askip
+Turbomole \askip
+BAGEL \askip
+\section{programming}
+C/C++ \askip
+Fortran \askip
+OpenMP \askip
+MPI \askip
+Python \askip
+bash \askip
+\section{scientific software}
+Mathematica \askip
+gnuplot \askip
+LaTeX \askip
+\section{languages}
+English (native) \askip
+German (conversational) \askip
+\end{aside}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                summary %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makebox[\textwidth]{{\LARGE\headingfont\color{gray} summary}}\vspace{0.25em}
+Quantum chemist with broad expertise developing
+excited-state ab initio electronic structure methods.
+Clear communicator that has published 13 peer-reviewed articles,
+and delivered 4 invited lectures.
+Leader with experience managing small teams and a proven commitment
+to mentoring coworkers.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                             experience %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{experience}\vspace{-0.5em}
+
+\begin{entrylist}
+  \entry
+  {2014 -- }
+  {Postdoctoral Fellow at University of California Irvine}
+  {Irvine, CA}
+  { \vspace{-1em}
+    \begin{itemize}[leftmargin=*,nosep]
+      \item Analyzed nonlinear response theory to characterize catastrophic failures of TDDFT
+      \item Implemented efficient excited-state absorption, two-photon absorption,
+        and hyperpolarizability calculations with TDDFT
+      \item Mentored and supervised graduate and undergraduate student research projects
+      \item Established automated testing procedures for in-house code
+    \end{itemize}
+  }
+
+  \entry
+  {2009 -- 2014}
+  {Graduate Student at Northwestern University}
+  {Evanston, IL}
+  { \vspace{-1em}
+    \begin{itemize}[leftmargin=*,nosep]
+      \item Designed and simulated schemes to control internal molecular modes
+        using intense laser
+      \item Pioneered Active-Space Decomposition (ASD) method to compute model Hamiltonians
+        of excited-state processes in molecular aggregates
+      \item Organized and led research seminars, skill-sharing workshops, and other research group activities
+    \end{itemize}
+  }
+
+  \entry
+  {2008 -- 2009}
+  {Fulbright Fellow at Technical University of Munich}
+  {Munich, Germany}
+  { \vspace{-1em}
+    \begin{itemize}[leftmargin=*,nosep]
+      \item Investigated mechanism of olefin metathesis catalyzed by Rh clusters using DFT
+      \item Computationally clarified the nuclearity of silica-supported Ta clusters using
+        DFT with polarizable embedding
+    \end{itemize}
+  }
+
+\end{entrylist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                              education %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{education}\vspace{-0.5em}
+
+\begin{entrylist}
+\entry
+{2009 -- 2014}
+{Northwestern University}
+{Evanston, IL}
+{
+Ph.D., Theoretical Chemistry \\
+\emph{Advisor}: Prof. Mark Ratner and Prof. Tamar Seideman \\
+\emph{Thesis}: Coherent Control of Molecular Torsion and the Active-space Decomposition Method.}
+
+\entry
+{2004 -- 2008}
+{University of Florida}
+{Gainesville, FL}
+{
+B.S., Chemistry and Mathematics, GPA: 4.0 out of 4.0
+}
+
+\end{entrylist}
+
+\vspace{0.25cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                 awards %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{awards} \vspace{-0.5em}
+\begin{entrylist}
+\vspace{-1em}
+\entry
+{2016 --}
+{Arnold O. Beckman Postdoctoral Fellowship {\normalfont }}
+{}
+{}
+\vspace{-1em}
+\entry
+{2010 -- 2013}
+{Department of Energy Office of Science Graduate Fellowship {\normalfont }}
+{}
+{}
+
+\entry
+{2008 -- 2009}
+{Fulbright Fellowship {\normalfont grant to study and research in Germany}}
+{}
+{}
+\end{entrylist}
+%----------------------------------------------------------------------------------------
+\end{document}
