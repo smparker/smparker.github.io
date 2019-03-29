@@ -1,0 +1,156 @@
+% Upper-case    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+% Lower-case    a b c d e f g h i j k l m n o p q r s t u v w x y z
+% Digits        0 1 2 3 4 5 6 7 8 9
+% Exclamation   !           Double quote "          Hash (number) #
+% Dollar        $           Percent      %          Ampersand     &
+% Acute accent  '           Left paren   (          Right paren   )
+% Asterisk      *           Plus         +          Comma         ,
+% Minus         -           Point        .          Solidus       /
+% Colon         :           Semicolon    ;          Less than     <
+% Equals        =           Greater than >          Question mark ?
+% At            @           Left bracket [          Backslash     \
+% Right bracket ]           Circumflex   ^          Underscore    _
+% Grave accent  `           Left brace   {          Vertical bar  |
+% Right brace   }           Tilde        ~
+
+%
+% NSF Biographical Sketch: Dr. Shane M. Parker
+%
+% Copyright (c) 2013 by Theodore P. Pavlic
+% All rights reserved.
+%
+% Adapted by Shane M. Parker (2019)
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\renewcommand\thesection{(\alph{section})}
+\renewcommand\thesubsection{(\alph{subsection})}
+
+\usepackage{calc}
+
+\usepackage{lastpage}
+%\newcommand{\pageoflastpage}{Page {\thepage} of \pageref*{LastPage}}
+%\newcommand{\pageoflastpage}{{\thepage} of \pageref*{LastPage}}
+\newcommand{\pageoflastpage}{}
+\usepackage{cite}
+\usepackage{bibunits}
+
+% Redefine the plain pagestyle for the title page
+\makeatletter
+\let\oldps@plain\ps@plain
+\renewcommand{\ps@plain}{\oldps@plain%
+\renewcommand{\@evenfoot}{\hfil\pageoflastpage\hfil}%
+\renewcommand{\@oddfoot}{\@evenfoot}}
+\makeatother
+
+% Use fancy for non-title pages
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\cfoot{\pageoflastpage}
+\pagestyle{fancy}
+
+\usepackage{xspace}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage{varioref}
+\usepackage[%
+        colorlinks=true,urlcolor=,
+        pdfpagelabels=true,hypertexnames=true,
+        plainpages=false,naturalnames=true,
+        ]{hyperref}
+%
+\usepackage{url}
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin={\bibhang+\widthof{[9]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=\textbf{\arabic*.},leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+\title{%
+        \vspace{-2\baselineskip}
+            \normalsize
+            Biographical Sketch\\
+            {\large\textbf{Dr.~Shane M.~Parker}}\\
+            \vspace{0.5\baselineskip}
+            \hrule
+            \vspace{0.5\baselineskip}
+            Department of Chemistry, University of California Irvine
+            e-mail: \href{mailto:smparker@uci.edu}{smparker@uci.edu},
+        \vspace{-1.5ex}
+        }
+\date{}
+\author{}
+
+\hypersetup{%
+        pdfsubject={NSF Biographical Sketch of Dr.~Shane M.~Parker},
+        pdfauthor={Dr. Shane M. Parker},
+        pdftitle={NSF Biographical Sketch of Dr.~Shane M.~Parker},
+        pdfkeywords={}
+        }
+
+\newcommand{\ie}{i.e.\xspace}
+\newcommand{\eg}{e.g.\xspace}
+
+\begin{document}
+
+\maketitle
+\vspace{-4\baselineskip}
+
+\subsection{Professional Preparation}
+\begin{tabular}{llll}
+  University of Florida, Gainesville, FL & BSc, summa cum laude & Chemistry \& Mathematics & 2008 \\
+  Universit{\"a}t M{\"u}nchen, Germany & Fulbright Fellow & Computational Chemistry & 2008--09 \\
+  Northwestern University & PhD & Theoretical Chemistry & 2014 \\
+  University of California-Irvine, Irvine, CA & Postdoctoral Fellow & Theoretical Chemistry & 2014--2019 \\
+\end{tabular}
+
+\subsection{Appointments}
+
+\begin{tabular}{lll}
+  Assistant Professor of Chemistry & Case Western Reserve University & from July 2019 \\
+  Arnold O. Beckman Postdoctoral Fellow & UC Irvine & 2016--2019 \\
+\end{tabular}
+
+\subsection{Publications}
+
+\begin{bibunit}[nsf]
+\renewcommand{\refname}{\vspace{-2em}}
+\nocite{Kubota2018,Parker2018JCTC807,Muuronen2017ChemSci2179,Parker2016JCP134105,%
+Kim2015JCTC3636,Parker2014JCP211102,Parker2014NanoLett4587,%
+Parker2014JPCC12700,Parker2014JCTC3738,Parker2013JCP021108}
+\putbib[../bib/pubs] %$
+\end{bibunit}
+
+\subsection{Synergistic Activities}
+
+\begin{bibenum}[itemsep=4pt]
+
+    \item \textbf{Electronic Structure Community Service} Developer of \textsc{Turbomole} quantum chemistry software
+    \item \textbf{Teaching \& Mentoring} Instructor, ``Nonadiabatic Molecular Dynamics'' at
+        \emph{Telluride School on Time-dependent Density Functional Theory} (July 2017)
+
+\end{bibenum}
+
+\end{document}

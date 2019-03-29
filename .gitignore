@@ -4,3 +4,8 @@ _site/*
 *.out
 *.xdv
 latex_cv/resume/*.pdf
+*.bbl
+*.bcf
+*.blg
+nsf_biosketch/*.pdf
+nsf_biosketch/*.xml
