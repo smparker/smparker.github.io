@@ -7,3 +7,4 @@ end
 # Add other build tools, like Jekyll, if you need them
 gem "rake"
 gem "jekyll"
+gem 'jekyll-admin', group: :jekyll_plugins
