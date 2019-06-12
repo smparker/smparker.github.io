@@ -9,3 +9,5 @@ latex_cv/resume/*.pdf
 *.blg
 nsf_biosketch/*.pdf
 nsf_biosketch/*.xml
+nih_biosketch/*.pdf
+nih_biosketch/*.xml
