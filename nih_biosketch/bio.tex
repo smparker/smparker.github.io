@@ -39,7 +39,7 @@
 \begin{education}
 University of Florida               & B.S           & 05/2008  & Chemistry, Mathematics \\
 Northwestern University             & Ph.D.         & 05/2014  & Theoretical Chemistry \\
-University of California, Irvine    & Postdoctoral  & 06/2019  & Computational Chemistry \\
+University of California, Irvine    & Postdoctoral  & 06/2019  & Quantum Chemistry \\
 \end{education}
 
 
@@ -66,25 +66,25 @@ University of California, Irvine    & Postdoctoral  & 06/2019  & Computational C
 % 2005--2006 my career was disrupted due to family obligations. However, upon
 % returning to the field I immediately resumed my research projects and
 % collaborations and successfully competed for NIH support.
-% 
+%
 % \begin{enumerate}
-% 
+%
 % \item Merryle, R.J. \& Hunt, M.C. (2004). Independent living, physical
 %         disability and substance abuse among the elderly. Psychology and Aging,
 %         23(4), 10--22.
-% 
+%
 % \item Hunt, M.C., Jensen, J.L. \& Crenshaw, W. (2007). Substance abuse and
 %         mental health among community-dwelling elderly. International Journal
 %         of Geriatric Psychiatry, 24(9), 1124--1135.
-% 
+%
 % \item Hunt, M.C., Wiechelt, S.A. \& Merryle, R. (2008). Predicting the
 %         substance-abuse treatment needs of an aging population.  American
-%         Journal of Public Health, 45(2), 236--245. PMCID: PMC9162292 
-% 
+%         Journal of Public Health, 45(2), 236--245. PMCID: PMC9162292
+%
 % \item Hunt, M.C., Newlin, D.B. \& Fishbein, D. (2009). Brain imaging in
 %         methamphetamine abusers across the life-span. Gerontology, 46(3),
 %         122--145.
-% 
+%
 % \end{enumerate}
 
 \end{statement}
@@ -113,29 +113,18 @@ University of California, Irvine    & Postdoctoral  & 06/2019  & Computational C
 
 %------------------------------------------------------------------------------
 
+\pagebreak
 \section{Contribution to Science}
 
 \begin{enumerate}
-
-% \item My early publications directly addressed the fact that substance abuse is
-%     often overlooked in older adults. However, because many older adults were
-%     raised during an era of increased drug and alcohol use, there are reasons
-%     to believe that this will become an increasing issue as the population
-%     ages.   These publications found that older adults appear in a variety of
-%     primary care settings or seek mental health providers to deal with emerging
-%     addiction problems.  These publications document this emerging problem but
-%     guide primary care providers and geriatric mental health providers to
-%     recognize symptoms, assess the nature of the problem and apply the
-%     necessary interventions.   By providing evidence and simple clinical
-%     approaches, this body of work has changed the standards of care for
-%     addicted older adults and will continue to provide assistance in relevant
-%     medical settings well into the future.  I served as the primary
-%     investigator or co-investigator in all of these studies. 
-% 
-  \item
-  As a graduate student at NU, I proposed and simulated schemes to optically control electronic
+  \item \begin{bibunit}[nih]
+  \textbf{Optical control of molecular torsion.}
+  A central challenge in high-accuracy molecular beam experiments is deriving highly detailed atomistic
+  reaction mechanisms, because cross sections must be averaged over all possible orientations and
+  available vibrational states of
+  the molecules in the beam. I proposed and simulated schemes to optically control electronic
   properties, molecular chirality, and molecular conductance of biaryl compounds through laser control over
-  intramolecular vibrational modes.\cite{Parker2011JCP}
+  intramolecular vibrational modes.\cite{Parker2011JCP224301}
   Torsion in biaryl compounds---molecules with two aromatic moieties connected by a bond about which the barrier
   to rotation is small---mediates the electronic coupling between the two rings in the molecule, thus controlling
   the electron transfer and transport rates, the absorption and emission spectra, and the
@@ -143,105 +132,106 @@ University of California, Irvine    & Postdoctoral  & 06/2019  & Computational C
   By tuning the pulse parameters and
   polarization, I showed that absorption spectra can be shifted, that free internal rotation can be started or
   that the molecular chirality
-  can be inverted. This control was extended when, with the aid of optimal control theory,
+  can be inverted.\cite{Parker2011JCP224301} This control was extended when, with the aid of optimal control theory,
   I designed ``deracemizing'' control pulses, i.e., control
-  pulses that convert a racemic mixture into an enantiopure mixture.\cite{Parker2012MolPhys}
-
-  In a further demonstration, motivated by the fascinating fundamental chemical physics of molecular junctions,
-  I proposed the combination of single molecule pulling and optical control as a way to enhance control over the
-  electron transport characteristics of a molecular junction.\cite{Parker:2014kt} I demonstrated this possibility using a model junction
-  consisting of biphenyl-dithiol coupled to gold contacts (Fig. \ref{fig:pulling}). The junction is pulled while optically
-  manipulating the dihedral angle between the two rings. Using quantum dynamics simulations and nonequilibrium Green's function
-  density functional theory based transport calculations, I showed
-  that the greatest degree of control was attained when optical control was combined with
-  mechanical force.
+  pulses that convert a racemic mixture into an enantiopure mixture.\cite{Parker2012MolPhys1941}
+  Furthermore, I showed that optical control could be combined with mechanical force to achieve
+  enhanced control over the conductivity of biphenyl-dithiol in a molecular junction.\cite{Parker2014NanoLett4587}
   This type of fine control over molecular conductance is especially interesting in the case of molecular electronics,
   where external control of conductance is critical to constructing molecular circuits.
-  
-  \begin{bibunit}[nih]
-    \renewcommand{\refname}{\vspace{-2em}}
-    \nocite{Parker2011JCP224301,Parker2012MolPhys1941,Parker2014NanoLett4587}
-    \putbib[../bib/pubs] %$
+
+  \renewcommand{\refname}{\vspace{-2em}}
+  \putbib[../bib/pubs] %$
   \end{bibunit}
 
-  \item
-  Singlet fission\cite{Smith2010ChemRev} is a molecular process by which a photogenerated singlet exciton
-  splits into two entangled triplet excitons. Through this carrier multiplication, singlet fission has
-  the potential to significantly boost theoretical solar cell efficiencies up to 44\%, well beyond the
-  single bandgap Shockley-Queisser limit
-  of 34\%.\cite{Hanna2006JAP,Smith2010ChemRev} However, fundamental questions about the microscopic
-  mechanism remain unanswered, impeding the development of stable and efficient singlet fission chromophores.
-
-  To shed light on the detailed mechanism, I pioneered the active space decomposition (ASD) method, together
+  \item \begin{bibunit}[nih]
+  \textbf{Excited-state electronic structure of molecular aggregates.}
+  To shed light on the detailed mechanism of electronic processes like singlet fission,
+  I pioneered the active space decomposition (ASD) method, together
   with Prof. Toru Shiozaki at NU, which was specifically designed to describe electronic processes
-  in molecular aggregates.\cite{Parker2013JCP} Within ASD, the total wavefunction of an aggregate is
-  constructed from fragment local wavefunctions.\cite{Parker2013JCP} ASD naturally leads to
+  in molecular aggregates.\cite{Parker2013JCP021108} Within ASD, the total wavefunction of an aggregate is
+  constructed from fragment local wavefunctions.\cite{Parker2013JCP021108} ASD naturally leads to
   compact model Hamiltonians that bridge first-principles methods with chemical intuition and huge
   computational speed ups such that calculations can be performed on workstation computers
   that otherwise would be impossible even on today's most powerful supercomputers.
-
   I used ASD to compute model Hamiltonians from first principles for singlet fission in tetracene and pentacene
   with unprecedented accuracy that confirmed the dominance of the charge-transfer mediated mechanism
-  in the acenes.\cite{Parker2014JPCC}
+  in the acenes.\cite{Parker2014JPCC12700}
   ASD was also used to build model Hamiltonians
-  for processes such as electron/hole transfer, excitation energy transfer, and triplet excitation transfer.\cite{Parker2014JCTC}
+  for processes such as electron/hole transfer, excitation energy transfer, and triplet excitation transfer.\cite{Parker2014JCTC3738}
   I further extended ASD to treat multiple sites using the density matrix renormalization group method
-  to avoid the exponential scaling with respect to number of monomer units.\cite{Parker2014JCP}
-  Recent developments have enabled the computation of ASD model Hamiltonians of the same processes
-  for covalently bound chromophores.\cite{Kim2015JCTC}
+  to avoid the exponential scaling with respect to number of monomer units.\cite{Parker2014JCP211102}
   Thus, ASD has been established as a computationally efficient, broadly applicable tool to understand
   electronic processes in (possibly covalently bound) molecular fragments, thereby offering a solution
   to a long-standing conundrum to combine the accuracy and rigor of \textit{ab initio} methods with
   the interpretability of model approaches.
 
-  \item
+  \renewcommand{\refname}{\vspace{-2em}}
+  \putbib[../bib/pubs] %$
+  \end{bibunit}
+
+\pagebreak
+  \item \begin{bibunit}[nih]
+  \textbf{Nonlinear electronic spectroscopy: successes and pitfalls.}
   Nonlinear spectroscopy is a suite of powerful tools to characterize complex systems, investigate fundamental chemical
-  physics, and drive chemistry. As such, nonlinear response theory plays a central role in theoretical
-  materials chemistry and applications of nonlinear response theory within time-dependent density functional theory
-  (TDDFT) are increasingly important. Widespread use of simulated nonlinear spectroscopic
+  physics, and drive chemistry. Widespread use of simulated nonlinear spectroscopic
   properties has been stymied, however, by the high cost of quadratic response implementations using hybrid density
   functionals.
-  In addition, as a postdoc at UCI, I showed that quadratic response functions from approximate theories diverge
-  unphysically,\cite{Parker:2016ke} raising additional questions about the reliability of nonlinear response theory.
 
-  I recently completed a highly resource-efficient implementation of the quadratic response function---including excited-state
-  absorption (ESA), two-photon absorption (TPA), and second harmonic generation (SHG) amplitudes---in Turbomole.\cite{Parker2017quad}
+  I published a highly resource-efficient implementation of the quadratic response function---including excited-state
+  absorption (ESA), two-photon absorption (TPA), and second harmonic generation (SHG) amplitudes---in Turbomole.\cite{Parker2018JCTC807}
   The implementation pursued the dual purpose of enabling calculations of nonlinear
   properties of molecules with 100s of atoms and 1000s of basis functions using hybrid density functionals and of
-  clarifying the consequences of the quadratic response function's incorrect pole structure.\cite{Parker:2016ke} As
-  an example, to demonstrate the efficiency of the implementation, I simulated two-photon absorption spectrum of a \ce{Ni}
-  porphyrin tetramer with 446 atoms and 4548 basis functions.
+  clarifying the consequences of the quadratic response function's incorrect pole structure.\cite{Parker2016JCP134105}
 
+  In addition, I showed that quadratic response functions from approximate theories diverge
+  unphysically,\cite{Parker2016JCP134105} raising additional questions about the reliability of nonlinear response theory.
   Using the new implementation, I showed that the incorrect pole structure of the TDDFT quadratic
   response function within the adiabatic approximation leads to serious deficiencies in related properties, including
   unphysical divergences in excited-state absorption spectra, overly resonant two-photon absorption spectra, and spurious
-  poles in the dynamic hyperpolarizability. However, in cases where the spurious resonances can be avoided, I showed that
+  poles in the dynamic hyperpolarizability.\cite{Parker2016JCP134105,Parker2018JCTC807}
+  However, in cases where the spurious resonances can be avoided, I showed that
   semiquantitative results suitable for molecule screening or analysis can be obtained, thus facilitating computational
   design of nonlinear optically active or two-photon active materials with greater realism and for larger systems than was
   previously possible.
 
-  \item
-  Titania (\ce{TiO2}) nanoparticles are interesting redox photocatalytic materials due to their abundance,
-  inexpensiveness, and non-toxicity. In the decades since titania was shown to act as a photocatalyst for water-splitting,
-  titania has been the subject of intense research.\cite{Fujishima1972Nature} However, the efficiency of photocatalytic
-  water-splitting remains limited, and the path to improvement is clouded by the lack of specific mechanistic details into
-  the ultrafast electronically nonadiabatic processes.
+  \renewcommand{\refname}{\vspace{-2em}}
+  \putbib[../bib/pubs] %$
+  \end{bibunit}
 
-  Together with colleague's during my postdoc, I performed the first fully unconstrained on-the-fly nonadiabatic molecular
-  dynamics (NAMD) simulations of the first step of the oxygen evolution reaction on small hydrated \ce{TiO2} nanoclusters
-  using Fewest Switches Surface Hopping (FSSH) coupled with time-dependent density functional theory
-  (TDDFT).\cite{C6SC04378J} Such on-the-fly simulations allow for truly exploratory mechanism \emph{discovery}, i.e., no
+  \item \begin{bibunit}[nih]
+  \textbf{Nonadiabatic molecular dynamics with TDDFT.}
+  Nonadiabatic molecular dynamics (NAMD) with time-dependent density functional theory (TDDFT) is
+  emerging as a powerful technique to unravel the precise details of complex excited-state reactions.
+  I contributed to the growth of the field by demonstrating its capacity for photoreactivity mechanism discovery
+  and extending this paradigm to reactions involving more than one excited state.
+
+  Together with colleague's during my postdoc, I performed the first fully unconstrained on-the-fly NAMD
+  simulations of the first step of the oxygen evolution reaction on small hydrated \ce{TiO2} nanoclusters
+  using surface hopping (SH) coupled with TDDFT.\cite{Muuronen2017ChemSci2179}
+  Such on-the-fly simulations allow for truly exploratory mechanism \emph{discovery}, i.e., no
   prior knowledge of the mechanism is required. On the basis of our simulations, we proposed that the reaction is driven by
   electron-proton transfer (EPT) from physisorbed water to a photohole strongly localized on a bridging (\ce{Ti-O-Ti})
-  oxygen atom (Fig. \ref{fig:tio2}). This proposed mechanism is consistent with the observed pH dependence as well as the
+  oxygen atom. This proposed mechanism is consistent with the observed pH dependence as well as the
   observed production of mobile hydroxyl radicals and could not be observed computationally without the fully consistent
   model including exciton-binding. The identification of a detailed mechanism opens the door to designing photocatalysts
   with greatly improved efficiency.
+
+  I also implemented nonadiabatic couplings between excited states, paving the way for photodynamics
+  involving multiple excited states, such as the photodeactivation of thymine.\cite{Parker2019}
+  In particular, I showed that excited-state lifetimes (153 fs for \ce{S2} and 14.1 ps for \ce{S1}) obtained
+  from SH-TDDFT simulations are in excellent agreement with experimentally observed lifetimes (100--200 fs and
+  5--7 ps); indeed, among all investigated electronic structure methods---including ADC(2) and CASSCF---only TDDFT produces
+  qualitative agreement with experimental results, despite its low computational cost.
+  This work thus adds to the mounting evidence that SH-TDDFT strikes an ideal cost-to-performance balance.
+
+  \renewcommand{\refname}{\vspace{-2em}}
+  \putbib[../bib/pubs] %$
+  \end{bibunit}
 \end{enumerate}
 
-\subsection*{Complete List of Published Work:} 
+\subsection*{Complete List of Published Work:}
 \url{https://quantumparker.com}
-
 
 %------------------------------------------------------------------------------
 
@@ -259,10 +249,10 @@ University of California, Irvine    & Postdoctoral  & 06/2019  & Computational C
 %------------------------------------------------------------------------------
 
 \subsection*{Completed Research Support}
-% 
+%
 % \grantinfo{R21 AA998075}{Hunt (PI)}{01/01/11--12/31/13}
 % {Community-based intervention for alcohol abuse}
-% {The goal of this project was to assess a community-based strategy for reducing alcohol abuse among 
+% {The goal of this project was to assess a community-based strategy for reducing alcohol abuse among
 % older individuals.}
 % {Role: PI}
 
