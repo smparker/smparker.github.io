@@ -7,11 +7,25 @@
 body {
   padding-top: 60px;
   padding-bottom: 0px;
+  font-size: 150%;
 }
 
 // Footer
 .site-footer {
   margin-top: 25px;
+}
+
+
+.nav-titles {
+  li {
+    color: red;
+    font-size: 125%;
+  }
+}
+
+.navbar-brand {
+  color: red;
+  font-size: 125;
 }
 
 .ul-footer {

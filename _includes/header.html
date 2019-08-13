@@ -1,12 +1,3 @@
-<style>
-  span.active {
-    font-weight: bold;
-    color: darkgray;
-  }
-  span.inactive {
-  }
-</style>
-
 <header class="site-header">
     <nav class="navbar navbar-inverse navbar-fixed-top" id="primary-nav">
       <div class="container">
@@ -20,7 +11,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav-titles nav navbar-nav navbar-right">
             {% assign sorted_pages = site.pages | sort: 'header_order' %}
               {% for p in sorted_pages %}
                 {% if p.title %}
