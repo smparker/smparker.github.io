@@ -1,8 +1,8 @@
   # Site settings
 title: Shane M. Parker
-email: smparker@uci.edu
+email: shane.parker@case.edu
 description: > # this means to ignore newlines until "baseurl:"
-  Software developed by a quantum chemist.
+  The Parker Group: Computational Photochemistry
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://quantumparker.com" # the base hostname & protocol for your site
 #twitter_username: sparkadocious
@@ -29,7 +29,7 @@ collections:
       values:
         layout: page
   collab:
-    output: true
+    output: false
     permalink: /:collection/:path/
     defaults:
       scope:
