@@ -10,6 +10,7 @@ def pull_data(name):
 
 # search-replace pairs to convert html special characters to latex
 de_html_impl = [ ("--", re.compile(r"&ndash;")),
+                 ("\\\&", re.compile(r"&amp;")),
                  ("\\\"{a}", re.compile(r"&auml;")),
                  ("\\\"{o}", re.compile(r"&ouml;")),
                  ("\\\"{u}", re.compile(r"&uuml;")),
@@ -69,7 +70,7 @@ def header(style, to_print = True):
     print()
     print(r'\begin{document}')
     print()
-    print(r'\header{Shane M.}{Parker}{smparker@uci.edu}{quantumparker.com}{(847) 644-4804}')
+    print(r'\header{Shane M.}{Parker}{shane.parker@case.edu}{quantumparker.com}{(216) 368-3697}')
     print()
     print(r'%----------------------------------------------------------------------------------------')
 
@@ -222,7 +223,7 @@ def awards():
 
 def lectures():
     lect = pull_data("lectures")
-    section_header("lectures")
+    section_header("invited lectures")
 
     for l in lect:
         time = de_html(l["time"])
@@ -230,8 +231,10 @@ def lectures():
         location = de_html(l["location"])
         institution = de_html(l["institution"])
         invited = l["invited"]
-        if invited:
-            title += r" \textit{(invited)}"
+        if not invited:
+            continue
+        #if invited:
+        #    title += r" \textit{(invited)}"
         print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (title))
@@ -316,7 +319,7 @@ def make_tex(style, printcolors):
     awards()
     lectures()
     pedagogy()
-    posters()
+    #posters()
     teaching()
     footer()
 

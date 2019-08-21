@@ -1,26 +1,26 @@
 - title: Assistant Professor of Chemistry
   institution: Case Western Reserve University
-  location: Cleveland, Ohio
+  location: Cleveland, OH
   time: 2019 &ndash;
   interest: Computational Photochemistry
 
 - title: Postdoctoral Fellow (Arnold O. Beckman Postdoctoral Fellow since 2016)
   institution: University of California Irvine
-  location: Irvine, California
+  location: Irvine, CA
   advisor: Professor Filipp Furche
   interest: Method development for non-adiabatic molecular dynamics simulations using time-dependent density functional theory
   time: 2014 &ndash; 2019
 
-- title: Short-term Research Fellow
+  #- title: Short-term Research Fellow
+  #  institution: Northwestern University
+  #  location: Evanston, Illinois
+  #  advisor: Professor Toru Shiozaki
+  #  interest: Development of active-space based electronic structure methods geared towards computation of excited states of molecular aggregates and crystals
+  #  time: 2014
+  #
+- title: PhD, Theoretical Chemistry
   institution: Northwestern University
-  location: Evanston, Illinois
-  advisor: Professor Toru Shiozaki
-  interest: Development of active-space based electronic structure methods geared towards computation of excited states of molecular aggregates and crystals
-  time: 2014
-
-- title: Graduate Student
-  institution: Northwestern University
-  location: Evanston, Illinois
+  location: Evanston, IL
   advisor: Professor Mark Ratner and Professor Tamar Seideman
   interest: Development of schemes to control the torsional motion of biaryl molecules and of methods to compute model Hamiltonians for use in photodynamics, especially singlet exciton fission
   time: 2009 &ndash; 2014
@@ -32,14 +32,14 @@
   interest: Catalytic properties of silica supported Tantalum clusters investigated using embedded DFT
   time: 2008 &ndash; 2009
 
-- title: Summer Practicum
-  institution: Technische Universit&auml;t M&uuml;nchen
-  location: Munich, Germany
-  advisor: Professor Notker R&ouml;sch
-  interest: Establishment of practices to investigate gas phase Tantalum compounds with all-electron DFT
-  time: 2007
+  #- title: Summer Practicum
+  #  institution: Technische Universit&auml;t M&uuml;nchen
+  #  location: Munich, Germany
+  #  advisor: Professor Notker R&ouml;sch
+  #  interest: Establishment of practices to investigate gas phase Tantalum compounds with all-electron DFT
+  #  time: 2007
 
-- title: Undergraduate Student
+- title: B.S., Chemistry &amp; B.S., Mathematics
   institution: University of Florida
   location: Gainesville, FL
   advisor: Professor N. Yngve &Ouml;hrn

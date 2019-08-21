@@ -1,3 +1,9 @@
+- role: Instructor
+  title: Quantum Mechanics
+  level: Undergraduate + Graduate
+  location: CWRU
+  time: Fall 2019
+
 - role: Guest Lecturer (2 lectures)
   title: Computational Chemistry
   level: Undergraduate + Graduate
