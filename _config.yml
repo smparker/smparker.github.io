@@ -1,9 +1,10 @@
   # Site settings
-title: Shane M. Parker
+title: Parker Group
 email: shane.parker@case.edu
 description: > # this means to ignore newlines until "baseurl:"
-  The Parker Group: Computational Photochemistry
+  "The Parker Group: Computational Photochemistry"
 baseurl: "" # the subpath of your site, e.g. /blog/
+motto: High Performance Computational Photochemistry
 url: "https://quantumparker.com" # the base hostname & protocol for your site
 #twitter_username: sparkadocious
 github_username:  smparker

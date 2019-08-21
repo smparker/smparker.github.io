@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+
 import yaml
 import re
 
@@ -29,75 +31,75 @@ def de_html(inp):
         for dh in de_html_impl:
             out = dh[1].sub(dh[0], out)
     except:
-        print out
+        print(out)
     return out
 
 def header(style, to_print = True):
     opts = [ style ]
     if to_print: opts.append("print")
     options = ",".join(opts)
-    print r'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
-    print r'% Friggeri Resume/CV'
-    print r'% XeLaTeX Template'
-    print r'% Version 1.2 (3/5/15)'
-    print r'%'
-    print r'% This template has been downloaded from:'
-    print r'% http://www.LaTeXTemplates.com'
-    print r'%'
-    print r'% Original author:'
-    print r'% Adrien Friggeri (adrien@friggeri.net)'
-    print r'% https://github.com/afriggeri/CV'
-    print r'%'
-    print r'% Edited by:'
-    print r'% Shane Parker'
-    print r'%'
-    print r'% License:'
-    print r'% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)'
-    print r'%'
-    print r'% Important notes:'
-    print r'% This template needs to be compiled with XeLaTeX and the bibliography, if used,'
-    print r'% needs to be compiled with biber rather than bibtex.'
-    print r'%'
-    print r'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
-    print r''
-    print r'\documentclass[%s]{parker-cv}' % (options)
-    print
-    print r'\renewcommand{\normalsize}{\fontsize{11}{13}\selectfont}'
-    print r'\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}'
-    print
-    print r'\begin{document}'
-    print
-    print r'\header{Shane M.}{Parker}{smparker@uci.edu}{quantumparker.com}{(847) 644-4804}'
-    print
-    print r'%----------------------------------------------------------------------------------------'
+    print(r'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+    print(r'% Friggeri Resume/CV')
+    print(r'% XeLaTeX Template')
+    print(r'% Version 1.2 (3/5/15)')
+    print(r'%')
+    print(r'% This template has been downloaded from:')
+    print(r'% http://www.LaTeXTemplates.com')
+    print(r'%')
+    print(r'% Original author:')
+    print(r'% Adrien Friggeri (adrien@friggeri.net)')
+    print(r'% https://github.com/afriggeri/CV')
+    print(r'%')
+    print(r'% Edited by:')
+    print(r'% Shane Parker')
+    print(r'%')
+    print(r'% License:')
+    print(r'% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)')
+    print(r'%')
+    print(r'% Important notes:')
+    print(r'% This template needs to be compiled with XeLaTeX and the bibliography, if used,')
+    print(r'% needs to be compiled with biber rather than bibtex.')
+    print(r'%')
+    print(r'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+    print(r'')
+    print(r'\documentclass[%s]{parker-cv}' % (options))
+    print()
+    print(r'\renewcommand{\normalsize}{\fontsize{11}{13}\selectfont}')
+    print(r'\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}')
+    print()
+    print(r'\begin{document}')
+    print()
+    print(r'\header{Shane M.}{Parker}{smparker@uci.edu}{quantumparker.com}{(847) 644-4804}')
+    print()
+    print(r'%----------------------------------------------------------------------------------------')
 
 def aside():
-    print r'\begin{aside}'
-    print r'\section{programming}'
+    print(r'\begin{aside}')
+    print(r'\section{programming}')
     for lang in ['C/C++', 'Fortran', 'Python', 'bash']:
-        print r'%s' % (lang)
+        print(r'%s' % (lang))
 
-    print r'\section{languages}'
+    print(r'\section{languages}')
     for lang in ['English (native)', 'German (conversational)']:
-        print r'%s' % (lang)
-    print r'\end{aside}'
+        print(r'%s' % (lang))
+    print(r'\end{aside}')
 
 def footer():
-    print r'%----------------------------------------------------------------------------------------'
-    print r'\end{document}'
+    print(r'%----------------------------------------------------------------------------------------')
+    print(r'\end{document}')
 
 def section_header(name, env = "entrylist"):
-    print "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    print "%% %54s %%" % (name)
-    print "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("%% %54s %%" % (name))
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
-    print "\\section{%s}" % (name)
-    print ""
-    print "\\begin{%s}" % (env)
+    print("\\section{%s}" % (name))
+    print("")
+    print("\\begin{%s}" % (env))
 
 def section_footer(env = "entrylist"):
-    print "\end{%s}" % (env)
-    print
+    print("\end{%s}" % (env))
+    print()
 
 def positions():
     pos = pull_data("positions")
@@ -108,18 +110,20 @@ def positions():
         title = de_html(p["title"])
         location = de_html(p["location"])
         institution = de_html(p["institution"])
-        advisor = de_html(p["advisor"])
-        interest = de_html(p["interest"])
-        print "\\entry"
-        print "{%s}" % (time)
-        print "{%s}" % (title)
-        print "{%s}" % (location)
-        print "{"
-        print "%s \\\\" % (institution)
-        print "\emph{Advisor}: %s \\\\" % (advisor)
-        print "\emph{Interest}: %s \\\\" % (interest)
-        print "}"
-        print
+        advisor = de_html(p["advisor"]) if "advisor" in p else None
+        interest = de_html(p["interest"]) if "interest" in p else None
+        print("\\entry")
+        print("{%s}" % (time))
+        print("{%s}" % (title))
+        print("{%s}" % (location))
+        print("{")
+        print("%s \\\\" % (institution))
+        if advisor:
+            print("\emph{Advisor}: %s \\\\" % (advisor))
+        #if interest:
+        #    print("\emph{Interest}: %s \\\\" % (interest))
+        print("}")
+        print()
 
     section_footer()
 
@@ -147,22 +151,22 @@ def papers():
         if not has_notes:
             volume = "\\textbf{%s}" % (de_html(pub["volume"]))
             page = de_html(pub["page"])
-            print "\\item[%d] %s \\\\" % (ir, authors)
+            print("\\item[%d] %s \\\\" % (ir, authors))
             jvpy = ", ".join(filter(None, [journal, volume, page])) + " " + year
-            print "%s \\\\" % (jvpy)
-            print title
-            print
+            print("%s \\\\" % (jvpy))
+            print(title)
+            print()
         else:
             notes = de_html(pub["note"])
-            print "\\item[---] %s \\\\" % (authors)
+            print("\\item[---] %s \\\\" % (authors))
             jyn = ", ".join(filter(None, [ journal, year, notes ]))
-            print "%s \\\\" % (jyn)
-            print title
-            print
+            print("%s \\\\" % (jyn))
+            print(title)
+            print()
 
     section_footer("enumerate")
 
-    print "\\vspace{0.25cm}"
+    print("\\vspace{0.25cm}")
 
 def chapters():
     # chapters are modeled off of papers
@@ -189,15 +193,15 @@ def chapters():
         if url:
             title = "\href{%s}{%s}" % (url, title)
 
-        print "\\item[%d] %s \\\\" % (ir, authors)
+        print("\\item[%d] %s \\\\" % (ir, authors))
         bepy = ", ".join(filter(None, [book, editor, publisher])) + " " + year
-        print "%s \\\\" % (bepy)
-        print title
-        print
+        print("%s \\\\" % (bepy))
+        print(title)
+        print()
 
     section_footer("enumerate")
 
-    print "\\vspace{0.25cm}"
+    print("\\vspace{0.25cm}")
 
 def awards():
     award = pull_data("awards")
@@ -207,12 +211,12 @@ def awards():
         des = de_html(a.get("description", ""))
         name = de_html(a["name"])
         year = de_html(a["year"])
-        print "\\entry"
-        print "{%s}" % (year)
-        print "{%s {\\normalfont %s}}" % (name, des)
-        print "{}"
-        print "{}"
-        print
+        print("\\entry")
+        print("{%s}" % (year))
+        print("{%s {\\normalfont %s}}" % (name, des))
+        print("{}")
+        print("{}")
+        print()
 
     section_footer()
 
@@ -228,14 +232,14 @@ def lectures():
         invited = l["invited"]
         if invited:
             title += r" \textit{(invited)}"
-        print "\\entry"
-        print "{%s}" % (time)
-        print "{%s}" % (title)
-        print "{%s}" % (location)
-        print "{"
-        print "%s" % (institution)
-        print "}"
-        print
+        print("\\entry")
+        print("{%s}" % (time))
+        print("{%s}" % (title))
+        print("{%s}" % (location))
+        print("{")
+        print("%s" % (institution))
+        print("}")
+        print()
 
     section_footer()
 
@@ -248,14 +252,14 @@ def pedagogy():
         topic = de_html(l["topic"])
         location = de_html(l["location"])
         institution = de_html(l["institution"])
-        print "\\entry"
-        print "{%s}" % (time)
-        print "{%s}" % (topic)
-        print "{%s}" % (location)
-        print "{"
-        print "%s" % (institution)
-        print "}"
-        print
+        print("\\entry")
+        print("{%s}" % (time))
+        print("{%s}" % (topic))
+        print("{%s}" % (location))
+        print("{")
+        print("%s" % (institution))
+        print("}")
+        print()
 
     section_footer()
 
@@ -269,15 +273,15 @@ def posters():
         location = de_html(p["location"])
         authors = de_html(p["authors"])
         event = de_html(p["event"])
-        print "\\entry"
-        print "{%s}" % (time)
-        print "{%s}" % (title)
-        print "{%s}" % (location)
-        print "{"
-        print "%s \\\\" % (authors)
-        print "presented at %s" % (event)
-        print "}"
-        print
+        print("\\entry")
+        print("{%s}" % (time))
+        print("{%s}" % (title))
+        print("{%s}" % (location))
+        print("{")
+        print("%s \\\\" % (authors))
+        print("presented at %s" % (event))
+        print("}")
+        print()
 
     section_footer()
 
@@ -291,14 +295,14 @@ def teaching():
         role = de_html(t["role"])
         level = de_html(t["level"])
         location = de_html(t["location"])
-        print "\\entry"
-        print "{%s}" % (time)
-        print "{{\\normalfont %s for} %s}" % (role, title)
-        print "{}"
-        print "{"
-        print "%s, %s \\\\" % (level, location)
-        print "}"
-        print
+        print("\\entry")
+        print("{%s}" % (time))
+        print("{{\\normalfont %s for} %s}" % (role, title))
+        print("{}")
+        print("{")
+        print("%s, %s \\\\" % (level, location))
+        print("}")
+        print()
 
     section_footer()
 
