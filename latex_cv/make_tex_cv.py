@@ -65,8 +65,8 @@ def header(style, to_print = True):
     print(r'')
     print(r'\documentclass[%s]{parker-cv}' % (options))
     print()
-    print(r'\renewcommand{\normalsize}{\fontsize{11}{13}\selectfont}')
-    print(r'\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}')
+    print(r'\renewcommand{\normalsize}{\fontsize{10}{12}\selectfont}')
+    print(r'\renewcommand{\LARGE}{\fontsize{14}{16}\selectfont}')
     print()
     print(r'\begin{document}')
     print()
@@ -204,6 +204,28 @@ def chapters():
 
     print("\\vspace{0.25cm}")
 
+def media():
+    media = pull_data("media")
+    section_header("reports in media and professional journals")
+
+    for rep in media:
+        des = de_html(rep["description"])
+        year = de_html(rep["year"])
+        name = de_html(rep["name"])
+        url = de_html(rep.get("url", ""))
+
+        print("\\entry")
+        print("{%s}" % year)
+        if url == "":
+            print("{%s} {\\normalfont %s}" % (name, des))
+        else:
+            print("{\href{%s}{%s}} {\\normalfont %s}" % (url, name, des))
+        print("{}")
+        print("{}")
+        print()
+
+    section_footer()
+
 def awards():
     award = pull_data("awards")
     section_header("awards")
@@ -220,6 +242,7 @@ def awards():
         print()
 
     section_footer()
+    print("\\pagebreak")
 
 def lectures():
     lect = pull_data("lectures")
@@ -296,15 +319,14 @@ def teaching():
         time = de_html(t["time"])
         title = de_html(t["title"])
         role = de_html(t["role"])
+        code = de_html(t.get("code", ""))
         level = de_html(t["level"])
         location = de_html(t["location"])
         print("\\entry")
         print("{%s}" % (time))
-        print("{{\\normalfont %s for} %s}" % (role, title))
+        print("{%s}" % (title))
+        print("{%s, %s}" % (level, location))
         print("{}")
-        print("{")
-        print("%s, %s \\\\" % (level, location))
-        print("}")
         print()
 
     section_footer()
@@ -316,6 +338,7 @@ def make_tex(style, printcolors):
     positions()
     papers()
     chapters()
+    media()
     awards()
     lectures()
     pedagogy()

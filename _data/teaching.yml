@@ -1,5 +1,11 @@
 - role: Instructor
-  title: Quantum Mechanics
+  title: Physical Chemistry II (CHEM336)
+  level: Undergraduate
+  location: CWRU
+  time: Spring 2020
+
+- role: Instructor
+  title: Introduction to Quantum Mechanics (CHEM446)
   level: Undergraduate + Graduate
   location: CWRU
   time: Fall 2019
