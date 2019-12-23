@@ -42,7 +42,11 @@ permalink: /members/
 <div class="row">
 {% endif %}
     <div class="col-xs-offset-2 col-xs-8 col-xs-clear col-sm-6 col-sm-offset-0 col-md-3">
-      <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/{{student.photo}}" alt="{{student.name}}">
+      {% if student.photo %}
+        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/{{student.photo}}" alt="{{student.name}}">
+      {% else %}
+        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo.png" alt="{{student.name}} not pictured">
+      {% endif %}
       <h3>{{student.name}}</h3>
       <ul class="list-unstyled">
         <li>e-mail: <a href="mailto:{{student.email}}">{{student.email}}</a></li>
