@@ -1,3 +1,15 @@
+- authors: [S. Balasubramani, G. P. Chen, S. Coriani, M. Diedenhofen, M. S. Frank, Y. J. Franzke, F. Furche, R. Grotjahn
+           , M. E. Harding, C. Hättig, A. Hellweg, B. Helmich-Paris, C. Holzer, U. Huniar, M. Kaupp, A. Marefat Khah,
+            S. Karbalaei Khani, T. Müller, F. Mack, B. D. Nguyen, me, E. Perlt, D. Rappoport, K. Reiter,
+            S. Roy, M. Rückert, G. Schmitz, M. Sierka, E. Tapavicza, D. P. Tew, C. van Wüllen, V. K. Voora,
+            F. Weigend, A. Wodyński, J. M. Yu]
+  title: "TURBOMOLE: Modular program suite for ab initio quantum-chemical and condensed-matter simulations"
+  year: 2020
+  journal: The Journal of Chemical Physics
+  volume: 152
+  page: 184107
+  doi: 10.1063/5.0004635
+
 - authors: [me, S. Roy, F. Furche]
   title: "Multistate hybrid time-dependent density functional theory with surface hopping accurately captures ultrafast thymine photodeactivation"
   year: 2019
