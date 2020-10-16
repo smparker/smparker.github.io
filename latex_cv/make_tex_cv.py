@@ -5,6 +5,8 @@ from __future__ import print_function
 import yaml
 import re
 
+SIMPLE = False
+
 def pull_data(name):
     return yaml.load(open("../_data/" + name + ".yml"))
 
@@ -113,7 +115,7 @@ def positions():
         institution = de_html(p["institution"])
         advisor = de_html(p["advisor"]) if "advisor" in p else None
         interest = de_html(p["interest"]) if "interest" in p else None
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (title))
         print("{%s}" % (location))
@@ -132,11 +134,12 @@ def papers():
     # papers are kind of special so will use a raw enumerate
     pubs = pull_data("papers")
     section_header("publications", "enumerate")
+    smp = "\\underline{S. M. Parker}" if not SIMPLE else "S. M. Parker"
 
     for i, pub in enumerate(pubs):
         ir = len(pubs) - i
         authors = de_html(", ".join(
-            ["\\underline{S. M. Parker}" if x=="me" else x for x in pub["authors"]
+            [smp if x=="me" else x for x in pub["authors"]
         ]))
         has_notes = "note" in pub
 
@@ -146,7 +149,9 @@ def papers():
         year = "(%s)" % de_html(pub["year"])
         title = de_html(pub["title"])
         url = pub.get("url","")
-        if url:
+        if not url and "doi" in pub:
+            url = "https://dx.doi.org/{}".format(pub["doi"])
+        if url and not SIMPLE:
             title = "\href{%s}{%s}" % (url, title)
 
         if not has_notes:
@@ -156,6 +161,8 @@ def papers():
             jvpy = ", ".join(filter(None, [journal, volume, page])) + " " + year
             print("%s \\\\" % (jvpy))
             print(title)
+            if url and SIMPLE:
+                print(url)
             print()
         else:
             notes = de_html(pub["note"])
@@ -163,6 +170,8 @@ def papers():
             jyn = ", ".join(filter(None, [ journal, year, notes ]))
             print("%s \\\\" % (jyn))
             print(title)
+            if url and SIMPLE:
+                print(url)
             print()
 
     section_footer("enumerate")
@@ -214,7 +223,7 @@ def media():
         name = de_html(rep["name"])
         url = de_html(rep.get("url", ""))
 
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % year)
         if url == "":
             print("{%s} {\\normalfont %s}" % (name, des))
@@ -234,7 +243,7 @@ def awards():
         des = de_html(a.get("description", ""))
         name = de_html(a["name"])
         year = de_html(a["year"])
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % (year))
         print("{%s {\\normalfont %s}}" % (name, des))
         print("{}")
@@ -258,7 +267,7 @@ def lectures():
             continue
         #if invited:
         #    title += r" \textit{(invited)}"
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (title))
         print("{%s}" % (location))
@@ -278,7 +287,7 @@ def pedagogy():
         topic = de_html(l["topic"])
         location = de_html(l["location"])
         institution = de_html(l["institution"])
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (topic))
         print("{%s}" % (location))
@@ -299,7 +308,7 @@ def posters():
         location = de_html(p["location"])
         authors = de_html(p["authors"])
         event = de_html(p["event"])
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (title))
         print("{%s}" % (location))
@@ -322,7 +331,7 @@ def teaching():
         code = de_html(t.get("code", ""))
         level = de_html(t["level"])
         location = de_html(t["location"])
-        print("\\entry")
+        if not SIMPLE: print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (title))
         print("{%s, %s}" % (level, location))
@@ -352,10 +361,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script to auto-generate a CV or a Resume from collected yaml files")
     parser.add_argument("-t", "--type", type=str, dest="style", choices=("cv", "resume"), default="cv")
     parser.add_argument("-p", "--print", dest="printcolors", action="store_true")
+    parser.add_argument("--simple", "-s", dest="simple", action="store_true")
 
     args = parser.parse_args()
 
     style = args.style
     printcolors = args.printcolors
+    SIMPLE = args.simple
 
     make_tex(style, printcolors)
