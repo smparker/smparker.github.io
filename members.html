@@ -34,6 +34,31 @@ permalink: /members/
   </div>
 </div>
 <div class="row">
+  <h2>Postdoctoral Scholars</h2>
+</div>
+{% for postdoc in site.data.postdocs %}
+{% assign modindex = forloop.index0 | modulo: 4 %}
+{% if modindex == 0 %}
+<div class="row">
+{% endif %}
+    <div class="col-xs-offset-2 col-xs-8 col-xs-clear col-sm-6 col-sm-offset-0 col-md-3">
+      {% if postdoc.photo %}
+        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/{{postdoc.photo}}" alt="{{postdoc.name}}">
+      {% else %}
+        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo.png" alt="{{postdoc.name}} not pictured">
+      {% endif %}
+      <h3>{{postdoc.name}}</h3>
+      <ul class="list-unstyled">
+        <li>e-mail: <a href="mailto:{{postdoc.email}}">{{postdoc.email}}</a></li>
+        <li>office: {{postdoc.office}}</li>
+      <ul>
+    </div>
+{% if modindex == 3 or forloop.last %}
+</div>
+{% endif %}
+{% endfor %}
+
+<div class="row">
   <h2>Graduate Students</h2>
 </div>
 {% for student in site.data.grad_students %}
@@ -75,7 +100,7 @@ permalink: /members/
       <h3>{{student.name}}</h3>
       <ul class="list-unstyled">
         <li>e-mail: <a href="mailto:{{student.email}}">{{student.email}}</a></li>
-        <li>office: {{student.office}}</li>
+        {% if student.office %} <li>office: {{student.office}}</li> {% endif %}
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
