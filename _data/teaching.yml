@@ -1,4 +1,10 @@
 - role: Instructor
+  title: Computational Chemistry (CHEM342/442)
+  level: Undergraduate + Graduate
+  location: CWRU
+  time: Fall 2020
+
+- role: Instructor
   title: Physical Chemistry II (CHEM336)
   level: Undergraduate
   location: CWRU

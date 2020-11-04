@@ -2,7 +2,11 @@
   title: "Surface hopping with cumulative probabilities: even sampling and improved reproducibility"
   year: 2020
   journal: The Journal of Chemical Physics
-  note: accepted
+  volume: 153
+  page: 174109
+  doi: 10.1063/5.0024372
+  special: "Scilight featured article"
+  special_url: https://aip.scitation.org/doi/10.1063/10.0002652
 
 - authors: [S. Balasubramani, G. P. Chen, S. Coriani, M. Diedenhofen, M. S. Frank, Y. J. Franzke, F. Furche, R. Grotjahn
            , M. E. Harding, C. Hättig, A. Hellweg, B. Helmich-Paris, C. Holzer, U. Huniar, M. Kaupp, A. Marefat Khah,

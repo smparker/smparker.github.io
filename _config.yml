@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 motto: High Performance Computational Photochemistry
 cv:
   name: smp-cv.pdf
-  date: "12/23/2019"
+  date: "11/04/2020"
 url: "https://quantumparker.com" # the base hostname & protocol for your site
 #twitter_username: sparkadocious
 github_username:  smparker

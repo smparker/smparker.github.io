@@ -251,7 +251,6 @@ def awards():
         print()
 
     section_footer()
-    print("\\pagebreak")
 
 def lectures():
     lect = pull_data("lectures")

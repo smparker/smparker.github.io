@@ -1,3 +1,8 @@
+- name: Scilight featured article
+  description: Photochemistry simulations dramatically improve reliability and reproducibility
+  year: 2020
+  url: https://aip.scitation.org/doi/10.1063/10.0002652
+
 - name: PCCP Editor's choice
   description: Multi-state TDDFT paper selected as outstanding article by Editor-in-Chief
   year: 2019
