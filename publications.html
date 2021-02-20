@@ -20,6 +20,7 @@ permalink: /publications/
          {% if paper.note %} {{paper.note}} {% endif %}
     {% if paper.doi %}<br>doi: {{paper.doi}} {% endif %}
     <br> {% if paper.doi %}<a href="https://dx.doi.org/{{paper.doi}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.doi %}</a>{% endif %}
+    {% if paper.preprint %}(<a href="{{base.url}}/preprints/{{paper.preprint_pdf}}" target="_blank">{{paper.preprint}}</a>){% endif %}
     {% if paper.special %} ({% if paper.special_url %}<a href="{{paper.special_url}}" target="_blank">{% endif %}{{paper.special}}{% if paper.special_url %}</a> {% endif %}) {% endif %}
   {% endfor %}
 </ol>
