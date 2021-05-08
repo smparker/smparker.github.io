@@ -51,6 +51,7 @@ permalink: /members/
       <ul class="list-unstyled">
         <li>e-mail: <a href="mailto:{{postdoc.email}}">{{postdoc.email}}</a></li>
         <li>office: {{postdoc.office}}</li>
+        <li>research interests: {{postdoc.interests}}</li>
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
@@ -76,6 +77,7 @@ permalink: /members/
       <ul class="list-unstyled">
         <li>e-mail: <a href="mailto:{{student.email}}">{{student.email}}</a></li>
         <li>office: {{student.office}}</li>
+        <li>research interests: {{student.interests}}</li>
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
@@ -101,6 +103,7 @@ permalink: /members/
       <ul class="list-unstyled">
         <li>e-mail: <a href="mailto:{{student.email}}">{{student.email}}</a></li>
         {% if student.office %} <li>office: {{student.office}}</li> {% endif %}
+        <li>research interests: {{student.interests}}</li>
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
