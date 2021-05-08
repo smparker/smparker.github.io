@@ -14,12 +14,22 @@ bold_title: true
 </div>
 
 <div class="row">
-    <div class="col-md-offset-2 col-md-4 text-center">
+    <div class="col-md-offset-2 col-md-8 text-center">
         <img class="img-responsive img-rounded" src="{{base.url}}/assets/conical.png" alt="Conical Intersection">
     </div>
-    <div class="col-md-4">
+  <div class="col-md-2 main-news">
+    <h3><a href="{{base.url}}/news">Recent News</a></h3>
+    <ul>
+    {% assign recent_news = site.news | reversed %}
+    {% for e in recent_news limit:4 %}
+    <li> <span class="main-news-date">{{e.date | date:"(%x)"}}</span> {{e.title}} </li>
+    {% endfor %}
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-3 col-md-6">
         <h3>A computational photochemistry group</h3>
-        <p>The Parker group designs new excited-state electronic structure methods, implements these methods
+        <p class="main-description">The Parker group designs new excited-state electronic structure methods, implements these methods
         into highly efficient computer programs, and applies these programs to unravel the mechanistic details
         of photochemical reactions.</p>
     </div>

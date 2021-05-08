@@ -32,6 +32,14 @@ collections:
         type: notes
       values:
         layout: page
+  news:
+    output: true
+    defaults:
+      scope:
+        path: ""
+        type: notes
+      values:
+        layout: page
   collab:
     output: false
     permalink: /:collection/:path/

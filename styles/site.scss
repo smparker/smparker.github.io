@@ -162,3 +162,27 @@ li.cat-item.active {
   color: #0a304e;
   text-align: center;
 }
+
+.main-news {
+  font-size: 150%;
+  color: #0a304e;
+  a {
+    color: #0a304e;
+  }
+}
+
+.main-news-date {
+  font-size: 75%;
+  color: lighten(black, 50%);
+}
+
+.main-description {
+  font-size: 150%;
+}
+
+.news-date {
+  font-size: 150%;
+  color: #0a304e;
+  text-align: left;
+  vertical-align: center;
+}
