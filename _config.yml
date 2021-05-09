@@ -20,7 +20,7 @@ sass:
 markdown: kramdown
 mathjax: true
 
-exclude: [ latex_cv, launch, Gemfile, Rakefile ]
+exclude: [ latex_cv, launch, Gemfile, Rakefile, scripts, nih_biosketch, nsf_biosketch, bib ]
 
 # Collections
 collections:

@@ -1,0 +1,31 @@
+---
+layout: default
+title:  group
+use_slide: true
+categories: cv
+header_order: 4
+permalink: /group/
+---
+<div class="demo">
+    <ul id="lightSlider">
+        {% for i in site.data.gallery %}
+        <li data-thumb="{{base.url}}/gallery/thumb/{{i.name}}">
+          <img class="img-responsive" src="{{base.url}}/gallery/{{i.name}}" alt="{{i.alt}}"/>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+  <script>
+    $('#lightSlider').lightSlider({
+    gallery: true,
+    item: 1,
+    loop: true,
+    slideMargin: 0,
+    responsive: [
+      { breakpoint: 768,
+        settings: { thumbItem: 5 }
+      }
+    ]
+});
+  </script>
