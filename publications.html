@@ -10,7 +10,7 @@ permalink: /publications/
   {% for paper in site.data.papers %}
     <li value="{{forloop.rindex}}">
       {% for name in paper.authors %}
-        {% if name == "me" %} <u>S. M. Parker</u>, {% else %} {{name}}, {% endif %}
+        {{name}},
       {% endfor %}
         <br>
         {% if paper.journal %}<i>{{paper.journal}}</i>{% endif %}{% if paper.volume %},
@@ -30,7 +30,7 @@ permalink: /publications/
   {% for chapter in site.data.chapters %}
     <li value="{{forloop.rindex}}">
       {% for name in chapter.authors %}
-        {% if name == "me" %} <u>S. M. Parker</u>, {% else %} {{name}}, {% endif %}
+       {{name}},
       {% endfor %}
         <br>
         {{chapter.page}}, ({{chapter.year}}){% if chapter.doi %}, doi: {{chapter.doi}} {% endif %} <br>

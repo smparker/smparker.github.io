@@ -1,4 +1,14 @@
-- authors: [me, C. J. Schiltz]
+- authors:
+    - J. Jimenez
+    - Z. Zhou
+    - A. L. Rheingold
+    - S. M. Parker
+    - G. Sauvé
+  title: "Tuning the properties of azadipyrromethene-based near-infrared dyes using intramolecular BO-chelation and peripheral substitutions"
+  year: 2021
+  note: submitted
+
+- authors: [S. M. Parker, C. J. Schiltz]
   title: "Surface hopping with cumulative probabilities: even sampling and improved reproducibility"
   year: 2020
   journal: The Journal of Chemical Physics
@@ -12,7 +22,7 @@
 
 - authors: [S. Balasubramani, G. P. Chen, S. Coriani, M. Diedenhofen, M. S. Frank, Y. J. Franzke, F. Furche, R. Grotjahn
            , M. E. Harding, C. Hättig, A. Hellweg, B. Helmich-Paris, C. Holzer, U. Huniar, M. Kaupp, A. Marefat Khah,
-            S. Karbalaei Khani, T. Müller, F. Mack, B. D. Nguyen, me, E. Perlt, D. Rappoport, K. Reiter,
+            S. Karbalaei Khani, T. Müller, F. Mack, B. D. Nguyen, S. M. Parker, E. Perlt, D. Rappoport, K. Reiter,
             S. Roy, M. Rückert, G. Schmitz, M. Sierka, E. Tapavicza, D. P. Tew, C. van Wüllen, V. K. Voora,
             F. Weigend, A. Wodyński, J. M. Yu]
   title: "TURBOMOLE: Modular program suite for ab initio quantum-chemical and condensed-matter simulations"
@@ -22,7 +32,7 @@
   page: 184107
   doi: 10.1063/5.0004635
 
-- authors: [me, S. Roy, F. Furche]
+- authors: [S. M. Parker, S. Roy, F. Furche]
   title: "Multistate hybrid time-dependent density functional theory with surface hopping accurately captures ultrafast thymine photodeactivation"
   year: 2019
   journal: Physical Chemistry Chemical Physics
@@ -30,7 +40,7 @@
   page: "18999-19010"
   doi: 10.1039/C9CP03127H
 
-- authors: [M. Kubota, S. Nainar, me, W. England, F. Furche, R. Spitale]
+- authors: [M. Kubota, S. Nainar, S. M. Parker, W. England, F. Furche, R. Spitale]
   title: "Expanding the Scope of RNA Metabolic Labeling with Vinyl Nucleosides and Inverse Electron-Demand Diels-Alder Chemistry"
   year: 2019
   journal: ACS Chemical Biology
@@ -38,7 +48,7 @@
   page: "1698-1707"
   doi: 10.1021/acschembio.9b00079
 
-- authors: [me, D. Rappoport, F. Furche]
+- authors: [S. M. Parker, D. Rappoport, F. Furche]
   title: "Quadratic response properties from TDDFT: trials and tribulations"
   journal: "Journal of Chemical Theory and Computation"
   year: 2018
@@ -46,7 +56,7 @@
   page: "807-819"
   doi: 10.1021/acs.jctc.7b01008
 
-- authors: [M. Muuronen, me, E. Berardo, A. Le, M. Zwijnenburg, F. Furche]
+- authors: [M. Muuronen, S. M. Parker, E. Berardo, A. Le, M. Zwijnenburg, F. Furche]
   title: Mechanism of Photocatalytic Water Oxidation on Small TiO<sub>2</sub> Nanoparticles
   journal: Chemical Science
   year: 2017
@@ -54,7 +64,7 @@
   page: "2179-2183"
   doi: 10.1039/C6SC04378J
 
-- authors: [me, S. Roy, and F. Furche]
+- authors: [S. M. Parker, S. Roy, and F. Furche]
   year: 2016
   journal: The Journal of Chemical Physics
   title: Unphysical divergences in response theory
@@ -62,7 +72,7 @@
   page: 134105
   doi:  10.1063/1.4963749
 
-- authors: [V. A. Nasluzov, me, A. Genest, A. M. Shor, E. A. Ivanova-Shor, N. R&ouml;sch]
+- authors: [V. A. Nasluzov, S. M. Parker, A. Genest, A. M. Shor, E. A. Ivanova-Shor, N. R&ouml;sch]
   year: 2015
   journal: Kinetics and Catalysis
   volume: 56
@@ -70,7 +80,7 @@
   title: "Trinuclear tantalum clusters grafted to hydroxylated silica surfaces: A density-functional embedded-cluster study"
   doi: 10.1134/S0023158415050134
 
-- authors: [I. Kim, me, T. Shiozaki]
+- authors: [I. Kim, S. M. Parker, T. Shiozaki]
   year: 2015
   journal: Journal of Chemical Theory and Computation
   volume: 11
@@ -78,7 +88,7 @@
   title: "Orbital Optimization in the Active Space Decomposition Model"
   doi: 10.1021/acs.jctc.5b00429
 
-- authors: [me, T. Shiozaki]
+- authors: [S. M. Parker, T. Shiozaki]
   year: 2014
   journal: The Journal of Chemical Physics
   volume: 141
@@ -87,7 +97,7 @@
   doi: 10.1063/1.4902991
   special: "2014 JCP Editors' Choice"
 
-- authors: [me, M. Smeu, I. Franco, M. A. Ratner, T. Seideman]
+- authors: [S. M. Parker, M. Smeu, I. Franco, M. A. Ratner, T. Seideman]
   year: 2014
   journal: Nano Letters
   volume: 14
@@ -95,7 +105,7 @@
   title: "Molecular Junctions: Can Pulling Influence Optical Controllability"
   doi: 10.1021/nl501629c
 
-- authors: [me, T. Shiozaki]
+- authors: [S. M. Parker, T. Shiozaki]
   year: 2014
   journal: Journal of Chemical Theory and Computation
   volume: 10
@@ -104,7 +114,7 @@
   doi: 10.1021/ct5004753
   special: "ACS Editors' Choice on August 9, 2014"
 
-- authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
+- authors: [S. M. Parker, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2014
   journal: Journal of Physical Chemistry C
   volume: 118
@@ -112,7 +122,7 @@
   title: "Model Hamiltonian analysis of singlet fission from first principles"
   doi: 10.1021/jp505082a
 
-- authors: [me, T. Seideman, M. A. Ratner, T. Shiozaki]
+- authors: [S. M. Parker, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2013
   journal: The Journal of Chemical Physics
   volume: 139
@@ -120,7 +130,7 @@
   title: "Active-space decomposition for molecular dimers"
   doi: 10.1063/1.4813827
 
-- authors: [Y. Wu, V. A. Karttunen, me, A. Genest, N. R&ouml;sch]
+- authors: [Y. Wu, V. A. Karttunen, S. M. Parker, A. Genest, N. R&ouml;sch]
   year: 2013
   journal: Organometallics
   volume: 32
@@ -128,7 +138,7 @@
   title: "Olefin Hydrosilylation Catalyzed by a Bis-N-Heterocyclic Carbene Rhodium Complex. A Density Functional Theory Study"
   doi: 10.1021/om301236n
 
-- authors: [me, M. A. Ratner, T. Seideman]
+- authors: [S. M. Parker, M. A. Ratner, T. Seideman]
   year: 2012
   journal: Molecular Physics
   volume: 110
@@ -136,7 +146,7 @@
   title: "Simulating strong field control of axial chirality using optimal control theory"
   doi: 10.1080/00268976.2012.695808
 
-- authors: [me, M. A. Ratner, T. Seideman]
+- authors: [S. M. Parker, M. A. Ratner, T. Seideman]
   year: 2011
   journal: The Journal of Chemical Physics
   volume: 135
