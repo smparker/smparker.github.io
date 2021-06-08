@@ -12,7 +12,8 @@
 
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="nav-titles nav navbar-nav navbar-right">
-            {% assign sorted_pages = site.pages | sort: 'header_order' %}
+            {% assign header_pages = site.pages | where_exp: "page", "page.header_order > 0" %}
+            {% assign sorted_pages = header_pages | sort: 'header_order' %}
               {% for p in sorted_pages %}
                 {% if p.title %}
                   {% if p.title != index %}
