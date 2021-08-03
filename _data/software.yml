@@ -1,0 +1,20 @@
+- name: mudslide
+  url: https://www.github.com/smparker/mudslide
+  description: Python framework for running surface hopping simulations
+    using model problems
+  image: cumulativesh.jpg
+  image_base: true
+  alt: The mudslide code
+
+- name: molecular blender
+  url: https://www.github.com/smparker/molecular-blender
+  description: Blender plugin for importing molecules, trajectories, and orbitals
+  image: pulling.png
+  alt: Molecular blender is a Blender plugin for quantum chemistry
+
+- name: orient molecule
+  url: https://www.github.com/smparker/orient-molecule
+  description: Standalone python script to manipulate molecular structures
+    (translate, rotate, align, etc.)
+  image: orient.jpg
+  alt: Orient molecule is a standalone python script that helps manipulate molecular structures
