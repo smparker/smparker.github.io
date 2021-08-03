@@ -186,3 +186,27 @@ li.cat-item.active {
   text-align: left;
   vertical-align: center;
 }
+
+table.directory {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    border-bottom: 2px solid #111;
+  }
+
+  tr:hover {
+    background-color: #eee;
+  }
+
+  a  {
+     text-align: left;
+	}
+  td {
+    text-align: left;
+  }
+
+  td.name {
+    text-align: left;
+  }
+}

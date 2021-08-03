@@ -110,3 +110,28 @@ permalink: /members/
 </div>
 {% endif %}
 {% endfor %}
+
+<div class="row">
+  <h2>Alumni</h2>
+</div>
+<table class="directory">
+  <tr>
+    <th></th>
+    <th><b>position</b></th>
+    <th><b>where</b></th>
+    <th><b>email</b></th>
+    <th><b>left CWRU</b></th>
+    <th><b>former position</b></th>
+  </tr>
+  {% assign sortedpeople = site.data.alumni | sort: 'left' %}
+  {% for person in sortedpeople %}
+  <tr>
+    <td class="name"> {{person.name}} </td>
+    <td> {{person.position}} </td>
+    <td> {{person.where}} </td>
+    <td> {{person.email}} </td>
+    <td> {{person.left}} </td>
+    <td> {{person.was}} </td>
+  </tr>
+  {% endfor %}
+</table>
