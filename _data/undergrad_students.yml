@@ -1,12 +1,12 @@
-- name: Colin Schiltz
-  email: cjs214@case.edu
-  photo: colin.jpg
-  interests: even sampling surface hopping
-
-- name: Krista Schoonover
-  email: krista.schoonover@case.edu
-  interests: photodynamics of solvatochromic dyes
-  photo: krista.jpg
+#- name: Colin Schiltz
+#  email: cjs214@case.edu
+#  photo: colin.jpg
+#  interests: even sampling surface hopping
+#
+#- name: Krista Schoonover
+#  email: krista.schoonover@case.edu
+#  interests: photodynamics of solvatochromic dyes
+#  photo: krista.jpg
 
 - name: Annabella Debernardo
   email: aed88@case.edu
