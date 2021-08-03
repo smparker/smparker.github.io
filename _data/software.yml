@@ -7,7 +7,7 @@
   alt: The mudslide code
 
 - name: molecular blender
-  url: https://www.github.com/smparker/molecular-blender
+  url: https://smparker.github.io/molecular-blender
   description: Blender plugin for importing molecules, trajectories, and orbitals
   image: pulling.png
   alt: Molecular blender is a Blender plugin for quantum chemistry
