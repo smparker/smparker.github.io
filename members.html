@@ -52,6 +52,12 @@ permalink: /members/
         <li>e-mail: <a href="mailto:{{postdoc.email}}">{{postdoc.email}}</a></li>
         <li>office: {{postdoc.office}}</li>
         <li>research interests: {{postdoc.interests}}</li>
+        {% if postdoc.scholar %}
+        <li> <a href="{{postdoc.scholar}}">{{site.scholar_icon}} scholar</a> </li>
+        {% endif %}
+        {% if postdoc.github %}
+        <li> <a href="https://www.github.com/{{postdoc.github}}">{{site.github_icon}} {{postdoc.github}}</a> </li>
+        {% endif %}
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
@@ -78,6 +84,12 @@ permalink: /members/
         <li>e-mail: <a href="mailto:{{student.email}}">{{student.email}}</a></li>
         <li>office: {{student.office}}</li>
         <li>research interests: {{student.interests}}</li>
+        {% if student.scholar %}
+        <li> <a href="{{student.scholar}}">{{site.scholar_icon}} scholar</a> </li>
+        {% endif %}
+        {% if student.github %}
+        <li> <a href="https://www.github.com/{{student.github}}">{{site.github_icon}} {{student.github}}</a> </li>
+        {% endif %}
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
@@ -104,6 +116,12 @@ permalink: /members/
         <li>e-mail: <a href="mailto:{{student.email}}">{{student.email}}</a></li>
         {% if student.office %} <li>office: {{student.office}}</li> {% endif %}
         <li>research interests: {{student.interests}}</li>
+        {% if student.scholar %}
+        <li> <a href="{{student.scholar}}">{{site.scholar_icon}} scholar</a> </li>
+        {% endif %}
+        {% if student.github %}
+        <li> <a href="https://www.github.com/{{student.github}}">{{site.github_icon}} {{student.github}}</a> </li>
+        {% endif %}
       <ul>
     </div>
 {% if modindex == 3 or forloop.last %}
