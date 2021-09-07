@@ -169,11 +169,26 @@ li.cat-item.active {
   a {
     color: #0a304e;
   }
+
+  ul {
+    line-height: 80%;
+    padding-left: 0.5em;
+    margin-left:0;
+
+    li {
+      padding-bottom:0.25em;
+    }
+  }
 }
 
 .main-news-date {
   font-size: 75%;
   color: lighten(black, 50%);
+
+}
+
+.main-news-title {
+  font-size: 75%;
 }
 
 .main-description {

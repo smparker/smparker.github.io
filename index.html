@@ -19,10 +19,9 @@ bold_title: true
     </div>
   <div class="col-md-2 main-news">
     <h3><a href="{{base.url}}/news">Recent News</a></h3>
-    <ul>
-    {% assign recent_news = site.news | reversed %}
+    {% assign recent_news = site.news | reverse %}
     {% for e in recent_news limit:4 %}
-    <li> <span class="main-news-date">{{e.date | date:"(%x)"}}</span> {{e.title}} </li>
+    <li> <span class="main-news-date">{{e.date | date:"(%-d %b %y)"}}</span> <span class="main-news-title">{{e.title}}</span> </li>
     {% endfor %}
   </div>
 </div>
