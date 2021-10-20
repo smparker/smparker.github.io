@@ -1,5 +1,14 @@
-- name: Glennan Fellowship
+- name: Frank Hovorka Professor of Chemistry, CWRU
+  year: 2021 &ndash; 2024
+
+- name: Glennan Fellowship, CWRU
   year: 2020 &ndash; 2021
+
+- name: STAIR Mentor Fellows Program, CWRU
+  year: 2020
+
+- name: Nominated for John S. Diekhoff Award for Distinguished Graduate Student Teaching, CWRU
+  year: 2019
 
 - name: Arnold O. Beckman Postdoctoral Fellowship
   year: 2016 &ndash; 2019
@@ -7,10 +16,10 @@
 - name: Department of Energy Office of Science Graduate Fellowship
   year: 2010 &ndash; 2013
 
-  #- name: Lindau Conference
-  #  description: selected to attend conference bringing together young researchers and Nobel laureates
-  #  year: 2009
-  #
+- name: Lindau Conference
+  description: selected to attend conference bringing together young researchers and Nobel laureates
+  year: 2009
+
 - name: Fulbright Fellowship
   description: Technische Universit&auml;t M&uuml;nchen
   year: 2008 &ndash; 2009
@@ -23,9 +32,9 @@
   #  description: stipend for undergraduate research
   #  year: 2006 &ndash; 2007
   #
-  #- name: Anderson Scholar with Highest Distinction
-  #  description: for academic achievement and uninterrupted study
-  #  year: 2006
+- name: Anderson Scholar with Highest Distinction
+  description: for academic achievement and uninterrupted study
+  year: 2006
   #
   #- name: "President's honor roll"
   #  description: "for semester with 4.0 GPA, all 8 semesters"

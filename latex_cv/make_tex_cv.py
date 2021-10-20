@@ -8,7 +8,7 @@ import re
 SIMPLE = False
 
 def pull_data(name):
-    return yaml.load(open("../_data/" + name + ".yml"))
+    return yaml.safe_load(open("../_data/" + name + ".yml"))
 
 # search-replace pairs to convert html special characters to latex
 de_html_impl = [ ("--", re.compile(r"&ndash;")),
@@ -320,24 +320,35 @@ def posters():
     section_footer()
 
 def teaching():
-    teach = pull_data("teaching")
-    section_header("select teaching")
+    # teach = pull_data("teaching")
+    # section_header("select teaching")
 
+    # for t in teach:
+    #     time = de_html(t["time"])
+    #     title = de_html(t["title"])
+    #     role = de_html(t["role"])
+    #     code = de_html(t.get("code", ""))
+    #     level = de_html(t["level"])
+    #     location = de_html(t["location"])
+    #     if not SIMPLE: print("\\entry")
+    #     print("{%s}" % (time))
+    #     print("{%s}" % (title))
+    #     print("{%s, %s}" % (level, location))
+    #     print("{}")
+    #     print()
+
+    teach = pull_data("courses")
+    print("\\section{courses taught}")
+
+    print("\\begin{itemize}")
     for t in teach:
-        time = de_html(t["time"])
         title = de_html(t["title"])
-        role = de_html(t["role"])
-        code = de_html(t.get("code", ""))
-        level = de_html(t["level"])
-        location = de_html(t["location"])
-        if not SIMPLE: print("\\entry")
-        print("{%s}" % (time))
-        print("{%s}" % (title))
-        print("{%s, %s}" % (level, location))
-        print("{}")
-        print()
-
-    section_footer()
+        when = de_html(t["taught"])
+        courseid = de_html(t["id"])
+        print("\\item")
+        print("%s: \\textbf{%s}" % (courseid, title))
+        print("(%s)" % when)
+    print("\\end{itemize}")
 
 def make_tex(style, printcolors):
     header(style, printcolors)

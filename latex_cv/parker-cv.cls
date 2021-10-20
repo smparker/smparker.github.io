@@ -80,27 +80,42 @@
 \newcommand{\timesize}{\fontsize{10pt}{12pt}\selectfont}
 
 \newcommand{\header}[5]{%
-  \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, anchor=north, minimum width=\paperwidth, minimum height=3.5cm] (box) at (current page.north){};
-    \node [rectangle, anchor=south, minimum width=\paperwidth-4cm, minimum height=2cm] (innerbox) at (box.south){};
-    \node [anchor=west] (shanem) at (innerbox.west) {%
-      \fontsize{32pt}{32pt}\color{header}%
-      {\thinfont #1} {\bodyfont #2}
-    };
-    \node[anchor=north east] (email) at (innerbox.north east) {%
-      \fontsize{12pt}{16pt}\color{header}
-      {\thinfont e-mail: #3}
-    };
-    \node[anchor=east] (web) at (innerbox.east) {%
-      \fontsize{12pt}{16pt}\color{header}
-      {\thinfont web: #4}
-    };
-    \node[anchor=south east] (ph) at (innerbox.south east) {%
-      \fontsize{12pt}{16pt}\color{header}
-      {\thinfont ph: #5}
-    };
-  \end{tikzpicture}
-  \vspace{1.5cm}
+  %\begin{tikzpicture}[remember picture,overlay]
+  %  \node [rectangle, anchor=north, minimum width=\paperwidth, minimum height=3.5cm] (box) at (current page.north){};
+  %  \node [rectangle, anchor=south, minimum width=\paperwidth-4cm, minimum height=2cm] (innerbox) at (box.south){};
+  %  \node [anchor=west] (shanem) at (innerbox.west) {%
+  %    \fontsize{18pt}{18pt}\color{header}%
+  %    {\thinfont #1} {\bodyfont #2}
+  %  };
+  %  \node[anchor=north east] (email) at (innerbox.north east) {%
+  %    \fontsize{10pt}{10pt}\color{header}
+  %    {\thinfont e-mail: #3}
+  %  };
+  %  \node[anchor=east] (web) at (innerbox.east) {%
+  %    \fontsize{10pt}{10pt}\color{header}
+  %    {\thinfont web: #4}
+  %  };
+  %  \node[anchor=south east] (ph) at (innerbox.south east) {%
+  %    \fontsize{10pt}{10pt}\color{header}
+  %    {\thinfont ph: #5}
+  %  };
+  %\end{tikzpicture}
+  %\vspace{1.5cm}
+{ \large
+  \noindent \textbf{Shane M. Parker, PhD} }\\
+
+\begin{minipage}{0.7\textwidth}
+  \noindent Frank Hovorka Assistant Professor of Chemistry \\
+  \noindent Case Western Reserve University \\
+  \noindent Department of Chemistry \\
+  \noindent 10900 Euclid Ave., Cleveland, OH 44106
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+  \noindent web: quantumparker.com \\
+  \noindent ph: (216) 368-3697 \\
+  \noindent orcid: \href{https://orcid.org/0000-0002-1110-3393}{0000-0002-1110-3393} \\
+  \noindent scholar: \href{https://scholar.google.com/citations?user=OqC2Vc8AAAAJ&hl=en}{OqC2Vc8AAAAJ}
+\end{minipage}
 }
 
 
@@ -129,10 +144,10 @@
 \renewcommand{\section}[1]{
   \par\vspace{\parskip}
   {%
-    \LARGE\headingfont\color{headercolor}%
+    \large\headingfont\color{headercolor}%
     \@sectioncolor #1%
   }
-  \par\vspace{\parskip}
+  %\par\vspace{\parskip}
 }
 
 \renewcommand{\subsection}[1]{
