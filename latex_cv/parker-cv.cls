@@ -188,16 +188,16 @@
   \begin{longtabu}{@{\extracolsep{\fill}}ll}
 }{%
   \end{longtabu}
-  \vspace{-0.5cm}
+  \vspace{-2em}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 
-\newcommand{\entry}[4]{%
-  \parbox[t]{\timelength}{\timesize #1}&\parbox[t]{\desclength}{%
-    \textbf{#2}%
+\newcommand{\entry}[5][0.5\parsep]{%
+  \parbox[t]{\timelength}{\timesize #2}&\parbox[t]{\desclength}{%
+    \textbf{#3}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{0.5\parsep}%
+    {\footnotesize\addfontfeature{Color=lightgray} #4}\\%
+    #5\vspace{#1}%
   }\\
 }
 

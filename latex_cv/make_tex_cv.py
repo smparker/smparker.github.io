@@ -70,6 +70,8 @@ def header(style, to_print = True):
     print(r'\renewcommand{\normalsize}{\fontsize{10}{12}\selectfont}')
     print(r'\renewcommand{\LARGE}{\fontsize{14}{16}\selectfont}')
     print()
+    print(r'\usepackage{enumitem}')
+    print()
     print(r'\begin{document}')
     print()
     print(r'\header{Shane M.}{Parker}{shane.parker@case.edu}{quantumparker.com}{(216) 368-3697}')
@@ -115,7 +117,7 @@ def positions():
         institution = de_html(p["institution"])
         advisor = de_html(p["advisor"]) if "advisor" in p else None
         interest = de_html(p["interest"]) if "interest" in p else None
-        if not SIMPLE: print("\\entry")
+        if not SIMPLE: print("\\entry[-0.5em]")
         print("{%s}" % (time))
         print("{%s}" % (title))
         print("{%s}" % (location))
@@ -223,7 +225,7 @@ def media():
         name = de_html(rep["name"])
         url = de_html(rep.get("url", ""))
 
-        if not SIMPLE: print("\\entry")
+        if not SIMPLE: print("\\entry[-1em]")
         print("{%s}" % year)
         if url == "":
             print("{%s} {\\normalfont %s}" % (name, des))
@@ -243,7 +245,7 @@ def awards():
         des = de_html(a.get("description", ""))
         name = de_html(a["name"])
         year = de_html(a["year"])
-        if not SIMPLE: print("\\entry")
+        if not SIMPLE: print("\\entry[-1em]")
         print("{%s}" % (year))
         print("{%s {\\normalfont %s}}" % (name, des))
         print("{}")
@@ -340,7 +342,7 @@ def teaching():
     teach = pull_data("courses")
     print("\\section{courses taught}")
 
-    print("\\begin{itemize}")
+    print("\\begin{itemize}[noitemsep]")
     for t in teach:
         title = de_html(t["title"])
         when = de_html(t["taught"])
