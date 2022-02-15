@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import yaml
 import re
+import datetime
 
 SIMPLE = False
 
@@ -27,6 +28,10 @@ de_html_impl = [ ("--", re.compile(r"&ndash;")),
                  ("\\\'{O}", re.compile(r"&Oacute;")),
                  ("$_{\\\\text{", re.compile(r"<sub>")),
                  ("}}$", re.compile(r"<\/sub>")) ]
+
+def print_date(date):
+    return date.strftime("%B %d, %Y")
+prepared = datetime.date.today()
 
 def de_html(inp):
     out = str(inp)
@@ -71,10 +76,18 @@ def header(style, to_print = True):
     print(r'\renewcommand{\LARGE}{\fontsize{14}{16}\selectfont}')
     print()
     print(r'\usepackage{enumitem}')
+    print(r'\usepackage{fancyhdr}')
+    print(r'\usepackage{lastpage}')
+    print(r'\renewcommand{\headrulewidth}{0pt}')
+    print()
+    print(r'\pagestyle{fancy}')
+    print(r'\fancyhf{}')
+    print()
+    print(r'\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}')
     print()
     print(r'\begin{document}')
     print()
-    print(r'\header{Shane M.}{Parker}{shane.parker@case.edu}{quantumparker.com}{(216) 368-3697}')
+    print(r'\header{Shane M.}{Parker}{shane.parker@case.edu}{quantumparker.com}{(216) 368-3697}{%s}' % (print_date(prepared)))
     print()
     print(r'%----------------------------------------------------------------------------------------')
 

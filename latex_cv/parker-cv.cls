@@ -79,7 +79,7 @@
 }
 \newcommand{\timesize}{\fontsize{10pt}{12pt}\selectfont}
 
-\newcommand{\header}[5]{%
+\newcommand{\header}[6]{%
   %\begin{tikzpicture}[remember picture,overlay]
   %  \node [rectangle, anchor=north, minimum width=\paperwidth, minimum height=3.5cm] (box) at (current page.north){};
   %  \node [rectangle, anchor=south, minimum width=\paperwidth-4cm, minimum height=2cm] (innerbox) at (box.south){};
@@ -102,7 +102,7 @@
   %\end{tikzpicture}
   %\vspace{1.5cm}
 { \large
-  \noindent \textbf{Shane M. Parker, PhD} }\\
+  \noindent \textbf{Shane M. Parker, PhD} } \hfill { \small (#6) }\\
 
 \begin{minipage}{0.7\textwidth}
   \noindent Frank Hovorka Assistant Professor of Chemistry \\
