@@ -1,6 +1,17 @@
 - name: Annabella Debernardo
   email: aed88@case.edu
   interests: simulating multiphoton absorption
+  photo: anna.jpg
+
+- name: William Kattner
+  email: wak38@case.edu
+  interests: electronic and optical properties of titania nanoparticles
+  photo: william.jpg
+
+- name: Thomas-Ethan Kaji
+  email: tak112@case.edu
+  interests: resonance energy transfer in biopolymers
+  photo: ethan.jpg
 
 #- name: Alyssa Guttman
 #  email: apg61@case.edu
