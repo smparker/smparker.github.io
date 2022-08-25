@@ -22,6 +22,16 @@
                 </li>
                 {% endif %}
 
+                {% if site.gitlab_teamname %}
+                <li>
+                  <a href="https://gitlab.com/{{ site.gitlab_teamname }}">
+                    {{site.gitlab_icon}}
+
+                    <span class="username">team-parker</span>
+                  </a>
+                </li>
+                {% endif %}
+
                 {% if site.twitter_username %}
                 <li>
                   <a href="https://twitter.com/{{ site.twitter_username }}">
