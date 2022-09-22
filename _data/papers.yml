@@ -1,7 +1,8 @@
-- authors: [V. G. Desyatkin, W. B. Martin, E. Roy Miller, F. Ted Limpoco, S. R. Almahdali, S. M. Parker, V. O. Rodionov]
-  title: Synthesis and Characterization of Multilayer Graphyne, a Novel Allotrope of Carbon
+- authors: [V. G. Desyatkin, W. B. Martin, A. E. Aliev, N. E. Chapman, A. F. Fonseca, D. S. Galvão, E. R. Miller, K. H. Stone, Z. Wang, D. Zakhidov, F. T. Limpoco, S. R. Almahdali, S. M. Parker, R. H. Baughman, V. O. Rodionov]
+  title: Scalable Synthesis and Characterization of Multilayer gamma-Graphyne, New Carbon Crystals with a Small Direct Band Gap
   year: 2022
-  note: submitted
+  journal: Journal of the American Chemical Society
+  doi: 10.1021/jacs.2c06583
 
 - authors: [Z. Zhou, S. M. Parker]
   title: Accelerating molecular property calculations with semiempirical preconditioning
