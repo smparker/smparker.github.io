@@ -3,7 +3,7 @@
 name="smparker_cv_$(date "+%Y_%m_%d")"
 
 printf "%-80s\r" "Building CV: generating"
-./make_tex_cv.py -p -t cv > $name.tex
+./make_tex_cv.py -p -s -t cv > $name.tex
 
 for pass in "first" "second"; do
   printf "%-80s\r" "Building ${x}: $pass pass"

@@ -1,0 +1,24 @@
+- title: Predictive tools for excited state chemistry
+  status: current
+  award number: Startup
+  source: Case Western Reserve University
+  location: Case Western Reserve University
+  start: 07/2019
+  amount: $786,146
+  objective: Develop excited state electronic structure methods capable of powering nonadiabatic molecular dynamics simulations
+
+- title: Photochemistry with Resonating Mean-Field
+  status: under review
+  source: NSF CAREER, Division of Chemistry
+  start: 06/01/2023
+  end: 05/30/2028
+  location: Case Western Reserve University
+  amount: $700,000
+  objective: Develop algorithms and an implementation for the Resonating Mean-Field method
+    towards establishing Resonating Mean-Field as a tool for photochemistry simulations
+
+- title: Controlling the Donor and Acceptor Distance, Orientation, and Motions in Donor-Acceptor DNA Biophotonic Materials to Optimize their Energy Transfer Efficiencies
+  status: submission planned
+  source: NSF, Division of Material Research
+  location: Case Western Reserve University
+  objective: Unravel the influence of vibronic dynamics on the control of Förster energy transfer in large donor-acceptor systems by designing donor-acceptor DNA scaffolds, measuring the ultrafast dynamics using transient spectroscopy, and simulating the structural dynamics

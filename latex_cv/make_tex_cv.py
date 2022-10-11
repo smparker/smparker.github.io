@@ -26,6 +26,7 @@ de_html_impl = [ ("--", re.compile(r"&ndash;")),
                  ("\\\'{A}", re.compile(r"&Aacute;")),
                  ("\\\'{E}", re.compile(r"&Eacute;")),
                  ("\\\'{O}", re.compile(r"&Oacute;")),
+                 ("\\$", re.compile(r"\$")),
                  ("$_{\\\\text{", re.compile(r"<sub>")),
                  ("}}$", re.compile(r"<\/sub>")) ]
 
@@ -267,6 +268,34 @@ def awards():
 
     section_footer()
 
+def support():
+    supp = pull_data("support")
+    section_header("current and pending support", "itemize")
+
+    for a in supp:
+        def from_a(x):
+            return de_html(a[x])
+        title = de_html(a["title"])
+        status = a["status"]
+        print("\\item")
+        print("\\textbf{{Project Title:}} {} \\\\".format(title))
+        if "amount" in a:
+            print("\\textbf{{Amount:}} {} \\\\".format(from_a("amount")))
+        print("\\textbf{{Status:}} {} \\\\".format(status))
+        if "source" in a:
+            print("\\textbf{{Source:}} {} \\\\".format(from_a("source")))
+        if status == "current":
+            if "start" in a:
+                print("\\textbf{{Start Date:}} {} \\\\".format(from_a("start")))
+            if "end" in a:
+                print("\\textbf{{End Date:}} {} \\\\".format(from_a("end")))
+        if "objective" in a:
+            print("\\textbf{{Project Objective:}} {} \\\\".format(from_a("objective")))
+        print(r"\vspace{-1em}")
+        print()
+
+    section_footer(env="itemize")
+
 def lectures():
     lect = pull_data("lectures")
     section_header("invited lectures")
@@ -365,7 +394,7 @@ def teaching():
         print("(%s)" % when)
     print("\\end{itemize}")
 
-def make_tex(style, printcolors):
+def make_tex(style, printcolors, do_support=False):
     header(style, printcolors)
     if (style == "resume"):
         aside()
@@ -374,6 +403,8 @@ def make_tex(style, printcolors):
     chapters()
     media()
     awards()
+    if do_support:
+        support()
     lectures()
     pedagogy()
     #posters()
@@ -385,13 +416,14 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Script to auto-generate a CV or a Resume from collected yaml files")
     parser.add_argument("-t", "--type", type=str, dest="style", choices=("cv", "resume"), default="cv")
+    parser.add_argument("-s", "--support", dest="support", action="store_true")
     parser.add_argument("-p", "--print", dest="printcolors", action="store_true")
-    parser.add_argument("--simple", "-s", dest="simple", action="store_true")
+    parser.add_argument("-c", "--condensed", dest="condensed", action="store_true")
 
     args = parser.parse_args()
 
     style = args.style
     printcolors = args.printcolors
-    SIMPLE = args.simple
+    SIMPLE = args.condensed
 
-    make_tex(style, printcolors)
+    make_tex(style, printcolors, do_support=args.support)
