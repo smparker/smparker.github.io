@@ -278,7 +278,11 @@ def support():
         title = de_html(a["title"])
         status = a["status"]
         print("\\item")
+        if "url" in a:
+            url = a["url"]
+            title = "\\href{%s}{%s}" % (url, title)
         print("\\textbf{{Project Title:}} {} \\\\".format(title))
+
         if "amount" in a:
             print("\\textbf{{Amount:}} {} \\\\".format(from_a("amount")))
         print("\\textbf{{Status:}} {} \\\\".format(status))
@@ -286,11 +290,15 @@ def support():
             print("\\textbf{{Source:}} {} \\\\".format(from_a("source")))
         if status == "current":
             if "start" in a:
-                print("\\textbf{{Start Date:}} {} \\\\".format(from_a("start")))
+                print("\\textbf{{Start Date:}} {}".format(from_a("start")))
             if "end" in a:
-                print("\\textbf{{End Date:}} {} \\\\".format(from_a("end")))
+                print("\\textbf{{End Date:}} {}".format(from_a("end")))
+            if "start" in a or "end" in a:
+                print("\\\\")
         if "objective" in a:
             print("\\textbf{{Project Objective:}} {} \\\\".format(from_a("objective")))
+        if "details" in a:
+            print("{} \\\\".format(from_a("details")))
         print(r"\vspace{-1em}")
         print()
 
