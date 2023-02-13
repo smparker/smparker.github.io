@@ -4,6 +4,24 @@
   time: October 2022
   invited: true
 
+- title: Accelerating Quantum Chemistry with Semiempirical Preconditioning
+  institution: CWRU-Tohoku 8th Annual Data Science in Engineering and Life Sciences Symposium
+  location: Cleveland, Ohio
+  time: August 2022
+  invited: true
+
+- title: Accelerating TDDFT with Semiempirical Preconditioning
+  institution: 52nd MWTCC
+  location: Columbus, Ohio
+  time: June 2022
+  invited: false
+
+- title: Cumulative Surface Hopping: Faster and More Reproducible
+  institution: APS March Meeting 2022
+  location: Chicago, Illinois
+  time: March 2022
+  invited: false
+
 - title: "Excited-State Chemistry with TDDFT"
   institution: "256th American Chemical Society National Meeting and Exposition"
   location: Boston, Massachussetts
