@@ -2,9 +2,10 @@
   title: Errors in characterization and modeling undermine the report of the synthesis of
     γ-graphyne via alkyne metathesis
   year: 2023
-  journal: ChemRxiv
   doi: 10.26434/chemrxiv-2023-xl3gp-v2
-  note: under consideration
+  note: under review
+  preprint: chemRxiv
+  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v2
 
 - authors: [Z. Zhou, F. Della Sala, S. M. Parker]
   title: Minimal auxiliary basis set approach for the electronic excitation spectra of organic molecules
@@ -17,13 +18,15 @@
   preprint_url: https://commons.case.edu/facultyworks/71/
 
 - authors: [V. G. Desyatkin, W. B. Martin, A. E. Aliev, N. E. Chapman, A. F. Fonseca, D. S. Galvão, E. Roy Miller, K. H. Stone, Z. Wang, D. Zakhidov, F. T. Limpoco, S. R. Almahdali, S. M. Parker, R. H. Baughman, V. O. Rodionov]
-  title: Scalable Synthesis and Characterization of Multilayer gamma-Graphyne, New Carbon Crystals with a Small Direct Band Gap
+  title: Scalable Synthesis and Characterization of Multilayer γ-Graphyne, New Carbon Crystals with a Small Direct Band Gap
   year: 2022
   volume: 144
   number: 39
   page: 17999-18008
   journal: Journal of the American Chemical Society
   doi: 10.1021/jacs.2c06583
+  preprint: arXiv
+  preprint_url: https://doi.org/10.48550/arXiv.2301.05291
 
 - authors: [Z. Zhou, S. M. Parker]
   title: Accelerating molecular property calculations with semiempirical preconditioning
