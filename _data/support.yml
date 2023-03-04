@@ -40,12 +40,22 @@
   commitment: 0.5 months/year
 
 - title: Controlling the Donor and Acceptor Distance, Orientation, and Motions in Donor-Acceptor DNA Biophotonic Materials to Optimize their Energy Transfer Efficiencies
-  status: planned
-  source: NSF, Division of Material Research
+  status: pending
+  source: NSF DMREF
   location: Case Western Reserve University
-  objective: Unravel the influence of vibronic dynamics on the control of resonance energy transfer in
-    large donor-acceptor systems by designing DNA nanostructures, measuring the ultrafast dynamics
-    using transient spectroscopy, and simulating the structural dynamics
+  objective: "The overall objectives include a comprehensive series of experiments in which the
+    team will: 1. Investigate the role of donor-acceptor distances (discretely ranging from 3 Å to 100 Å with
+    nominal orientation variation) on RET and disentangle the electronic and vibrational excited-state dynamics.
+    Identify the vibrational marker bands associated with different excited state species in the femtosecond to
+    nanosecond timescale. 2. Investigate the role of donor-acceptor orientation (with nominal distance variation)
+    on RET and disentangle the electronic and vibrational excited state dynamics. Identify the vibrational marker
+    bands associated with different excited state species in the femtosecond to nanosecond timescale. 3.
+    Identify the effect of DNA microenvironment (electronic coupling of nucleotides adjacent to the
+    donors/acceptors) on RET through high-throughput computational photochemistry and time-resolved
+    spectroscopy rather than brute-force experimental synthesis. 4. Investigate multistep electronic and
+    vibrational excited state dynamics in the presence of intermediary photonic molecules (donor intermediary
+    acceptor) and identify distance and orientation conformations for tunable chromaticity."
+
   copis: Prof. Carlos Crespo (CWRU) and Prof. Divita Mathur (CWRU)
   start: 10/1/2023
   end:   9/30/2027
