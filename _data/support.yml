@@ -18,9 +18,35 @@
     towards establishing Resonating Mean-Field as a tool for photochemistry simulations
   details: "Award ID: CHE-2236959"
   url: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2236959&HistoricalAwards=false
+  commitment: 1 month/year
+
+- title: First-principles computational photochemistry
+  status: pending
+  source: 2023 Blavatnik National Awards for Young Scientists
+  location: Case Western Reserve University
+  amount:   $250,000
+  commitment: unrestricted
+
+- title: Fast nonlinear properties calculations for predicted transient spectra through a minimal-auxiliary basis set method
+  status: pending
+  source: Camille Dreyfus Teacher-Scholar Awards Program
+  amount: $100,000
+  start: 7/1/2023
+  end: 6/30/2027
+  location: Case Western Reserve University
+  objective: We will develop a fast approximation for predicting nonlinear and transient spectra from first-principles
+             time-dependent density functional theory (TDDFT), called TDDFT-ris, that will retain the high accuracy of
+             TDDFT but reduce the computational cost by several orders of magnitude.
+  commitment: 0.5 months/year
 
 - title: Controlling the Donor and Acceptor Distance, Orientation, and Motions in Donor-Acceptor DNA Biophotonic Materials to Optimize their Energy Transfer Efficiencies
-  status: submission planned
+  status: planned
   source: NSF, Division of Material Research
   location: Case Western Reserve University
-  objective: Unravel the influence of vibronic dynamics on the control of Förster energy transfer in large donor-acceptor systems by designing donor-acceptor DNA scaffolds, measuring the ultrafast dynamics using transient spectroscopy, and simulating the structural dynamics
+  objective: Unravel the influence of vibronic dynamics on the control of resonance energy transfer in
+    large donor-acceptor systems by designing DNA nanostructures, measuring the ultrafast dynamics
+    using transient spectroscopy, and simulating the structural dynamics
+  copis: Prof. Carlos Crespo (CWRU) and Prof. Divita Mathur (CWRU)
+  start: 10/1/2023
+  end:   9/30/2027
+  commitment: 1 month/yr
