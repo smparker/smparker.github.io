@@ -1,3 +1,10 @@
+- name: yucca
+  url: https://www.gitlab.com/team-parker/yucca
+  description: Parker group quantum chemistry development code
+  alt: Yucca is an open source quantum chemistry code developed by the Parker group.
+  image: yucca-logo.png
+  image_base: true
+
 - name: mudslide
   url: https://www.github.com/smparker/mudslide
   description: Python framework for running surface hopping simulations
@@ -5,6 +12,13 @@
   image: cumulativesh.jpg
   image_base: true
   alt: The mudslide code
+
+- name: qleve
+  url: https://www.gitlab.com/team-parker/qleve
+  description: Math library co-developed with yucca
+  alt: Qleve is a math library co-developed with yucca
+  image: yucca-logo.png
+  image_base: true
 
 - name: molecular blender
   url: https://smparker.github.io/molecular-blender
