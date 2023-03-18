@@ -45,7 +45,7 @@ permalink: /members/
       {% if postdoc.photo %}
         <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/{{postdoc.photo}}" alt="{{postdoc.name}}">
       {% else %}
-        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo.jpg" alt="{{postdoc.name}} not pictured">
+      <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{postdoc.name}} not pictured">
       {% endif %}
       <h3>{{postdoc.name}}</h3>
       <ul class="list-unstyled">
@@ -77,7 +77,7 @@ permalink: /members/
       {% if student.photo %}
         <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/{{student.photo}}" alt="{{student.name}}">
       {% else %}
-        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo.jpg" alt="{{student.name}} not pictured">
+        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{student.name}} not pictured">
       {% endif %}
       <h3>{{student.name}}</h3>
       <ul class="list-unstyled">
@@ -109,7 +109,7 @@ permalink: /members/
       {% if student.photo %}
         <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/{{student.photo}}" alt="{{student.name}}">
       {% else %}
-        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo.jpg" alt="{{student.name}} not pictured">
+        <img class="img-responsive img-rounded center-block" src="{{base.url}}/assets/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{student.name}} not pictured">
       {% endif %}
       <h3>{{student.name}}</h3>
       <ul class="list-unstyled">
@@ -135,21 +135,15 @@ permalink: /members/
 <table class="directory">
   <tr>
     <th></th>
-    <th><b>position</b></th>
-    <th><b>where</b></th>
-    <th><b>email</b></th>
-    <th><b>left CWRU</b></th>
-    <th><b>former position</b></th>
+    <th><b>now</b></th>
+    <th><b>was CWRU</b></th>
   </tr>
   {% assign sortedpeople = site.data.alumni | sort: 'left' %}
   {% for person in sortedpeople %}
   <tr>
     <td class="name"> {{person.name}} </td>
-    <td> {{person.position}} </td>
-    <td> {{person.where}} </td>
-    <td> {{person.email}} </td>
-    <td> {{person.left}} </td>
-    <td> {{person.was}} </td>
+    <td> {{person.position}} at {{person.where}} </td>
+    <td> {{person.was}} (until {{person.left}})</td>
   </tr>
   {% endfor %}
 </table>
