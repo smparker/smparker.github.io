@@ -160,7 +160,6 @@ li.cat-item.active {
 }
 
 .main-news {
-  font-size: 150%;
   color: #0a304e;
   a {
     color: #0a304e;
@@ -178,13 +177,12 @@ li.cat-item.active {
 }
 
 .main-news-date {
-  font-size: 75%;
   color: lighten(black, 50%);
 
 }
 
 .main-news-title {
-  font-size: 75%;
+  line-height: 0.5;
 }
 
 .main-description {
