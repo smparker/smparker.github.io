@@ -2,7 +2,7 @@
   url: https://www.gitlab.com/team-parker/yucca
   description: Parker group quantum chemistry development code
   alt: Yucca is an open source quantum chemistry code developed by the Parker group.
-  image: yucca-logo.png
+  image: yucca-logo.jpg
   image_base: true
 
 - name: mudslide
