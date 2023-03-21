@@ -36,7 +36,16 @@
                 <li>
                   <a href="https://twitter.com/{{ site.twitter_username }}">
                     {{site.twitter_icon}}
-                    <span class="username">{{ site.twitter_username }}</span>
+                    <span class="username">@{{ site.twitter_username }}</span>
+                  </a>
+                </li>
+                {% endif %}
+
+                {% if site.youtube_username %}
+                <li>
+                  <a href="https://youtube.com/@{{ site.youtube_username }}">
+                    {{site.youtube_icon}}
+                    <span class="username">@{{ site.youtube_username }}</span>
                   </a>
                 </li>
                 {% endif %}
