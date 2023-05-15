@@ -1,3 +1,12 @@
+- name: Annabella Debernardo
+  email: aed88@case.edu
+  interests: simulating multiphoton absorption
+  photo: anna.jpg
+  was: undergraduate
+  left: 2022
+  position: PhD student
+  where: UIUC
+
 - name: Srijana Bhandari
   email: srijana.bhandari@case.edu
   interests: multiphoton processes, solution phase spectroscopy
