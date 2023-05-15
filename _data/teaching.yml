@@ -1,4 +1,28 @@
 - role: Instructor
+  title: Physical Chemistry II (CHEM336)
+  level: Undergraduate
+  location: CWRU
+  time: Spring 2023
+
+- role: Instructor
+  title: Computational Chemistry (CHEM342/442)
+  level: Undergraduate + Graduate
+  location: CWRU
+  time: Fall 2022
+
+- role: Instructor
+  title: Introduction to Quantum Mechanics (CHEM337/446)
+  level: Undergraduate + Graduate
+  location: CWRU
+  time: Fall 2021
+
+- role: Instructor
+  title: Physical Chemistry II (CHEM336)
+  level: Undergraduate
+  location: CWRU
+  time: Spring 2021
+
+- role: Instructor
   title: Computational Chemistry (CHEM342/442)
   level: Undergraduate + Graduate
   location: CWRU

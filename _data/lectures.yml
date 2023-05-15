@@ -1,3 +1,15 @@
+- title: Fast spectra with the minimal auxiliary basis approach to TDDFT
+  institution: Rutgers TDDFT Workshop
+  location: Rutgers, NJ
+  time: July 2023
+  invited: true
+
+    #- title: Fast spectra with the minimal auxiliary basis approach to TDDFT
+    #  institution: Midwest Theoretical Chemistry Conference 2023
+    #  location: Purdue University, West Lafayette, IN
+    #  time: June 2023
+    #  invited: false
+
 - title: Fast Spectra with the minimal auxiliary basis approach to TDDFT
   institution: Benasque 9th TDDFT Workshop
   location: Benasque, Spain

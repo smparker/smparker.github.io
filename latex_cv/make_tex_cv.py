@@ -268,15 +268,21 @@ def awards():
 
     section_footer()
 
-def support():
+def support(include_support="public"):
     supp = pull_data("support")
     section_header("current and pending support", "itemize")
+
+    include = ["current", "ended", "declined"]
+    if include_support == "all":
+        include.append("pending")
 
     for a in supp:
         def from_a(x):
             return de_html(a[x])
         title = de_html(a["title"])
         status = a["status"]
+        if status not in include:
+            continue
         print("\\item")
         if "url" in a:
             url = a["url"]
@@ -402,7 +408,7 @@ def teaching():
         print("(%s)" % when)
     print("\\end{itemize}")
 
-def make_tex(style, printcolors, do_support=False):
+def make_tex(style, printcolors, do_support=False, include_support="public"):
     header(style, printcolors)
     if (style == "resume"):
         aside()
@@ -412,7 +418,7 @@ def make_tex(style, printcolors, do_support=False):
     media()
     awards()
     if do_support:
-        support()
+        support(include_support=include_support)
     lectures()
     pedagogy()
     #posters()
@@ -425,6 +431,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script to auto-generate a CV or a Resume from collected yaml files")
     parser.add_argument("-t", "--type", type=str, dest="style", choices=("cv", "resume"), default="cv")
     parser.add_argument("-s", "--support", dest="support", action="store_true")
+    parser.add_argument("-S", "--support-type", choices=("all", "public"), default="public",
+                        help="type of support to include")
     parser.add_argument("-p", "--print", dest="printcolors", action="store_true")
     parser.add_argument("-c", "--condensed", dest="condensed", action="store_true")
 
@@ -434,4 +442,4 @@ if __name__ == "__main__":
     printcolors = args.printcolors
     SIMPLE = args.condensed
 
-    make_tex(style, printcolors, do_support=args.support)
+    make_tex(style, printcolors, do_support=args.support, include_support=args.support_type)
