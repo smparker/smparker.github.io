@@ -9,7 +9,7 @@
   url: https://www.github.com/smparker/mudslide
   description: Python framework for running surface hopping simulations
     using model problems
-  image: cumulativesh.jpg
+  image: mudslide-logo.jpg
   image_base: true
   alt: The mudslide code
 
