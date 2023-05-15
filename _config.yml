@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 motto: High Performance Computational Photochemistry
 cv:
   name: smp-cv.pdf
-  date: "2/15/2022"
+  date: "5/15/2023"
 url: "https://quantumparker.com" # the base hostname & protocol for your site
 twitter_username: quantumparker
 youtube_username: quantumparker
