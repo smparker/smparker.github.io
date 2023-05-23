@@ -6,4 +6,4 @@ cd latex_cv
 cd ..
 
 echo "date: $(date +"%m/%d/%Y")" > _data/cv.yml
-echo "file: assets/smp_cv.pdf" >> _data/cv.yml
+echo "path: assets/smp_cv.pdf" >> _data/cv.yml
