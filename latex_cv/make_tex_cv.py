@@ -272,9 +272,11 @@ def support(include_support="public"):
     supp = pull_data("support")
     section_header("current and pending support", "itemize")
 
-    include = ["current", "ended", "declined"]
-    if include_support == "all":
+    include = ["current", "ended"]
+    if include_support == "pending":
         include.append("pending")
+    elif include_support == "all":
+        include.extend( ["declined", "pending"] )
 
     for a in supp:
         def from_a(x):
@@ -431,7 +433,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script to auto-generate a CV or a Resume from collected yaml files")
     parser.add_argument("-t", "--type", type=str, dest="style", choices=("cv", "resume"), default="cv")
     parser.add_argument("-s", "--support", dest="support", action="store_true")
-    parser.add_argument("-S", "--support-type", choices=("all", "public"), default="public",
+    parser.add_argument("-S", "--support-type", choices=("all", "public", "pending"), default="public",
                         help="type of support to include")
     parser.add_argument("-p", "--print", dest="printcolors", action="store_true")
     parser.add_argument("-c", "--condensed", dest="condensed", action="store_true")
