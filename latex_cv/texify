@@ -1,6 +1,11 @@
 #!/bin/bash
 
-name="smparker_cv_$(date "+%Y_%m_%d")"
+
+if [ "$1" != "" ]; then
+  name="$1"
+else
+  name="smparker_cv_$(date "+%Y_%m_%d")"
+fi
 
 printf "%-80s\r" "Building CV: generating"
 ./make_tex_cv.py -p -s -t cv > $name.tex
