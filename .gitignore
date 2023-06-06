@@ -4,6 +4,7 @@ _site/*
 *.out
 *.xdv
 latex_cv/resume/*.pdf
+latex_cv/smp_cv.*
 *.bbl
 *.bcf
 *.blg
