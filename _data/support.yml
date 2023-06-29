@@ -42,6 +42,7 @@
 - title: Controlling the Donor and Acceptor Distance, Orientation, and Motions in Donor-Acceptor DNA Biophotonic Materials to Optimize their Energy Transfer Efficiencies
   status: pending
   source: NSF DMREF
+  amount: $2M
   location: Case Western Reserve University
   objective: "The overall objectives include a comprehensive series of experiments in which the
     team will: 1. Investigate the role of donor-acceptor distances (discretely ranging from 3 Å to 100 Å with
@@ -63,6 +64,7 @@
 - title: "FuSe: Carbon Semiconductor Devices Based on γ-Graphyne"
   status: pending
   source: NSF Future of Semiconductors (FuSe)
+  amount: $2M
   location: Case Western Reserve University
   objective: "The primary scientific objectives of this FuSe
     proposal are (1) Exploration of the chemistry of γ-graphyne, with a focus on reactions that modify its
@@ -74,3 +76,38 @@
   start: 07/01/2023
   end: 06/30/2026
   commitment: 0.5 month/yr
+
+- title: Computing Nonlinear Optical Phenomena at All Orders Through the Action Lagrangian Eigenvalue Problem
+  status: pending
+  source: Research Corporation for Science Advancement
+  amount: $120k
+  location: Case Western Reserve University
+  objective: "Nonlinear optical (NLO) materials are an important class of materials
+    defined by their ability to respond to multiple quanta of light in unique
+    ways. Molecules with controllable NLO properties have a wide range of
+    potential applications, including photodynamic therapeutics, biosensing,
+    microscopy, ultrafast spectroscopy, and all-optical computing. However,
+    accurately predicting NLO properties for molecules of technological
+    interest remains challenging because of severe limitations with
+    state-of-the-art methods, especially when moderate light intensities are
+    desired, as in NLO processes. I propose a new approach to simulating NLO
+    properties using the Action Lagrangian Eigenvalue Problem (ALEP) that will
+    allow for efficient and robust simulations at arbitrary light intensities.
+    An attractive feature of the ALEP is that all NLO processes will be
+    included on the same footing to all order, including, for example,
+    multiphoton absorption and excited-state absorption.
+
+    Computational chemistry and chemical informatics have rapidly become central
+    aspects of modern chemical research, but the undergraduate chemistry curriculum
+    at Case Western Reserve University (CWRU) has not kept pace with this change. I
+    propose to enrich the undergraduate experience at CWRU by introducing
+    stand-alone modules on cheminformatics into the introductory courses of the
+    undergraduate curriculum. In addition, I will develop data-driven chemistry
+    research project templates that will be used to provide hands-on research
+    experience opportunities for students that are unable to join active research
+    groups in the department. These research project templates will introduce
+    chemical computation and information research to a small but significant
+    population of students currently underserved by our curriculum."
+  start: 04/01/2024
+  end: 03/31/2027
+  commitment: 0 month/yr
