@@ -160,35 +160,40 @@ def papers():
         has_notes = "note" in pub
 
         journal = de_html(pub.get("journal",""))
-        if journal:
-            journal = "\\textit{%s}" % (journal)
-        year = "(%s)" % de_html(pub["year"])
-        title = de_html(pub["title"])
+        journal_str = "\\textit{%s}" % (journal) if journal else ""
+        year = de_html(pub["year"])
+        year_str = f"\\textbf{{{year}}}"
+        title_str = de_html(pub["title"])
         url = pub.get("url","")
         if not url and "doi" in pub:
             url = "https://dx.doi.org/{}".format(pub["doi"])
         if url and not SIMPLE:
-            title = "\href{%s}{%s}" % (url, title)
+            title_str = "\href{%s}{%s}" % (url, title_str)
 
-        if not has_notes:
-            volume = "\\textbf{%s}" % (de_html(pub["volume"]))
-            page = de_html(pub["page"])
-            print("\\item[%d] %s \\\\" % (ir, authors))
-            jvpy = ", ".join(filter(None, [journal, volume, page])) + " " + year
-            print("%s \\\\" % (jvpy))
-            print(title)
-            if url and SIMPLE:
-                print(url)
-            print()
-        else:
+        gets_index = (not has_notes) or (has_notes and pub["note"] == "in print")
+        index_str = f"{ir:d}" if gets_index else "---"
+
+        print("\\item[%s] %s, \\\\" % (index_str, authors))
+        print(f"{title_str:s}, ")
+        if url and SIMPLE:
+            print(url)
+
+        volume_str = "\\textit{%s}" % (de_html(pub.get("volume", "")))
+        page_str = de_html(pub.get("page", ""))
+        if journal_str:
+            print(f"{journal_str}")
+        print(f"{year_str}", end="")
+
+        vp_list = filter(None, [volume_str, page_str])
+        if vp_list:
+            vp = ", ".join(vp_list)
+            print(f", {vp}")
+
+        if has_notes:
             notes = de_html(pub["note"])
-            print("\\item[---] %s \\\\" % (authors))
-            jyn = ", ".join(filter(None, [ journal, year, notes ]))
-            print("%s \\\\" % (jyn))
-            print(title)
-            if url and SIMPLE:
-                print(url)
-            print()
+            print(f", {notes:s}")
+
+        print()
 
     section_footer("enumerate")
 

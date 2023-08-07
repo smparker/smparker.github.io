@@ -1,3 +1,13 @@
+
+- authors: [W. B. Martin, S. M. Parker, V. Rodionov]
+  title: Errors in characterization and modeling undermine the report of the synthesis of
+    γ-graphyne via alkyne metathesis
+  year: 2023
+  doi: 10.26434/chemrxiv-2023-xl3gp-v2
+  note: under review
+  preprint: chemRxiv
+  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v2
+
 - authors: [Y. J. Franzke, C. Holzer, J. H. Andersen, T. Begusic, F. Bruder,
     S. Coriani, F. Della Sala, E. Fabiano, D. A. Fedotov, S. Fürst, S. Gillhuber,
     R. Grotjahn, M. Kaupp, M. Kehry, M. Krstic, F. Mack, S. Majumdar, B. D. Nguyen,
@@ -10,15 +20,6 @@
   journal: Journal of Chemical Theory and Computation
   note: in print
   doi: 10.1021/acs.jctc.3c00347
-
-- authors: [W. B. Martin, S. M. Parker, V. Rodionov]
-  title: Errors in characterization and modeling undermine the report of the synthesis of
-    γ-graphyne via alkyne metathesis
-  year: 2023
-  doi: 10.26434/chemrxiv-2023-xl3gp-v2
-  note: under review
-  preprint: chemRxiv
-  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v2
 
 - authors: [Z. Zhou, F. Della Sala, S. M. Parker]
   title: Minimal auxiliary basis set approach for the electronic excitation spectra of organic molecules
