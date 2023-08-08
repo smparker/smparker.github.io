@@ -428,6 +428,19 @@ def service():
 
     print("\\end{itemize}")
 
+def peerreview():
+    serv = pull_data("peerreview")
+
+    print("\\section{peer review}")
+    print("\\begin{itemize}[noitemsep]")
+    for s in serv:
+        journal = de_html(s["journal"])
+        number = de_html(s["number"])
+        print("\\item")
+        print(f"{journal} ({number})")
+
+    print("\\end{itemize}")
+
 def make_tex(style, printcolors, do_support=False, include_support="public"):
     header(style, printcolors)
     if (style == "resume"):
@@ -444,6 +457,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     #posters()
     teaching()
     service()
+    peerreview()
     footer()
 
 if __name__ == "__main__":
