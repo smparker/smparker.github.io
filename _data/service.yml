@@ -1,6 +1,8 @@
-college:
-  - Member, Chemistry Graduate Admissions Committee
-  - Co-chair, Chemistry Colloquium Committee
-  - Member, College of Arts and Sciences Curriculum Committee
-science:
-  - Peer Reviewer for Physical Chemistry Chemical Physics, Journal of Chemical Physics, Journal of Chemical Theory and Computation
+- title: Member, Chemistry Graduate Admissions Committee
+  when: "2019--"
+- title: Co-chair, Chemistry Colloquium Committee
+  when: "2019--"
+- title: Member, Chemistry Faculty Search Committee
+  when: AY2021-22
+- title: Member, CAS Curriculum Committee
+  when: Fall 2020

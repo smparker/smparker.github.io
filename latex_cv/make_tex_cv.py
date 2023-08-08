@@ -178,13 +178,15 @@ def papers():
         if url and SIMPLE:
             print(url)
 
-        volume_str = "\\textit{%s}" % (de_html(pub.get("volume", "")))
+        volume = de_html(pub.get("volume", ""))
+        volume_str = f"\\textit{{{volume}}}" if volume else ""
         page_str = de_html(pub.get("page", ""))
         if journal_str:
             print(f"{journal_str}")
         print(f"{year_str}", end="")
 
-        vp_list = filter(None, [volume_str, page_str])
+        vp_list = list(filter(None, [volume_str, page_str]))
+        #print("vp_list: ", vp_list)
         if vp_list:
             vp = ", ".join(vp_list)
             print(f", {vp}")
@@ -319,7 +321,7 @@ def support(include_support="public"):
 
 def lectures():
     lect = pull_data("lectures")
-    section_header("invited lectures")
+    section_header("talks")
 
     for l in lect:
         time = de_html(l["time"])
@@ -327,10 +329,8 @@ def lectures():
         location = de_html(l["location"])
         institution = de_html(l["institution"])
         invited = l["invited"]
-        if not invited:
-            continue
-        #if invited:
-        #    title += r" \textit{(invited)}"
+        if invited:
+            title += r" \textit{(invited)}"
         if not SIMPLE: print("\\entry")
         print("{%s}" % (time))
         print("{%s}" % (title))
@@ -415,6 +415,19 @@ def teaching():
         print("(%s)" % when)
     print("\\end{itemize}")
 
+def service():
+    serv = pull_data("service")
+
+    print("\\section{service}")
+    print("\\begin{itemize}[noitemsep]")
+    for s in serv:
+        title = de_html(s["title"])
+        when = de_html(s["when"])
+        print("\\item")
+        print(f"{title} ({when})")
+
+    print("\\end{itemize}")
+
 def make_tex(style, printcolors, do_support=False, include_support="public"):
     header(style, printcolors)
     if (style == "resume"):
@@ -430,6 +443,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     pedagogy()
     #posters()
     teaching()
+    service()
     footer()
 
 if __name__ == "__main__":
