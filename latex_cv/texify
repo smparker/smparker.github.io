@@ -15,4 +15,8 @@ for pass in "first" "second"; do
   xelatex -interaction=nonstopmode $name.tex | grep "Error"
 done
 
+for x in ${name}.{aux,log,out}; do
+  rm $x
+done
+
 printf "%-80s\r" ""
