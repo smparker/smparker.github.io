@@ -22,7 +22,7 @@ fi
 #make sure output has a .jpg ending
 output=${output%.*}.jpg
 
-convert $input -scale 50% -quality 85 $output
+convert $input -scale 25% -quality 85 $output
 convert $input -resize 200 -quality 60 thumb/$output
 
 echo Add the following to the gallery yaml
