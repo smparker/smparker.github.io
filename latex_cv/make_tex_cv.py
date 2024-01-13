@@ -429,7 +429,7 @@ def service():
     print("\\end{itemize}")
 
 def peerreview():
-    serv = pull_data("peerreview")
+    serv = pull_data("peer_review_summary")
 
     print("\\section{peer review}")
     print("\\begin{itemize}[noitemsep]")
