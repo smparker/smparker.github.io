@@ -422,9 +422,10 @@ def service():
     print("\\begin{itemize}[noitemsep]")
     for s in serv:
         title = de_html(s["title"])
+        role = de_html(s["role"])
         when = de_html(s["when"])
         print("\\item")
-        print(f"{title} ({when})")
+        print(f"{role}, {title} ({when})")
 
     print("\\end{itemize}")
 

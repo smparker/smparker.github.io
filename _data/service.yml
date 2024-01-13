@@ -1,10 +1,15 @@
-- title: Member, Chemistry Graduate Admissions Committee
+- title: Chemistry Graduate Admissions Committee
+  role: Member
   when: "2019--"
-- title: Co-chair, Chemistry Colloquium Committee
+- title: Chemistry Colloquium Committee
   when: "2019--"
-- title: Peer Reviewer, Expanding Horizons Initiative
+  role: Co-chair
+- title: Expanding Horizons Initiative
   when: 2023
-- title: Member, Chemistry Faculty Search Committee
+  role: Panel Reviewer
+- title: Chemistry Faculty Search Committee
   when: AY2021-22
-- title: Member, CAS Curriculum Committee
+  role: Member
+- title: CAS Curriculum Committee
   when: Fall 2020
+  role: Member
