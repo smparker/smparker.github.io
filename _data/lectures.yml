@@ -1,7 +1,19 @@
 - title: TBD
+  institution: CECAM Reaction Prediction Workshop
+  location: Chicago, IL
+  time: July 2024
+  invited: true
+
+- title: TBD
   institution: Benasque 10th TDDFT Workshop
   location: Benasque, Spain
   time: September 2024
+  invited: true
+
+- title: TBD
+  institution: University of Akron
+  location: Akron, OH
+  time: January 2024
   invited: true
 
 - title: Computational Photochemistry

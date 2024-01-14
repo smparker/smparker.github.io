@@ -324,8 +324,10 @@ def lectures():
     section_header("talks")
 
     for l in lect:
-        time = de_html(l["time"])
         title = de_html(l["title"])
+        if title == "TBD":
+            continue
+        time = de_html(l["time"])
         location = de_html(l["location"])
         institution = de_html(l["institution"])
         invited = l["invited"]
