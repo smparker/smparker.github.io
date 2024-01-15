@@ -11,6 +11,14 @@
   invited: true
 
 - title: TBD
+  tentative: "(1) TDDFT-ris: A semiempirical model and preconditioner for fast and accurate spectra
+              (2) Hop to it: cumulative probabilities make surface hopping simulations
+              cheaper and more reproducible"
+  institution: Meeting of the American Chemical Society
+  location: New Orleans, LA
+  time: March 2024
+
+- title: TBD
   institution: University of Akron
   location: Akron, OH
   time: January 2024
