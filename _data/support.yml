@@ -38,6 +38,7 @@
              time-dependent density functional theory (TDDFT), called TDDFT-ris, that will retain the high accuracy of
              TDDFT but reduce the computational cost by several orders of magnitude.
   commitment: 0.5 months/year
+  submitted: 2023/02/01
 
 - title: Controlling the Donor and Acceptor Distance, Orientation, and Motions in Donor-Acceptor DNA Biophotonic Materials to Optimize their Energy Transfer Efficiencies
   status: declined
@@ -60,6 +61,7 @@
   start: 10/1/2023
   end:   9/30/2027
   commitment: 1 month/yr
+  submitted: 2023/03/15
 
 - title: "FuSe: Carbon Semiconductor Devices Based on γ-Graphyne"
   status: declined
@@ -76,6 +78,7 @@
   start: 07/01/2023
   end: 06/30/2026
   commitment: 0.5 month/yr
+  submitted: 2023/04/10
 
 - title: Computing Nonlinear Optical Phenomena at All Orders Through the Action Lagrangian Eigenvalue Problem
   status: pending
@@ -111,3 +114,4 @@
   start: 04/01/2024
   end: 03/31/2027
   commitment: 0 month/yr
+  submitted: 2023/07/01
