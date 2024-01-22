@@ -21,7 +21,7 @@
   commitment: 1 month/year
 
 - title: First-principles computational photochemistry
-  status: pending
+  status: declined
   source: 2023 Blavatnik National Awards for Young Scientists
   location: Case Western Reserve University
   amount:   $250,000
@@ -81,8 +81,8 @@
   submitted: 2023/04/10
 
 - title: Computing Nonlinear Optical Phenomena at All Orders Through the Action Lagrangian Eigenvalue Problem
-  status: pending
-  source: Research Corporation for Science Advancement
+  status: declined
+  source: Cottrell Scholar Award - Research Corporation for Science Advancement
   amount: $120k
   location: Case Western Reserve University
   objective: "Nonlinear optical (NLO) materials are an important class of materials
