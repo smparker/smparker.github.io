@@ -171,6 +171,8 @@
   page: 3636
   title: "Orbital Optimization in the Active Space Decomposition Model"
   doi: 10.1021/acs.jctc.5b00429
+  preprint: arXiv
+  preprint_url: https://arxiv.org/abs/1505.02346
 
 - authors: [S. M. Parker, T. Shiozaki]
   year: 2014
@@ -180,6 +182,8 @@
   title: "Active space Decomposition with multiple sites: Density matrix renormalization group algorithm"
   doi: 10.1063/1.4902991
   special: "2014 JCP Editors' Choice"
+  preprint: arXiv
+  preprint_url: https://arxiv.org/abs/1410.6407
 
 - authors: [S. M. Parker, M. Smeu, I. Franco, M. A. Ratner, T. Seideman]
   year: 2014
