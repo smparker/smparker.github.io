@@ -22,15 +22,14 @@
   time: June 2024
   invited: true
 
-- title: TBD
-  tentative: "(1) TDDFT-ris: A semiempirical model and preconditioner for fast and accurate spectra
+- title: "(1) TDDFT-ris: A semiempirical model and preconditioner for fast and accurate spectra
               (2) Hop to it: cumulative probabilities make surface hopping simulations
               cheaper and more reproducible"
   institution: Meeting of the American Chemical Society
   location: New Orleans, LA
   time: March 17-18, 2024
 
-- title: TBD
+- title: Simulating Photochemistry from First-Principles Quantum Chemistry
   institution: University of Akron
   location: Akron, OH
   time: January 16, 2024
