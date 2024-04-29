@@ -1,7 +1,14 @@
+- authors: [Z. Zhou, S. M. Parker]
+  title: "Converging TDDFT calculations in 5 iterations with minimal auxiliary preconditioning"
+  year: 2024
+  note: submitted
+  preprint: arXiv
+  preprint_url: https://arxiv.org/abs/2404.17133
+
 - authors: [E. Roy Miller, S. J. Hoehn, A. Kumar, D. Jiang, S. M. Parker]
   title: "Ultrafast Photochemistry and Electron Diffraction for Cyclobutanone in the S2 State: Surface Hopping with Time-Dependent Density Functional Theory"
   year: 2024
-  note: submitted
+  note: in revision
   preprint: arXiv
   preprint_url: http://arxiv.org/abs/2402.10336
 
