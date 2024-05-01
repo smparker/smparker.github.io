@@ -248,6 +248,7 @@ def chapters():
 def media():
     media = pull_data("media")
     section_header("reports in media and professional journals")
+    print()
 
     for rep in media:
         des = de_html(rep["description"])
@@ -473,6 +474,25 @@ def peerreview():
 
     print("\\end{itemize}")
 
+def collaborators():
+    collabs = pull_data("collaborators")
+
+    print(r"\section{collaborators}")
+    print()
+    print(r"\subsection{Case Western Reserve University}")
+    print(r"\begin{itemize}[noitemsep]")
+    for c in collabs:
+        if "CWRU" in c["affiliation"]:
+            print(f"\\item {c['name']} ({c['affiliation']})")
+    print(r"\end{itemize}")
+    print()
+    print(r"\subsection{External}")
+    print(r"\begin{itemize}[noitemsep]")
+    for c in collabs:
+        if "CWRU" not in c["affiliation"]:
+            print(f"\\item {c['name']} ({c['affiliation']})")
+    print(r"\end{itemize}")
+
 def make_tex(style, printcolors, do_support=False, include_support="public"):
     header(style, printcolors)
     if (style == "resume"):
@@ -491,6 +511,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     teaching()
     service()
     professional_service()
+    collaborators()
     footer()
 
 if __name__ == "__main__":
