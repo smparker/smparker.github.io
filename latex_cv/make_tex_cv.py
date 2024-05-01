@@ -297,7 +297,8 @@ def awards():
 
 def support(include_support="public"):
     supp = pull_data("support")
-    section_header("current and pending support", "itemize")
+
+    print(r"\section{support}")
 
     include = ["current", "ended"]
     if include_support == "pending":
@@ -305,13 +306,13 @@ def support(include_support="public"):
     elif include_support == "all":
         include.extend( ["declined", "pending"] )
 
-    for a in supp:
+    def print_support(a):
         def from_a(x):
             return de_html(a[x])
         title = de_html(a["title"])
         status = a["status"]
         if status not in include:
-            continue
+            return
         print("\\item")
         if "url" in a:
             url = a["url"]
@@ -330,14 +331,44 @@ def support(include_support="public"):
                 print("\\textbf{{End Date:}} {}".format(from_a("end")))
             if "start" in a or "end" in a:
                 print("\\\\")
-        if "objective" in a:
-            print("\\textbf{{Project Objective:}} {} \\\\".format(from_a("objective")))
+        #if "objective" in a:
+        #    print("\\textbf{{Project Objective:}} {} \\\\".format(from_a("objective")))
         if "details" in a:
             print("{} \\\\".format(from_a("details")))
         print(r"\vspace{-1em}")
         print()
 
-    section_footer(env="itemize")
+    print()
+    print(r"\subsection{current support}")
+    current = [a for a in supp if a["status"] == "current"]
+    print(r"\begin{itemize}[noitemsep]")
+    for a in current:
+        print_support(a)
+    print(r"\end{itemize}")
+
+    if "pending" in include:
+        print()
+        print(r"\subsection{pending support}")
+        pending = [a for a in supp if a["status"] == "pending"]
+        print(r"\begin{itemize}[noitemsep]")
+        for a in pending:
+            print_support(a)
+        print(r"\end{itemize}")
+
+    #print()
+    #print(r"\subsection{completed support}")
+    #done = [a for a in supp if a["status"] == "ended"]
+    #for a in done:
+    #    print_support(a)
+
+    if "declined" in include:
+        print()
+        print(r"\subsection{declined support}")
+        declined = [a for a in supp if a["status"] == "declined"]
+        print(r"\begin{itemize}[noitemsep]")
+        for a in declined:
+            print_support(a)
+        print(r"\end{itemize}")
 
 def lectures():
     lect = pull_data("lectures")

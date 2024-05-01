@@ -27,6 +27,73 @@
   amount:   $250,000
   commitment: unrestricted
 
+- title: MURI (preproposal)
+  status: discouraged
+  source: Department of Defense
+  location: Case Western Reserve University
+  amount: $500,000
+  submitted: 10/22/2023
+  commitment: 1 month/year
+
+- title: DOE thingy
+  status: declined
+  source: Department of Energy
+  location: Case Western Reserve University
+  amount: $500,000
+  submitted: 10/22/2021
+  commitment: 1 month/year
+
+- title: DOE thingy (preproposal)
+  status: discouraged
+  source: Department of Energy
+  location: Case Western Reserve University
+  amount: $500,000
+  submitted: 10/22/2022
+  commitment: 1 month/year
+
+- title: DOE thingy (preproposal)
+  status: discouraged
+  source: Department of Energy
+  location: Case Western Reserve University
+  amount: $500,000
+  submitted: 10/22/2023
+  commitment: 1 month/year
+
+- title: Graphyne
+  status: declined
+  source: W.M. Keck Foundation
+  copis: Prof. Valentin Rodionov (CWRU Macromolecular Sciences and Engineering)
+  location: Case Western Reserve University
+  submitted: 2021
+
+- title: Big Quantum Computing Thing
+  status: declined
+  source: NSF Quantum Computing
+  location: Case Western Reserve University
+  amount: $1M
+  submitted: 2020
+  copis: so many
+  commitment: 1 month/year
+
+- title: Electrochem thing with Dan
+  status: declined
+  source: NSF Center
+  location: Case Western Reserve University
+  amount: $1M
+  submitted: 2020
+  copis: Prof. Daniel Scherson (CWRU Chemistry)
+  commitment: 1 month/year
+
+- title: Dreyfus ML
+  status: declined
+  source: Dreyfus Foundation
+  location: Case Western Reserve University
+  amount: $100,000
+  start: 7/1/2023
+  end: 6/30/2027
+  commitment: 0.5 months/year
+  submitted: 2023/02/01
+
 - title: Fast nonlinear properties calculations for predicted transient spectra through a minimal-auxiliary basis set method
   status: declined
   source: Camille Dreyfus Teacher-Scholar Awards Program
@@ -115,3 +182,20 @@
   end: 03/31/2027
   commitment: 0 month/yr
   submitted: 2023/07/01
+
+- title: "FuSe2: Carbon Semiconductor Devices Based on γ-Graphyne"
+  status: pending
+  source: NSF Future of Semiconductors (FuSe2)
+  amount: $2M
+  location: Case Western Reserve University
+  objective: "The primary scientific objectives of this FuSe
+    proposal are (1) Exploration of the chemistry of γ-graphyne, with a focus on reactions that modify its
+    electronic properties or enable scalable processing and precise device fabrication, (2) Synthesis of
+    heterostructures of γ-graphyne, including 2D stacks, (3) Fabrication and characterization of first electronic
+    devices based on γ-graphyne, and (4) Exploration of the optical and electronic properties of γgraphyne
+    and related materials/heterostructures."
+  copis: Prof. Valentin Rodionov (CWRU Macromolecular Sciences and Engineering), Prof. Xuan Gao (CWRU Physics), Prof. Clemens Burda (CWRU Chemistry), and Prof. Xuedan Ma (Argonne National Laboratory)
+  start: 07/01/2024
+  end: 06/30/2027
+  commitment: 0.5 month/yr
+  submitted: 2024/03/10
