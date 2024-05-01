@@ -163,9 +163,12 @@ def papers():
 
     for i, pub in enumerate(pubs):
         ir = len(pubs) - i
-        authors = de_html(", ".join(
-            [smp if x=="me" else x for x in pub["authors"]
-        ]))
+        smp_co = smp
+        if pub.get("corresponding", False):
+            smp_co = smp + "$^*$"
+        authors = ", ".join(
+            [smp_co if x=="S. M. Parker" else de_html(x) for x in pub["authors"]
+        ])
         has_notes = "note" in pub
 
         journal = de_html(pub.get("journal",""))
@@ -202,7 +205,14 @@ def papers():
 
         if has_notes:
             notes = de_html(pub["note"])
-            print(f", {notes:s}")
+            print(f", {notes:s}", end="")
+
+        if "preprint" in pub:
+            preprint = de_html(pub["preprint"])
+            preprint_url = pub.get("preprint_url", "")
+            if preprint_url:
+                preprint = "\href{%s}{%s}" % (preprint_url, preprint)
+            print(f", {preprint:s}")
 
         print()
 

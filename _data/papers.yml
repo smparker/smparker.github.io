@@ -2,15 +2,17 @@
   title: "Converging TDDFT calculations in 5 iterations with minimal auxiliary preconditioning"
   year: 2024
   note: submitted
-  preprint: arXiv
+  preprint: arXiv:2404.17133
   preprint_url: https://arxiv.org/abs/2404.17133
+  corresponding: true
 
 - authors: [E. Roy Miller, S. J. Hoehn, A. Kumar, D. Jiang, S. M. Parker]
   title: "Ultrafast Photochemistry and Electron Diffraction for Cyclobutanone in the S2 State: Surface Hopping with Time-Dependent Density Functional Theory"
   year: 2024
   note: in revision
-  preprint: arXiv
+  preprint: arXiv:2402.10336
   preprint_url: http://arxiv.org/abs/2402.10336
+  corresponding: true
 
 - authors: [W. B. Martin, S. M. Parker, V. Rodionov]
   title: Errors in characterization and modeling undermine the report of the synthesis of
@@ -18,8 +20,9 @@
   year: 2023
   doi: 10.26434/chemrxiv-2023-xl3gp-v2
   note: under review
-  preprint: chemRxiv
+  preprint: chemRxiv:2023.xl3gp.v2
   preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v2
+  corresponding: false
 
 - authors: [Y. J. Franzke, C. Holzer, J. H. Andersen, T. Begusic, F. Bruder,
     S. Coriani, F. Della Sala, E. Fabiano, D. A. Fedotov, S. Fürst, S. Gillhuber,
@@ -35,6 +38,7 @@
   page: 6859-6890
   journal: Journal of Chemical Theory and Computation
   doi: 10.1021/acs.jctc.3c00347
+  corresponding: false
 
 - authors: [Z. Zhou, F. Della Sala, S. M. Parker]
   title: Minimal auxiliary basis set approach for the electronic excitation spectra of organic molecules
@@ -45,6 +49,7 @@
   journal: The Journal of Physical Chemistry Letters
   preprint: submitted version
   preprint_url: https://commons.case.edu/facultyworks/71/
+  corresponding: true
 
 - authors: [V. G. Desyatkin, W. B. Martin, A. E. Aliev, N. E. Chapman, A. F. Fonseca, D. S. Galvão, E. Roy Miller, K. H. Stone, Z. Wang, D. Zakhidov, F. T. Limpoco, S. R. Almahdali, S. M. Parker, R. H. Baughman, V. O. Rodionov]
   title: Scalable Synthesis and Characterization of Multilayer γ-Graphyne, New Carbon Crystals with a Small Direct Band Gap
@@ -54,8 +59,9 @@
   page: 17999-18008
   journal: Journal of the American Chemical Society
   doi: 10.1021/jacs.2c06583
-  preprint: arXiv
+  preprint: arXiv:2301.05291
   preprint_url: https://doi.org/10.48550/arXiv.2301.05291
+  corresponding: false
 
 - authors: [Z. Zhou, S. M. Parker]
   title: Accelerating molecular property calculations with semiempirical preconditioning
@@ -66,6 +72,7 @@
   page: 204111
   preprint: accepted version
   preprint_url: http://hdl.handle.net/2186/ksl:2006080578
+  corresponding: true
 
 - authors:
     - M. Gupta
@@ -84,6 +91,7 @@
   volume: 23
   issue: 18
   page: 7183-7187
+  corresponding: false
 
 - authors:
     - J. Jimenez
@@ -98,6 +106,7 @@
   issue: 17
   page: 13320-13331
   doi: 10.1021/acs.inorgchem.1c01597
+  corresponding: false
 
 - authors: [S. M. Parker, C. J. Schiltz]
   title: "Surface hopping with cumulative probabilities: even sampling and improved reproducibility"
@@ -110,6 +119,7 @@
   preprint_pdf: JCP20-AR-03101.pdf
   special: "Scilight featured article"
   special_url: https://aip.scitation.org/doi/10.1063/10.0002652
+  corresponding: true
 
 - authors: [S. Balasubramani, G. P. Chen, S. Coriani, M. Diedenhofen, M. S. Frank, Y. J. Franzke, F. Furche, R. Grotjahn
            , M. E. Harding, C. Hättig, A. Hellweg, B. Helmich-Paris, C. Holzer, U. Huniar, M. Kaupp, A. Marefat Khah,
@@ -122,6 +132,7 @@
   volume: 152
   page: 184107
   doi: 10.1063/5.0004635
+  corresponding: false
 
 - authors: [S. M. Parker, S. Roy, F. Furche]
   title: "Multistate hybrid time-dependent density functional theory with surface hopping accurately captures ultrafast thymine photodeactivation"
@@ -130,6 +141,7 @@
   volume: 21
   page: "18999-19010"
   doi: 10.1039/C9CP03127H
+  corresponding: false
 
 - authors: [M. Kubota, S. Nainar, S. M. Parker, W. England, F. Furche, R. Spitale]
   title: "Expanding the Scope of RNA Metabolic Labeling with Vinyl Nucleosides and Inverse Electron-Demand Diels-Alder Chemistry"
@@ -138,6 +150,7 @@
   volume: 14
   page: "1698-1707"
   doi: 10.1021/acschembio.9b00079
+  corresponding: false
 
 - authors: [S. M. Parker, D. Rappoport, F. Furche]
   title: "Quadratic response properties from TDDFT: trials and tribulations"
@@ -146,6 +159,7 @@
   volume: 14
   page: "807-819"
   doi: 10.1021/acs.jctc.7b01008
+  corresponding: false
 
 - authors: [M. Muuronen, S. M. Parker, E. Berardo, A. Le, M. Zwijnenburg, F. Furche]
   title: Mechanism of Photocatalytic Water Oxidation on Small TiO<sub>2</sub> Nanoparticles
@@ -154,6 +168,7 @@
   volume: 8
   page: "2179-2183"
   doi: 10.1039/C6SC04378J
+  corresponding: false
 
 - authors: [S. M. Parker, S. Roy, and F. Furche]
   year: 2016
@@ -162,6 +177,7 @@
   volume: 145
   page: 134105
   doi:  10.1063/1.4963749
+  corresponding: false
 
 - authors: [V. A. Nasluzov, S. M. Parker, A. Genest, A. M. Shor, E. A. Ivanova-Shor, N. R&ouml;sch]
   year: 2015
@@ -170,6 +186,7 @@
   page: 631
   title: "Trinuclear tantalum clusters grafted to hydroxylated silica surfaces: A density-functional embedded-cluster study"
   doi: 10.1134/S0023158415050134
+  corresponding: false
 
 - authors: [I. Kim, S. M. Parker, T. Shiozaki]
   year: 2015
@@ -178,8 +195,9 @@
   page: 3636
   title: "Orbital Optimization in the Active Space Decomposition Model"
   doi: 10.1021/acs.jctc.5b00429
-  preprint: arXiv
+  preprint: arXiv:1505.02346
   preprint_url: https://arxiv.org/abs/1505.02346
+  corresponding: false
 
 - authors: [S. M. Parker, T. Shiozaki]
   year: 2014
@@ -189,8 +207,9 @@
   title: "Active space Decomposition with multiple sites: Density matrix renormalization group algorithm"
   doi: 10.1063/1.4902991
   special: "2014 JCP Editors' Choice"
-  preprint: arXiv
+  preprint: arXiv:1410.6407
   preprint_url: https://arxiv.org/abs/1410.6407
+  corresponding: false
 
 - authors: [S. M. Parker, M. Smeu, I. Franco, M. A. Ratner, T. Seideman]
   year: 2014
@@ -199,6 +218,7 @@
   page: 4587
   title: "Molecular Junctions: Can Pulling Influence Optical Controllability"
   doi: 10.1021/nl501629c
+  corresponding: false
 
 - authors: [S. M. Parker, T. Shiozaki]
   year: 2014
@@ -208,6 +228,7 @@
   title: "Quasi-diabatic states from active space decomposition"
   doi: 10.1021/ct5004753
   special: "ACS Editors' Choice on August 9, 2014"
+  corresponding: false
 
 - authors: [S. M. Parker, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2014
@@ -216,6 +237,7 @@
   page: 12700
   title: "Model Hamiltonian analysis of singlet fission from first principles"
   doi: 10.1021/jp505082a
+  corresponding: true
 
 - authors: [S. M. Parker, T. Seideman, M. A. Ratner, T. Shiozaki]
   year: 2013
@@ -224,6 +246,7 @@
   page: 021108
   title: "Active-space decomposition for molecular dimers"
   doi: 10.1063/1.4813827
+  corresponding: true
 
 - authors: [Y. Wu, V. A. Karttunen, S. M. Parker, A. Genest, N. R&ouml;sch]
   year: 2013
@@ -232,6 +255,7 @@
   page: 2363
   title: "Olefin Hydrosilylation Catalyzed by a Bis-N-Heterocyclic Carbene Rhodium Complex. A Density Functional Theory Study"
   doi: 10.1021/om301236n
+  corresponding: false
 
 - authors: [S. M. Parker, M. A. Ratner, T. Seideman]
   year: 2012
@@ -240,6 +264,7 @@
   page: 1941
   title: "Simulating strong field control of axial chirality using optimal control theory"
   doi: 10.1080/00268976.2012.695808
+  corresponding: false
 
 - authors: [S. M. Parker, M. A. Ratner, T. Seideman]
   year: 2011
@@ -248,3 +273,4 @@
   page: 224301
   title: "Coherent control of molecular torsion"
   doi: 10.1063/1.3663710
+  corresponding: false
