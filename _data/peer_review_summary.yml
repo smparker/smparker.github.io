@@ -1,14 +1,16 @@
-- journal: Physical Chemistry Chemical Physics
-  number: 10
-- journal: Journal of Chemical Physics
-  number: 4
-- journal: Journal of Chemical Theory and Computation
-  number: 3
-- journal: Journal of Physical Chemistry Letters
-  number: 3
-- journal: Inorganica Chimica Acta
-  number: 1
-- journal: Nanoscale
-  number: 1
-- journal: Wiley Interdisciplinary Reviews-Computational Molecular Science
-  number: 1
+  - journal: Physical Chemistry Chemical Physics
+    number: 12
+  - journal: Journal of Physical Chemistry Letters
+    number: 6
+  - journal: The Journal of Chemical Physics
+    number: 4
+  - journal: Journal of Computational and Theoretical Chemistry
+    number: 3
+  - journal: Wiley Interdisciplinary Reviews
+    number: 1
+  - journal: Nanoscale Advances
+    number: 1
+  - journal: Inorganica Chimica Acta
+    number: 1
+  - journal: The European Physical Journal B
+    number: 1

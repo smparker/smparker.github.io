@@ -1,9 +1,11 @@
-- title: Chemistry Faculty Search Committee
+- title: Faculty Search Committee
+  level: Department of Chemistry
   when: AY2023-24
   role: Member
   what: Search committee to evaluate candidates in applications of
         AI/ML in computation-guided chemistry or drug discovery.
-- title: CAS AI Search Committee
+- title: Artificial Intelligence Screening Committee
+  level: College of Arts and Sciences
   role: Member
   when: 2023-24
   what: The CWRU College of Arts and Sciences formed a search committee
@@ -11,6 +13,7 @@
         college, one focusing on AI Ethics and the other focusing on
         applications of AI in the sciences.
 - title: Graduate Program Review Committee
+  level: Department of Chemistry
   role: Member
   when: Fall 2023
   what: The Department of CHemistry formed an ad hoc committee to conduct
@@ -18,23 +21,36 @@
         I wrote the "Program Access" section.
 - title: CWRU Chemistry Research Symposium
   role: Co-founder and Co-organizer
-  when: 2023
+  level: Department of Chemistry
+  when: "2023--"
   what: CWRU Chemistry Research Symposium (C2RS) is a graduate student led
         symposium held annually to let students share their accomplishments.
         Winners are awarded with cash prizes. I co-founded and co-organized it
         with Prof. Metin Karayilan.
-- title: Chemistry Graduate Admissions Committee
+- title: Squire Scholarship Interview Panel
+  level: College of Arts and Sciences
+  when: 2023
+  role: Panel Reviewer
+  what: The College of Arts and Sciences formed a panel to review applications
+        for the Squire Scholarship, a scholarship awarded to students who
+        demonstrate academic excellence and leadership.
+- title: Graduate Admissions Committee
+  level: Department of Chemistry
   role: Member
   when: "2019--"
-- title: Chemistry Colloquium Committee
+- title: Colloquium Committee
+  level: Department of Chemistry
   when: "2019--"
   role: Co-chair
 - title: Expanding Horizons Initiative
+  level: College of Arts and Sciences
   when: 2023
   role: Panel Reviewer
-- title: Chemistry Faculty Search Committee
+- title: Faculty Search Committee
+  level: Department of Chemistry
   when: AY2021-22
   role: Member
-- title: CAS Curriculum Committee
-  when: Fall 2020
+- title: Curriculum Committee
+  level: College of Arts and Sciences
+  when: Fall 2020 (Sabbatical Replacement)
   role: Member

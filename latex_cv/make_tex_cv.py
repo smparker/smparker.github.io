@@ -146,6 +146,15 @@ def positions():
 
     section_footer()
 
+def memberships():
+    mem = pull_data("memberships")
+
+    print(r"\section{professional affiliations}")
+    print(r"\begin{itemize}[noitemsep]")
+    for m in mem:
+        print(r"\item %s" % (de_html(m)))
+    print(r"\end{itemize}")
+
 def papers():
     # papers are kind of special so will use a raw enumerate
     pubs = pull_data("papers")
@@ -330,7 +339,7 @@ def lectures():
         time = de_html(l["time"])
         location = de_html(l["location"])
         institution = de_html(l["institution"])
-        invited = l["invited"]
+        invited = l.get("invited", False)
         if invited:
             title += r" \textit{(invited)}"
         if not SIMPLE: print("\\entry")
@@ -412,9 +421,10 @@ def teaching():
         title = de_html(t["title"])
         when = de_html(t["taught"])
         courseid = de_html(t["id"])
+        credits = de_html(t["credits"])
         print("\\item")
-        print("%s: \\textbf{%s}" % (courseid, title))
-        print("(%s)" % when)
+        print("%s: \\textbf{%s} (%s credits)" % (courseid, title, credits))
+        print("--- %s" % when)
     print("\\end{itemize}")
 
 def service():
@@ -431,11 +441,30 @@ def service():
 
     print("\\end{itemize}")
 
+def professional_service():
+    print(r"\section{professional service}")
+    print()
+
+    peerreview()
+    grantreview()
+
+def grantreview():
+    serv = pull_data("grant_review_summary")
+
+    print(r"\subsection{grant review panels}")
+    print(r"\begin{itemize}[noitemsep]")
+    for s in serv:
+        agency = de_html(s["agency"])
+        print("\\item")
+        print(f"{agency}")
+
+    print("\\end{itemize}")
+
 def peerreview():
     serv = pull_data("peer_review_summary")
 
-    print("\\section{peer review}")
-    print("\\begin{itemize}[noitemsep]")
+    print(r"\subsection{peer review}")
+    print(r"\begin{itemize}[noitemsep]")
     for s in serv:
         journal = de_html(s["journal"])
         number = de_html(s["number"])
@@ -451,6 +480,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     positions()
     papers()
     chapters()
+    memberships()
     media()
     awards()
     if do_support:
@@ -460,7 +490,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     #posters()
     teaching()
     service()
-    peerreview()
+    professional_service()
     footer()
 
 if __name__ == "__main__":

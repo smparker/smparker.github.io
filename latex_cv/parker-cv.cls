@@ -151,15 +151,15 @@
 }
 
 \renewcommand{\subsection}[1]{
-  \par\vspace{.5\parskip}%
-  {\Large\headingfont\color{headercolor} #1}
-  \par\vspace{.25\parskip}%
+  %\par\vspace{.5\parskip}%
+  {\normalsize\headingfont\color{headercolor} #1}
+  %\par\vspace{.25\parskip}%
 }
 
 \renewcommand{\subsubsection}[2]{
-  \par\vspace{.5\parskip}%
-  {\Large\headingfont\color{headercolor} #2}
-  \par\vspace{.25\parskip}%
+  %\par\vspace{.5\parskip}%
+  {\normalsize\headingfont\color{headercolor} #2}
+  %\par\vspace{.25\parskip}%
 }
 
 \pagestyle{empty}
