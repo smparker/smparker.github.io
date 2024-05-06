@@ -3,14 +3,23 @@
   photo: ericka.jpg
   office: Millis 226
   interests: excited-state quantum chemistry, structure and properties of graphyne
+  start: 2019
 
 - name: Abhijith Kumar
   email: axk1473@case.edu
   photo: abhijith.jpg
   office: Millis 226
   interests: nonlinear response theory, excited-state quantum chemistry
+  start: 2021
 
 - name: Dehua Jiang
   email: dehua.jiang@case.edu
   office: Millis 226
   interests: response theory, nonadiabatic dynamics
+  start: 2022
+
+- name: Praseetha Prakash
+  email: pxp479@case.edu
+  office: Millis 226
+  interests: resonating Hartree-Fock, nonadiabatic dynamics
+  start: 2023

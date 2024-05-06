@@ -587,6 +587,72 @@ def collaborators():
             print(f"\\item {c['name']} ({c['affiliation']})")
     print(r"\end{itemize}")
 
+def advisees():
+    gs = pull_data("grad_students")
+    pd = pull_data("postdocs")
+    ug = pull_data("undergrad_students")
+    alumni = pull_data("alumni")
+
+    current = set()
+    for g in gs:
+        current.add(g["name"])
+    for p in pd:
+        current.add(p["name"])
+    for u in ug:
+        current.add(u["name"])
+
+    for alum in alumni:
+        if alum["was"] == "undergraduate":
+            ug.append(alum)
+        elif alum["was"] == "Ph.D.":
+            gs.append(alum)
+        elif alum["was"] == "postdoc":
+            pd.append(alum)
+
+    print(r"\section{advisees}")
+    print()
+    print(r"\subsection{postdoctoral researchers}")
+    print(r"\begin{itemize}[noitemsep]")
+    for p in pd:
+        name = de_html(p['name'])
+        start = de_html(p['start'])
+        end = de_html(p.get('left', ""))
+        where = de_html(p.get('where', ""))
+        if p['name'] in current:
+            print(f"\\item Dr. {name} ({start} -- )")
+        else:
+            print(f"\\item Dr. {name} ({start} -- {end}) --- now at {where}")
+        print()
+    print(r"\end{itemize}")
+
+    print(r"\subsection{Ph.D. students}")
+    print(r"\begin{itemize}[noitemsep]")
+    for g in gs:
+        name = de_html(g['name'])
+        start = de_html(g['start'])
+        end = de_html(g.get('left', ""))
+        where = de_html(g.get('where', ""))
+        if g['name'] in current:
+            print(f"\\item {name} ({start} -- )")
+        else:
+            print(f"\\item {name} ({start} -- {end}) --- now at {where}")
+        print()
+    print(r"\end{itemize}")
+
+    print(r"\subsection{undergraduate students}")
+    print(r"\begin{itemize}[noitemsep]")
+    for u in ug:
+        name = de_html(u['name'])
+        start = de_html(u['start'])
+        end = de_html(u.get('left', ""))
+        where = de_html(u.get('where', ""))
+        if u['name'] in current:
+            print(f"\\item {name} ({start} -- )")
+        else:
+            print(f"\\item {name} ({start} -- {end}) --- now at {where}")
+        print()
+    print(r"\end{itemize}")
+
 def make_tex(style, printcolors, do_support=False, include_support="public"):
     header(style, printcolors)
     if (style == "resume"):
@@ -606,6 +672,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     service()
     professional_service()
     collaborators()
+    advisees()
     footer()
 
 if __name__ == "__main__":

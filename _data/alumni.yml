@@ -4,26 +4,29 @@
   was: Ph.D.
   left: 2023
   position: postdoc
-  where: ""
+  where: "Changping National Laboratory"
   interests: accelerating nonadiabatic molecular dynamics, electronic properties
   github: john-zzh
+  start: 2019
 
 - name: William Kattner
   email: wak38@case.edu
   interests: electronic and optical properties of titania nanoparticles
   was: undergraduate
-  where: ""
+  where: Medpace
   photo: william.jpg
-
+  start: 2022
+  left: 2023
 
 - name: Annabella Debernardo
   email: aed88@case.edu
   interests: simulating multiphoton absorption
   photo: anna.jpg
   was: undergraduate
-  left: 2022
+  left: 2021
   position: PhD student
   where: UIUC
+  start: 2019
 
 - name: Srijana Bhandari
   email: srijana.bhandari@case.edu
@@ -35,6 +38,7 @@
   left: 2022
   position: postdoc
   where: PNNL
+  start: 2020
 
 - name: Colin Schiltz
   left: 2021
@@ -42,6 +46,7 @@
   position: PhD student
   where: UC Irvine
   email: schiltzc@uci.edu
+  start: 2019
 
 - name: Krista Schoonover
   email: krista.schoonover@case.edu
@@ -49,3 +54,4 @@
   was: undergraduate
   position: PhD student
   where: Texas A&amp;M
+  start: 2020
