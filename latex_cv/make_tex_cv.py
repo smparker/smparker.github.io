@@ -7,6 +7,9 @@ import re
 import datetime
 
 SIMPLE = False
+SPLIT_AT_CWRU = False
+CWRU_PAPERS = 11
+CWRU_CHAPTERS = 0
 
 def pull_data(name):
     return yaml.safe_load(open("../_data/" + name + ".yml"))
@@ -14,6 +17,7 @@ def pull_data(name):
 # search-replace pairs to convert html special characters to latex
 de_html_impl = [ ("--", re.compile(r"&ndash;")),
                  ("\\\&", re.compile(r"&amp;")),
+                 ("\\%", re.compile(r"%")),
                  ("\\\"{a}", re.compile(r"&auml;")),
                  ("\\\"{o}", re.compile(r"&ouml;")),
                  ("\\\"{u}", re.compile(r"&uuml;")),
@@ -158,10 +162,11 @@ def memberships():
 def papers():
     # papers are kind of special so will use a raw enumerate
     pubs = pull_data("papers")
-    section_header("publications", "enumerate")
+    print(r"\section{publications}")
+
     smp = "\\underline{S. M. Parker}" if not SIMPLE else "S. M. Parker"
 
-    for i, pub in enumerate(pubs):
+    def print_paper(i, pub):
         ir = len(pubs) - i
         smp_co = smp
         if pub.get("corresponding", False):
@@ -216,16 +221,34 @@ def papers():
 
         print()
 
-    section_footer("enumerate")
+    if SPLIT_AT_CWRU:
+        print()
+        print(r"\subsection{Case Western Reserve University}")
+        print(r"\begin{enumerate}")
+        for i, pub in enumerate(pubs[:CWRU_PAPERS]):
+            print_paper(i, pub)
+        print(r"\end{enumerate}")
+
+        print(r"\subsection{Before Case Western Reserve University}")
+        print(r"\begin{enumerate}")
+        for j, pub in enumerate(pubs[CWRU_PAPERS:]):
+            i = j + CWRU_PAPERS
+            print_paper(i, pub)
+        print(r"\end{enumerate}")
+    else:
+        print(r"\begin{enumerate}")
+        for i, pub in enumerate(pubs):
+            print_paper(i, pub)
+        print(r"\end{enumerate}")
 
     print("\\vspace{0.25cm}")
 
 def chapters():
     # chapters are modeled off of papers
     pubs = pull_data("chapters")
-    section_header("book chapters", "enumerate")
+    print(r"\section{book chapters}")
 
-    for i, pub in enumerate(pubs):
+    def print_book(i, pub):
         ir = len(pubs) - i
         authors = de_html(", ".join(
             ["\\underline{S. M. Parker}" if x=="me" else x for x in pub["authors"]
@@ -251,7 +274,27 @@ def chapters():
         print(title)
         print()
 
-    section_footer("enumerate")
+    if SPLIT_AT_CWRU:
+        if CWRU_CHAPTERS > 0:
+            print()
+            print(r"\subsection{Case Western Reserve University}")
+            print(r"\begin{enumerate}")
+            for i, pub in enumerate(pubs[:CWRU_CHAPTERS]):
+                print_book(i, pub)
+            print(r"\end{enumerate}")
+
+        print()
+        print(r"\subsection{Before Case Western Reserve University}")
+        print(r"\begin{enumerate}")
+        for j, pub in enumerate(pubs[CWRU_CHAPTERS:]):
+            i = j + CWRU_CHAPTERS
+            print_book(i, pub)
+        print(r"\end{enumerate}")
+    else:
+        print(r"\begin{enumerate}")
+        for i, pub in enumerate(pubs):
+            print_book(i, pub)
+        print(r"\end{enumerate}")
 
     print("\\vspace{0.25cm}")
 
@@ -300,18 +343,24 @@ def support(include_support="public"):
 
     print(r"\section{support}")
 
-    include = ["current", "ended"]
+    include = ["current", "completed"]
     if include_support == "pending":
         include.append("pending")
     elif include_support == "all":
-        include.extend( ["declined", "pending"] )
+        include.extend( ["declined", "pending", "discouraged"] )
+
+    def check_support(status):
+        for inc in include:
+            if inc in status:
+                return True
+        return False
 
     def print_support(a):
         def from_a(x):
             return de_html(a[x])
         title = de_html(a["title"])
         status = a["status"]
-        if status not in include:
+        if not check_support(status):
             return
         print("\\item")
         if "url" in a:
@@ -320,27 +369,30 @@ def support(include_support="public"):
         print("\\textbf{{Project Title:}} {} \\\\".format(title))
 
         if "amount" in a:
-            print("\\textbf{{Amount:}} {} \\\\".format(from_a("amount")))
-        print("\\textbf{{Status:}} {} \\\\".format(status))
+            print("\\textbf{{Amount:}} {}".format(from_a("amount")))
+            if "share" in a:
+                print(" ({} Parker)".format(from_a("share")))
+            print(r" \\")
+        if "role" in a:
+            print("\\textbf{{Role:}} {} \\\\".format(from_a("role")))
         if "source" in a:
             print("\\textbf{{Source:}} {} \\\\".format(from_a("source")))
-        if status == "current":
+        print("\\textbf{{Status:}} {} \\\\".format(status))
+        if status == "current" or status == "completed":
             if "start" in a:
                 print("\\textbf{{Start Date:}} {}".format(from_a("start")))
             if "end" in a:
                 print("\\textbf{{End Date:}} {}".format(from_a("end")))
             if "start" in a or "end" in a:
                 print("\\\\")
-        #if "objective" in a:
-        #    print("\\textbf{{Project Objective:}} {} \\\\".format(from_a("objective")))
-        if "details" in a:
-            print("{} \\\\".format(from_a("details")))
+        if "ID" in a:
+            print("\\textbf{{Award ID:}} {} \\\\".format(from_a("ID")))
         print(r"\vspace{-1em}")
         print()
 
     print()
-    print(r"\subsection{current support}")
-    current = [a for a in supp if a["status"] == "current"]
+    print(r"\subsection{funded support}")
+    current = [a for a in supp if a["status"] == "current" or a["status"] == "completed"]
     print(r"\begin{itemize}[noitemsep]")
     for a in current:
         print_support(a)
@@ -362,9 +414,10 @@ def support(include_support="public"):
     #    print_support(a)
 
     if "declined" in include:
+        # also include discouraged in here
         print()
         print(r"\subsection{declined support}")
-        declined = [a for a in supp if a["status"] == "declined"]
+        declined = [a for a in supp if ("declined" in a["status"] or "discouraged" in a["status"])]
         print(r"\begin{itemize}[noitemsep]")
         for a in declined:
             print_support(a)
@@ -565,11 +618,13 @@ if __name__ == "__main__":
                         help="type of support to include")
     parser.add_argument("-p", "--print", dest="printcolors", action="store_true")
     parser.add_argument("-c", "--condensed", dest="condensed", action="store_true")
+    parser.add_argument("--cwru", dest="cwru", action="store_true")
 
     args = parser.parse_args()
 
     style = args.style
     printcolors = args.printcolors
     SIMPLE = args.condensed
+    SPLIT_AT_CWRU = args.cwru
 
     make_tex(style, printcolors, do_support=args.support, include_support=args.support_type)
