@@ -206,7 +206,7 @@ def papers():
         #print("vp_list: ", vp_list)
         if vp_list:
             vp = ", ".join(vp_list)
-            print(f", {vp}")
+            print(f", {vp}", end="")
 
         if has_notes:
             notes = de_html(pub["note"])
@@ -407,12 +407,6 @@ def support(include_support="public"):
             print_support(a)
         print(r"\end{itemize}")
 
-    #print()
-    #print(r"\subsection{completed support}")
-    #done = [a for a in supp if a["status"] == "ended"]
-    #for a in done:
-    #    print_support(a)
-
     if "declined" in include:
         # also include discouraged in here
         print()
@@ -422,6 +416,27 @@ def support(include_support="public"):
         for a in declined:
             print_support(a)
         print(r"\end{itemize}")
+
+def fellowships():
+    fellows = pull_data("student_fellowships")
+
+    print(r"\subsection{student fellowships}")
+    print(r"\begin{itemize}[noitemsep]")
+    for f in fellows:
+        name = de_html(f["for"])
+        title = de_html(f["title"])
+        start = de_html(f.get("start", ""))
+        end = de_html(f.get("end", ""))
+        source = de_html(f.get("source", ""))
+        amount = de_html(f.get("amount", ""))
+        print(r"\item")
+        print(f"\\textbf{{{name}}} \\\\")
+        print(f"\\textbf{{title}}: {title} \\\\")
+        print(f"\\textbf{{fellowship}}: {source} \\\\")
+        print(f"\\textbf{{amount}}: {amount} \\\\")
+        print(f"\\textbf{{dates}} -- {start} -- {end}")
+
+    print(r"\end{itemize}")
 
 def lectures():
     lect = pull_data("lectures")
@@ -665,6 +680,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     awards()
     if do_support:
         support(include_support=include_support)
+        fellowships()
     lectures()
     pedagogy()
     #posters()
