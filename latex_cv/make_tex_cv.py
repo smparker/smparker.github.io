@@ -338,6 +338,24 @@ def awards():
 
     section_footer()
 
+def student_awards():
+    awards = pull_data("student_awards")
+    section_header("student awards")
+
+    for a in awards:
+        student = de_html(a["student"])
+        award = de_html(a["award"])
+        des = de_html(a.get("description", ""))
+        year = de_html(a["year"])
+        if not SIMPLE: print("\\entry[-1em]")
+        print("{%s}" % (year))
+        print("{%s {\\normalfont %s}}" % (student, award))
+        print("{}")
+        print("{}")
+        print()
+
+    section_footer()
+
 def support(include_support="public"):
     supp = pull_data("support")
 
@@ -430,7 +448,7 @@ def fellowships():
         source = de_html(f.get("source", ""))
         amount = de_html(f.get("amount", ""))
         print(r"\item")
-        print(f"\\textbf{{{name}}} \\\\")
+        print(f"\\textbf{{student}}: {name} \\\\")
         print(f"\\textbf{{title}}: {title} \\\\")
         print(f"\\textbf{{fellowship}}: {source} \\\\")
         print(f"\\textbf{{amount}}: {amount} \\\\")
@@ -678,6 +696,7 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     memberships()
     media()
     awards()
+    student_awards()
     if do_support:
         support(include_support=include_support)
         fellowships()

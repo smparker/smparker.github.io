@@ -194,13 +194,14 @@
   location: Case Western Reserve University
   submitted: 2021
   role: "co-PI (PI: Valentin Rodionov)"
+  amount: $1,000,000
   share: 50%
 
 - title: "Decomposition of Complex Macromolecular Architectures Under External Stressors: Computation, Spectroscopy, and Graph-Neural-Network Learning"
   status: white paper discouraged
   source: Department of Defense - MURI
   location: Case Western Reserve University
-  amount: $2,000,000
+  amount: $7,500,000
   submitted: 2020
   commitment: 1 month/year
   role: "co-PI (PI: Prof. Roger French)"
