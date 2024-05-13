@@ -30,6 +30,8 @@
   details: "Award ID: CHE-2236959"
   url: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2236959&HistoricalAwards=false
   commitment: 1 month/year
+  role: PI
+  share: 100%
 
 - title: "Early Career: A Multiscale Approach to Simulating Photochemistry in Complex Environments"
   status: preproposal discouraged
@@ -38,6 +40,7 @@
   submitted: 2024
   commitment: 1 month/year
   role: PI
+  share: 100%
 
 - title: Fast nonlinear properties calculations for predicted transient spectra through a minimal-auxiliary basis set method
   status: declined

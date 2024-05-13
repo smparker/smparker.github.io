@@ -10,6 +10,7 @@ SIMPLE = False
 SPLIT_AT_CWRU = False
 CWRU_PAPERS = 11
 CWRU_CHAPTERS = 0
+SHOW_CORRESPONDING = True
 
 def pull_data(name):
     return yaml.safe_load(open("../_data/" + name + ".yml"))
@@ -166,11 +167,14 @@ def papers():
 
     smp = "\\underline{S. M. Parker}" if not SIMPLE else "S. M. Parker"
 
+    if SHOW_CORRESPONDING:
+        print("corresponding authorship denoted with $^*$")
+
     def print_paper(i, pub):
         ir = len(pubs) - i
         smp_co = smp
         if pub.get("corresponding", False):
-            smp_co = smp + "$^*$"
+            smp_co = smp + "$^*$" if SHOW_CORRESPONDING else smp
         authors = ", ".join(
             [smp_co if x=="S. M. Parker" else de_html(x) for x in pub["authors"]
         ])
@@ -458,12 +462,14 @@ def fellowships():
 
 def lectures():
     lect = pull_data("lectures")
-    section_header("talks")
 
-    for l in lect:
+    print(r"\section{talks}")
+    print()
+
+    def print_lecture(l):
         title = de_html(l["title"])
         if title == "TBD":
-            continue
+            return
         time = de_html(l["time"])
         location = de_html(l["location"])
         institution = de_html(l["institution"])
@@ -479,13 +485,37 @@ def lectures():
         print("}")
         print()
 
-    section_footer()
+    if SPLIT_AT_CWRU:
+        print(r"\subsection{Case Western Reserve University}")
+        print()
+        print(r"\begin{entrylist}")
+        for l in lect:
+            aff = l.get("affiliation", "")
+            if "CWRU" in aff:
+                print_lecture(l)
+        print(r"\end{entrylist}")
+        print()
+        print(r"\subsection{Before Case Western Reserve University}")
+        print()
+        print(r"\begin{entrylist}")
+        for l in lect:
+            aff = l.get("affiliation", "")
+            if not "CWRU" in aff:
+                print_lecture(l)
+        print(r"\end{entrylist}")
+    else:
+        print()
+        print(r"\begin{entrylist}")
+        for l in lect:
+            print_lecture(l)
+        print(r"\end{entrylist}")
 
 def pedagogy():
     lect = pull_data("pedagogy")
-    section_header("pedagogical lectures")
 
-    for l in lect:
+    print(r"\section{pedagogical lectures}")
+
+    def print_ped(l):
         time = de_html(l["time"])
         topic = de_html(l["topic"])
         location = de_html(l["location"])
@@ -499,7 +529,32 @@ def pedagogy():
         print("}")
         print()
 
-    section_footer()
+    if SPLIT_AT_CWRU:
+        print()
+        print(r"\subsection{Case Western Reserve University}")
+        print()
+        print(r"\begin{entrylist}")
+        for l in lect:
+            aff = l.get("affiliation", "")
+            if "CWRU" in aff:
+                print_ped(l)
+        print(r"\end{entrylist}")
+        print()
+        print(r"\subsection{Before Case Western Reserve University}")
+        print()
+        print(r"\begin{entrylist}")
+        for l in lect:
+            aff = l.get("affiliation", "")
+            if not "CWRU" in aff:
+                print_ped(l)
+        print(r"\end{entrylist}")
+    else:
+        print()
+        print(r"\begin{entrylist}")
+        for l in lect:
+            print_ped(l)
+        print(r"\end{entrylist}")
+
 
 def posters():
     post = pull_data("posters")
@@ -642,6 +697,9 @@ def advisees():
         elif alum["was"] == "postdoc":
             pd.append(alum)
 
+    # TODO: sort by start dates
+
+
     print(r"\section{advisees}")
     print()
     print(r"\subsection{postdoctoral researchers}")
@@ -691,23 +749,22 @@ def make_tex(style, printcolors, do_support=False, include_support="public"):
     if (style == "resume"):
         aside()
     positions()
+    memberships()
+    awards()
     papers()
     chapters()
-    memberships()
     media()
-    awards()
-    student_awards()
+    lectures()
+    pedagogy()
     if do_support:
         support(include_support=include_support)
         fellowships()
-    lectures()
-    pedagogy()
-    #posters()
-    teaching()
+    collaborators()
     service()
     professional_service()
-    collaborators()
+    teaching()
     advisees()
+    student_awards()
     footer()
 
 if __name__ == "__main__":

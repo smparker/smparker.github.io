@@ -3,30 +3,35 @@
   location: Benasque, Spain
   time: May 2025
   invited: true
+  affiliation: CWRU
 
-- title: TBD
+- title: "TDDFT-ris: A semiempirical model and preconditioner for fast and accurate spectra and nonlinear properties"
   institution: Turbomole User and Developer Meeting
   location: Oxford, UK
   time: September 2024
   invited: true
+  affiliation: CWRU
 
-- title: TBD
+- title: "TDDFT-ris: A semiempirical model and preconditioner for fast and accurate spectra and nonlinear properties"
   institution: CECAM Reaction Prediction Workshop
   location: Chicago, IL
   time: July 2024
   invited: true
+  affiliation: CWRU
 
-- title: TBD
-  institution: Pennsylvania State University
+- title: Towards Photochemistry with the Resonating Mean-Field Method
+  institution: ACS Mid-Atlantic Regional Meeting
   location: State College, PA
   time: June 2024
   invited: true
+  affiliation: CWRU
 
-- title: TBD
+- title: Towards Photochemistry with the Resonating Mean-Field Method
   institution: Midwest Theoretical Chemistry Conference 2024
   location: University of Wisconsin-Madison, Madison, WI
   time: June 2024
   invited: true
+  affiliation: CWRU
 
 - title: "(1) TDDFT-ris: A semiempirical model and preconditioner for fast and accurate spectra
               (2) Hop to it: cumulative probabilities make surface hopping simulations
@@ -34,99 +39,116 @@
   institution: Meeting of the American Chemical Society
   location: New Orleans, LA
   time: March 17-18, 2024
+  affiliation: CWRU
 
 - title: Simulating Photochemistry from First-Principles Quantum Chemistry
   institution: University of Akron
   location: Akron, OH
   time: January 16, 2024
   invited: true
+  affiliation: CWRU
 
 - title: Computational Photochemistry
   institution: Binghamton University, Department of Physics
   location: Binghamton, NY
   time: September 11, 2023
   invited: true
+  affiliation: CWRU
 
 - title: Fast spectra with the minimal auxiliary basis approach to TDDFT
   institution: Rutgers TDDFT Workshop
   location: Rutgers, NJ
   time: July 6, 2023
   invited: true
+  affiliation: CWRU
 
 - title: Fast spectra with the minimal auxiliary basis approach to TDDFT
   institution: Midwest Theoretical Chemistry Conference 2023
   location: Purdue University, West Lafayette, IN
   time: June 3, 2023
   invited: false
+  affiliation: CWRU
 
 - title: Fast Spectra with the minimal auxiliary basis approach to TDDFT
   institution: Benasque 9th TDDFT Workshop
   location: Benasque, Spain
   time: October 2022
   invited: true
+  affiliation: CWRU
 
 - title: Accelerating Quantum Chemistry with Semiempirical Preconditioning
   institution: CWRU-Tohoku 8th Annual Data Science in Engineering and Life Sciences Symposium
   location: Cleveland, Ohio
   time: August 2022
   invited: true
+  affiliation: CWRU
 
 - title: Accelerating TDDFT with Semiempirical Preconditioning
   institution: 52nd MWTCC
   location: Columbus, Ohio
   time: June 2022
   invited: false
+  affiliation: CWRU
 
 - title: "Cumulative Surface Hopping: Faster and More Reproducible"
   institution: APS March Meeting 2022
   location: Chicago, Illinois
   time: March 2022
   invited: false
+  affiliation: CWRU
 
 - title: "Excited-State Chemistry with TDDFT"
   institution: "256th American Chemical Society National Meeting and Exposition"
   location: Boston, Massachussetts
   time: August 2018
   invited: true
+  affiliation: UCI
 
 - title: "Ensemble Optimized Time-Dependent Density Functional Theory"
   institution: "256th American Chemical Society National Meeting and Exposition"
   location: Boston, Massachussetts
   time: August 2018
   invited: true
+  affiliation: UCI
 
 - title: "Quadratic response properties from TDDFT: trials and tribulations"
   institution: "APS March Meeting"
   location: Los Angeles, California
   time: March 2018
   invited: false
+  affiliation: UCI
 
 - title: "Nonlinear properties from TDDFT: trials and tribulations"
   institution: "Excited States: Electronic Structure and Dynamics"
   location: Telluride, Colorado
   time: July 2017
   invited: true
+  affiliation: UCI
 
 - title: "Nonlinear properties from TDDFT: trials and tribulations"
   institution: 253rd American Chemical Society National Meeting and Exposition
   location: San Francisco, California
   time: April 2017
   invited: true
+  affiliation: UCI
 
 - title: Diagnosis and implications of spurious poles in the quadratic response of approximate electronic structure methods
   institution: 251st American Chemical Society National Meeting and Exposition
   location: San Diego, California
   time: March 2016
   invited: false
+  affiliation: UCI
 
 - title: Non-adiabatic molecular dynamics
   institution: 98th Meeting of the Canadian Society of Chemistry
   location: Ottawa, Ontario
   time: June 2015
   invited: true
+  affiliation: UCI
 
 - title: Model Hamiltonians from the Active-space Decomposition Method
   institution: McMaster University, Department of Chemistry
   location: Hamilton, Ontario
   time: June 2014
   invited: true
+  affiliation: NU

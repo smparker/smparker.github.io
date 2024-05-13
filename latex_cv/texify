@@ -8,7 +8,7 @@ else
 fi
 
 printf "%-80s\r" "Building CV: generating"
-./make_tex_cv.py -p -s -S all -t cv --cwru > $name.tex
+./make_tex_cv.py -p -s -S public -t cv --cwru > $name.tex
 
 for pass in "first" "second"; do
   printf "%-80s\r" "Building ${x}: $pass pass"
