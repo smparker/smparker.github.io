@@ -19,10 +19,12 @@
 - authors: [E. Roy Miller, S. J. Hoehn, A. Kumar, D. Jiang, S. M. Parker]
   title: "Ultrafast Photochemistry and Electron Diffraction for Cyclobutanone in the S<sub>2</sub> State: Surface Hopping with Time-Dependent Density Functional Theory"
   year: 2024
-  note: accepted
   journal:  The Journal of Chemical Physics
   preprint: arXiv:2402.10336
   preprint_url: http://arxiv.org/abs/2402.10336
+  doi: 10.1063/5.0203679
+  volume: 161
+  page: 034105
   corresponding: true
 
 - authors: [Y. J. Franzke, C. Holzer, J. H. Andersen, T. Begusic, F. Bruder,
