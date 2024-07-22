@@ -1,7 +1,8 @@
 - authors: [Z. Zhou, S. M. Parker]
   title: "Converging TDDFT calculations in 5 iterations with minimal auxiliary preconditioning"
   year: 2024
-  note: under review
+  note: accepted
+  journal: Journal of Chemical Theory and Computation
   preprint: arXiv:2404.17133
   preprint_url: https://arxiv.org/abs/2404.17133
   corresponding: true
