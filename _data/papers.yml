@@ -13,8 +13,8 @@
   year: 2023
   #doi: 10.26434/chemrxiv-2023-xl3gp-v2
   note: submitted
-  preprint: chemRxiv:2023.xl3gp.v2
-  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v2
+  preprint: chemRxiv:2023.xl3gp.v3
+  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v3
   corresponding: false
 
 - authors: [E. Roy Miller, S. J. Hoehn, A. Kumar, D. Jiang, S. M. Parker]
@@ -25,7 +25,7 @@
   preprint_url: http://arxiv.org/abs/2402.10336
   doi: 10.1063/5.0203679
   volume: 161
-  page: 034105
+  page: "034105"
   corresponding: true
 
 - authors: [Y. J. Franzke, C. Holzer, J. H. Andersen, T. Begusic, F. Bruder,
