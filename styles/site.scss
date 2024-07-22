@@ -223,3 +223,22 @@ table.directory {
 .responsive-chart {
   width: 100%;
 }
+
+.publication-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.publication-info {
+  flex: 1;
+}
+
+.publication-graphic {
+  margin-left: 20px;
+}
+
+.publication-graphic img {
+  max-width: 200px;
+  height: auto;
+}

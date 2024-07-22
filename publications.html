@@ -9,6 +9,8 @@ permalink: /publications/
 <ol class="publications">
   {% for paper in site.data.papers %}
     <li value="{{forloop.rindex}}">
+      <div class="publication-item">
+        <div class="publication-info">
       {% for name in paper.authors %}
         {{name}},
       {% endfor %}
@@ -23,6 +25,12 @@ permalink: /publications/
     {% if paper.preprint_pdf %}(<a href="{{base.url}}/preprints/{{paper.preprint_pdf}}" target="_blank">{{paper.preprint}}</a>)
     {% elsif paper.preprint_url %} (<a href="{{paper.preprint_url}}" target="_blank">{{paper.preprint}}</a>){% endif %}
     {% if paper.special %} ({% if paper.special_url %}<a href="{{paper.special_url}}" target="_blank">{% endif %}{{paper.special}}{% if paper.special_url %}</a> {% endif %}) {% endif %}
+    </div>
+    {% if paper.graphic %}
+    <div class="publication-graphic">
+      <img src="{{base.url}}/assets/toc/{{paper.graphic}}" alt="{{paper.title}}">
+    </div>
+    {% endif %}
   {% endfor %}
 </ol>
 
