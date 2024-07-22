@@ -6,6 +6,7 @@
   preprint: arXiv:2404.17133
   preprint_url: https://arxiv.org/abs/2404.17133
   corresponding: true
+  graphic: rid-preconditioner.jpg
 
 - authors: [W. B. Martin, S. M. Parker, V. Rodionov]
   title: Errors in characterization and modeling undermine the report of the synthesis of
@@ -27,6 +28,7 @@
   volume: 161
   page: "034105"
   corresponding: true
+  graphic: cyclobutanone.jpg
 
 - authors: [Y. J. Franzke, C. Holzer, J. H. Andersen, T. Begusic, F. Bruder,
     S. Coriani, F. Della Sala, E. Fabiano, D. A. Fedotov, S. Fürst, S. Gillhuber,
