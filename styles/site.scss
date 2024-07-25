@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "bootstrap";
+@import "bootstrap/bootstrap";
 
 // Default layout
 body {
@@ -40,10 +40,10 @@ body {
   }
   .social-media-list {
     text-align: center;
-    @media (max-width: $screen-sm-max) {
+    @include media-breakpoint-down(sm) {
       text-align: right;
     }
-    @media (min-width: $screen-sm-min) {
+    @include media-breakpoint-up(md) {
       text-align: center;
     }
   }
@@ -55,12 +55,14 @@ body {
 }
 
 .motto {
-  @media (max-width: $screen-sm-max) {
+  @include media-breakpoint-down(sm) {
     text-align: center;
     vertical-align: bottom;
     padding-top: 1em;
   }
-  @media (min-width: $screen-sm-min) {
+
+  // Small and up
+  @include media-breakpoint-up(sm) {
     text-align: right;
   }
 }
@@ -91,7 +93,7 @@ body {
 
 // Publications table
 .publications {
-  @media (max-width: $screen-xs-max) {
+  @include media-breakpoint-down(xs) {
     padding-left: 1em;
   }
 
@@ -148,9 +150,10 @@ li.cat-item.active {
   vertical-align: top;
   text-align: right;
 
-  @media (min-width: $screen-sm-min) {
+  @include media-breakpoint-up(sm) {
     white-space: nowrap;
   }
+
 }
 
 .main-announcement {
