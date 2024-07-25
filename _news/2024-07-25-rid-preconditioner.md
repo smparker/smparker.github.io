@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Converge TDDFT in 5 iterations with the rid preconditioner"
-date: 2024-07-27
+date: 2024-07-25
 ---
 John's paper introducing the "rid" preconditioner for TDDFT is now
 available online in _The Journal of Chemical Physics_.
@@ -14,4 +14,4 @@ in about 5 iterations _on average_, which is about a factor of 3 faster
 than using the conventional (diagonal) preconditioner.
 Even more, this speedup is obtained _without any loss of accuracy_.
 The full paper is titled
-["Converging TDDFT calculations in 5 iterations with minimal auxiliary preconditioning"](https://doi.org/XXX).
+["Converging TDDFT calculations in 5 iterations with minimal auxiliary preconditioning"](https://doi.org/10.1021/acs.jctc.4c00577).
