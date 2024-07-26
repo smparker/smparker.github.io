@@ -6,19 +6,15 @@ header_order: 4
 permalink: /software/
 ---
 <div class="row">
-{% for code in site.data.software %}
-{% assign modindex = forloop.index0 | modulo: 3 %}
-{% if modindex == 0 %}
-<div class="row">
-{% endif %}
-  <div class="col-xs-offset-2 col-xs-8 col-xs-clear col-sm-6 col-sm-offset-0 col-md-4">
-    <a href="{{code.url}}">
-      <img class="img-fluid rounded center-block" src="{{base.url}}/assets/{{code.image}}" alt="{{code.alt}}">
-    </a>
-    <h3>{{code.name}}</h3>
-    <p> {{code.description}} </p>
-  </div>
-{% if modindex == 2 or forloop.last %}
+  {% for code in site.data.software %}
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card border-0">
+        <a href="{{code.url}}">
+          <img src="{{base.url}}/assets/{{code.image}}" class="card-img-top img-fluid rounded center-block" alt="{{ code.alt }}">
+        </a>
+        <h3 class="card-title">{{code.name}}</h3>
+        <p class="card-text">{{code.description}}</p>
+      </div>
+    </div>
+  {% endfor %}
 </div>
-{% endif %}
-{% endfor %}
