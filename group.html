@@ -10,7 +10,7 @@ permalink: /group/
     <ul id="lightSlider">
         {% for i in site.data.gallery %}
         <li data-thumb="{{base.url}}/gallery/thumb/{{i.name}}">
-          <img class="img-responsive" src="{{base.url}}/gallery/{{i.name}}" alt="{{i.alt}}"/>
+          <img class="img-fluid" src="{{base.url}}/gallery/{{i.name}}" alt="{{i.alt}}"/>
         </li>
         {% endfor %}
     </ul>
