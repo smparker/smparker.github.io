@@ -1,3 +1,14 @@
+
+- authors: [W. B. Martin, R. Warburton, S. M. Parker, V. Rodionov]
+  title: Errors in characterization and modeling undermine the report of the synthesis of
+    γ-graphyne via alkyne metathesis
+  year: 2024
+  #doi: 10.26434/chemrxiv-2023-xl3gp-v2
+  note: submitted
+  preprint: chemRxiv:2023.xl3gp.v3
+  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v3
+  corresponding: false
+
 - authors: [Z. Zhou, S. M. Parker]
   title: "Converging TDDFT calculations in 5 iterations with minimal auxiliary preconditioning"
   year: 2024
@@ -7,16 +18,6 @@
   corresponding: true
   doi: 10.1021/acs.jctc.4c00577
   graphic: rid-preconditioner.jpg
-
-- authors: [W. B. Martin, S. M. Parker, V. Rodionov]
-  title: Errors in characterization and modeling undermine the report of the synthesis of
-    γ-graphyne via alkyne metathesis
-  year: 2023
-  #doi: 10.26434/chemrxiv-2023-xl3gp-v2
-  note: submitted
-  preprint: chemRxiv:2023.xl3gp.v3
-  preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v3
-  corresponding: false
 
 - authors: [E. Roy Miller, S. J. Hoehn, A. Kumar, D. Jiang, S. M. Parker]
   title: "Ultrafast Photochemistry and Electron Diffraction for Cyclobutanone in the S<sub>2</sub> State: Surface Hopping with Time-Dependent Density Functional Theory"
