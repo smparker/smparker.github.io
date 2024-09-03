@@ -1,10 +1,9 @@
 
-- authors: [W. B. Martin, R. Warburton, S. M. Parker, V. Rodionov]
+- authors: [W. B. Martin, R. E. Warburton, S. M. Parker, V. O. Rodionov]
   title: On the characterization of γ-graphyne
   year: 2024
   journal: Nature Synthesis (Matters Arising)
-  #doi: 10.26434/chemrxiv-2023-xl3gp-v2
-  note: accepted
+  doi: 10.1038/s44160-024-00642-1
   preprint: chemRxiv:2023.xl3gp.v3
   preprint_url: https://doi.org/10.26434/chemrxiv-2023-xl3gp-v3
   corresponding: false
