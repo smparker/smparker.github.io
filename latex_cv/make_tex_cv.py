@@ -212,6 +212,11 @@ def papers():
             vp = ", ".join(vp_list)
             print(f", {vp}", end="")
 
+        if "doi" in pub:
+            doi = de_html(pub["doi"])
+            doi_str = f"doi: {doi:s}"
+            print(f", {doi_str:s}", end="")
+
         if has_notes:
             notes = de_html(pub["note"])
             print(f", {notes:s}", end="")
