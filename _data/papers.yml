@@ -1,3 +1,10 @@
+- authors: [E. Roy Miller, S. M. Parker]
+  title: Numerically Stable Resonating Hartree-Fock
+  year: 2024
+  note: submitted
+  preprint: "arXiv:2411.00712"
+  preprint_url: https://arxiv.org/abs/2411.00712
+  corresponding: true
 
 - authors: [W. B. Martin, R. E. Warburton, S. M. Parker, V. O. Rodionov]
   title: On the characterization of γ-graphyne
