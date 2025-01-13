@@ -1,3 +1,14 @@
+- name: Ericka Miller
+  email: erickamiller@case.edu
+  photo: ericka.jpg
+  office: Millis 226
+  interests: excited-state quantum chemistry, structure and properties of graphyne
+  start: 2019
+  left: 2024
+  was: Ph.D.
+  where: Notre Dame
+  position: postdoc
+
 - name: Sean Hoehn
   email: sxh905@case.edu
   office: Millis 226A
