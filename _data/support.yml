@@ -1,5 +1,25 @@
-- title: "FuSe2: Carbon Semiconductor Devices Based on γ-Graphyne"
+- title: Exploratory Optoelectronic Characterization and Simulation of Graphyne
   status: pending
+  source: Case Western Reserve University
+  amount: $40,000
+  location: Case Western Reserve University
+  objective: Graphyne stuff
+  submitted: 2024/12/16
+  share: 45%
+  role: "PI (co-PIs: Clemens Burda, Valentin Rodionov)"
+
+- title: Spatial and Temporal Control of Energy Transfer at the Atomic Scale in DNA Photonic Materials
+  status: pending
+  source: Case Western Reserve University
+  amount: $40,000
+  location: Case Western Reserve University
+  objective: DNA stuff
+  submitted: 2024/12/16
+  share: 33%
+  role: "co-PI (PI: Carlos Crespo, co-PI: Divita Mathur)"
+
+- title: "FuSe2: Carbon Semiconductor Devices Based on γ-Graphyne"
+  status: declined
   source: NSF Future of Semiconductors (FuSe2)
   amount: $2,000,000
   location: Case Western Reserve University

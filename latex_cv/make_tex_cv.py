@@ -8,7 +8,7 @@ import datetime
 
 SIMPLE = False
 SPLIT_AT_CWRU = False
-CWRU_PAPERS = 11
+NONCWRU_PAPERS = 15
 CWRU_CHAPTERS = 0
 SHOW_CORRESPONDING = True
 
@@ -234,6 +234,7 @@ def papers():
         print()
         print(r"\subsection{Case Western Reserve University}")
         print(r"\begin{enumerate}")
+        CWRU_PAPERS = len(pubs) - NONCWRU_PAPERS
         for i, pub in enumerate(pubs[:CWRU_PAPERS]):
             print_paper(i, pub)
         print(r"\end{enumerate}")

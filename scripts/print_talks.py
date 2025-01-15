@@ -4,7 +4,7 @@ from __future__ import print_function
 
 import yaml
 
-data = yaml.load(open("lectures.yml"))
+data = yaml.safe_load(open("lectures.yml"))
 
 print(data)
 for x in data:
