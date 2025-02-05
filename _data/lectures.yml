@@ -5,7 +5,7 @@
   invited: true
   affiliation: CWRU
 
-- title: TBD
+- title: "Simulating Photochemistry from First-Principles Quantum Chemistry"
   institution: University of Houston
   location: Houston, TX
   time: February 3, 2025
@@ -16,6 +16,13 @@
   institution: Turbomole User and Developer Meeting
   location: Oxford, UK
   time: September 18, 2024
+  invited: true
+  affiliation: CWRU
+
+- title: "Simulating Photochemistry from First-Principles Quantum Chemistry"
+  institution: Case Western Reserve University
+  location: Cleveland, OH
+  time: August 29, 2024
   invited: true
   affiliation: CWRU
 
