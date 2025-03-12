@@ -1,11 +1,13 @@
 - authors: [E. Roy Miller, S. M. Parker]
   title: Numerically Stable Resonating Hartree-Fock
   year: 2025
-  note: accepted
   journal: The Journal of Chemical Physics
+  page: 104115
+  doi: 10.1063/5.0246790
   preprint: "arXiv:2411.00712"
   preprint_url: https://arxiv.org/abs/2411.00712
   corresponding: true
+  special: 2024 JCP Emerging Investigator
 
 - authors: [W. B. Martin, R. E. Warburton, S. M. Parker, V. O. Rodionov]
   title: On the characterization of γ-graphyne
