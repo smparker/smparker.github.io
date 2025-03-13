@@ -7,14 +7,16 @@
           </button>
 
         <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav-titles  navbar-nav me-auto mb-2 mb-lg-0 navbar-right">
+          <ul class="nav-titles navbar-nav me-auto mb-2 mb-lg-0 navbar-right">
             {% assign header_pages = site.pages | where_exp: "page", "page.header_order > 0" %}
             {% assign sorted_pages = header_pages | sort: 'header_order' %}
               {% for p in sorted_pages %}
                 {% if p.title %}
                   {% if p.title != index %}
                     {% if p.title != page.title %}<li class="nav-item">{% else %}<li class="nav-item active">{% endif %}
-                        <a class="nav-link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+                        <a class="nav-link" href="{{ p.url | prepend: site.baseurl }}">
+                          {% if p.icon %} <i class="fa-solid {{ p.icon }}"></i> {% endif %}
+                          {{ p.title }}</a></li>
                   {% endif %}
                 {% endif %}
               {% endfor %}

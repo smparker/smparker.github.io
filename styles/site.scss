@@ -31,9 +31,17 @@ p {
 
 // Footer
 .site-footer {
-  margin-top: 25px;
+  margin-top: 0;
+  padding-top: 0;
 }
 
+.site-footer:before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: linear-gradient(to right, #0d2d5c, #c8102e);
+  margin-bottom: 2rem;
+}
 
 .nav-titles {
   li {
@@ -46,19 +54,20 @@ p {
   margin: 0;
   padding: 0;
 
+
   .contact-list,
   .social-media-list {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 2rem 4rem;
+    justify-content: space-between;
   }
   .social-media-list {
-    text-align: center;
     @include media-breakpoint-down(sm) {
       text-align: right;
     }
     @include media-breakpoint-up(md) {
-      text-align: center;
+      text-align: right;
     }
   }
   > li {
