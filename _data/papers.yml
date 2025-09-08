@@ -1,3 +1,13 @@
+- authors: [ K. Raheja, A. Shorin, D. Gagnon, R. Lutz, B. Hasan, M. Singh,
+  S. M. Parker, S. Morozova, M. Karayilan ]
+  title: Thermoresponsive and Flow Behavior of Hyperbranched Poylmers from ATRP Inimer
+  year: 2025
+  journal: Journal of Polymer Science
+  doi: 10.1002/pol.20250830
+  corresponding: false
+  preprint: "chemrxiv-2025-btj2g"
+  preprint_url: "https://doi.org/10.26434/chemrxiv-2025-btj2g"
+
 - authors: [E. Roy Miller, S. M. Parker]
   title: Numerically Stable Resonating Hartree-Fock
   year: 2025

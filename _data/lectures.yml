@@ -1,4 +1,25 @@
-- title: TBD
+- title: TBD #Unraveling Photochemistry with First-Principles Quantum Chemistry
+  institution: University of California Irvine
+  location: Irvine, CA
+  time: October 21, 2025
+  invited: true
+  affiliation: CWRU
+
+- title: Unraveling Photochemistry with First-Principles Quantum Chemistry
+  institution: Light As Reagant and Product Lecture Series
+  location: Virtual Seminar Series
+  time: September 6, 2025
+  invited: true
+  affiliation: CWRU
+
+- title: Numerically Stable Resonating Hartree-Fock
+  institution: Meeting of the American Chemical Society
+  location: Washington, D.C.
+  time: August 20, 2025
+  invited: false
+  affiliation: CWRU
+
+- title: (Non)linear properties on a budget: the semiempirical TDDFT-ris method
   institution: Benasque 10th TDDFT Workshop
   location: Benasque, Spain
   time: May 2025
