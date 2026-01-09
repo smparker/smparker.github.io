@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photoelectric Effect Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+      font-family: "IBM Plex Mono", "Courier New", monospace;
+      padding: 24px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+      color: #c0c0d0;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #808090;
+      margin-bottom: 32px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .apparatus {
+      background-color: #0d0d1a;
+      border: 2px solid #3a3a5a;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .lamp {
+      position: absolute;
+      left: 60px;
+      top: 80px;
+      width: 80px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lamp-housing {
+      width: 60px;
+      height: 70px;
+      background: linear-gradient(135deg, #4a4a5a 0%, #2a2a3a 100%);
+      border-radius: 8px 8px 0 0;
+      border: 2px solid #5a5a6a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lamp-housing.emitting {
+      animation: lampGlow 0.5s ease-in-out infinite;
+    }
+
+    .lamp-bulb {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #333;
+      transition: all 0.3s;
+    }
+
+    .lamp-bulb.emitting {
+      box-shadow: 0 0 20px var(--photon-color), 0 0 40px var(--photon-color);
+    }
+
+    .lamp-base {
+      width: 40px;
+      height: 20px;
+      background: #3a3a4a;
+      border-radius: 0 0 4px 4px;
+      border: 2px solid #5a5a6a;
+      border-top: none;
+    }
+
+    .component-label {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #808090;
+      text-align: center;
+    }
+
+    .target {
+      position: absolute;
+      left: 340px;
+      top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .target-plate {
+      width: 16px;
+      height: 120px;
+      background: linear-gradient(90deg, #6a6a7a 0%, #9a9aaa 50%, #6a6a7a 100%);
+      border-radius: 2px;
+      border: 1px solid #8a8a9a;
+      transition: box-shadow 0.3s;
+    }
+
+    .target-plate.electrons {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+
+    .detector {
+      position: absolute;
+      right: 60px;
+      top: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .detector-housing {
+      width: 50px;
+      height: 100px;
+      background: linear-gradient(135deg, #2a3a4a 0%, #1a2a3a 100%);
+      border-radius: 4px;
+      border: 2px solid #4a5a6a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .detector-window {
+      width: 30px;
+      height: 60px;
+      background: #0a1520;
+      border-radius: 2px;
+      border: 1px solid #3a4a5a;
+    }
+
+    .photon {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      opacity: 0;
+      animation: photonMove 1000ms linear infinite;
+    }
+
+    .electron {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #00ffff;
+      box-shadow: 0 0 6px #00ffff, 0 0 10px #00ffff;
+      opacity: 0;
+      animation: electronMove 800ms ease-out infinite;
+    }
+
+    @keyframes photonMove {
+      0% { opacity: 0; transform: translate(0, 0); }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translate(220px, 0); }
+    }
+
+    @keyframes electronMove {
+      0% { opacity: 0; transform: translate(0, 0); }
+      20% { opacity: 1; }
+      100% { opacity: 0; transform: translate(120px, -40px); }
+    }
+
+    @keyframes lampGlow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-panel {
+      background-color: #1a1a2e;
+      border: 2px solid #3a3a5a;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .control-label {
+      display: block;
+      font-size: 12px;
+      color: #808090;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(to right, 
+        #9400ff 0%, 
+        #0000ff 15%, 
+        #00ffff 30%, 
+        #00ff00 45%, 
+        #ffff00 55%, 
+        #ff8000 65%, 
+        #ff0000 75%, 
+        #800000 100%
+      );
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #333;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #333;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .wavelength-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wavelength-value {
+      font-size: 28px;
+      font-weight: 600;
+      text-shadow: 0 0 10px var(--photon-color);
+    }
+
+    .wavelength-bound {
+      font-size: 12px;
+      color: #606070;
+    }
+
+    select {
+      background: #2a2a4a;
+      color: #e0e0e0;
+      border: 2px solid #4a4a6a;
+      padding: 10px 16px;
+      font-family: inherit;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    select:hover {
+      border-color: #6a6a8a;
+    }
+
+    select:focus {
+      border-color: #8a8aaa;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    button {
+      background: #3a5a3a;
+      color: #e0e0e0;
+      border: none;
+      padding: 14px 32px;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: #4a7a4a;
+    }
+
+    button:active {
+      background: #2a4a2a;
+      transform: scale(0.98);
+    }
+
+    .readout {
+      background-color: #0a0a15;
+      border: 2px solid #3a3a5a;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .readout-label {
+      font-size: 12px;
+      color: #808090;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .readout-value {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 32px;
+      font-weight: 600;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .readout-value.signal {
+      color: #00ff88;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    }
+
+    .readout-value.no-signal {
+      color: #ff6666;
+      text-shadow: 0 0 10px rgba(255, 102, 102, 0.3);
+    }
+
+    .spectrum-ref {
+      font-size: 11px;
+      color: #606070;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .spectrum-ref .violet { color: #9400ff; }
+    .spectrum-ref .blue { color: #0066ff; }
+    .spectrum-ref .green { color: #00ff00; }
+    .spectrum-ref .yellow { color: #ffff00; }
+    .spectrum-ref .orange { color: #ff8000; }
+    .spectrum-ref .red { color: #ff0000; }
+  </style>
+</head>
+<body>
+  <h1>PHOTOELECTRIC EFFECT</h1>
+  <p class="subtitle">Experimental Apparatus</p>
+
+  <div class="container">
+    <!-- Apparatus Visualization -->
+    <div class="apparatus" id="apparatus">
+      <!-- Lamp -->
+      <div class="lamp">
+        <div class="lamp-housing" id="lamp-housing">
+          <div class="lamp-bulb" id="lamp-bulb"></div>
+        </div>
+        <div class="lamp-base"></div>
+        <div class="component-label">LIGHT SOURCE</div>
+      </div>
+
+      <!-- Metal Target -->
+      <div class="target">
+        <div class="target-plate" id="target-plate"></div>
+        <div class="component-label" id="target-label">CESIUM<br>TARGET</div>
+      </div>
+
+      <!-- Detector -->
+      <div class="detector">
+        <div class="detector-housing">
+          <div class="detector-window"></div>
+        </div>
+        <div class="component-label">DETECTOR</div>
+      </div>
+
+      <!-- Photon container -->
+      <div id="photon-container"></div>
+      
+      <!-- Electron container -->
+      <div id="electron-container"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <!-- Wavelength Control -->
+      <div class="control-panel">
+        <label class="control-label" for="wavelength-slider">Wavelength (nm)</label>
+        <input type="range" id="wavelength-slider" min="200" max="1000" value="500">
+        <div class="wavelength-display">
+          <span class="wavelength-bound">200</span>
+          <span class="wavelength-value" id="wavelength-value">500</span>
+          <span class="wavelength-bound">1000</span>
+        </div>
+      </div>
+
+      <!-- Material Selection -->
+      <div class="control-panel">
+        <label class="control-label" for="material-select">Target Material</label>
+        <select id="material-select">
+          <option value="cesium">Cesium</option>
+          <option value="potassium">Potassium</option>
+          <option value="calcium">Calcium</option>
+          <option value="unknown">Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Measure Button -->
+    <div class="button-container">
+      <button id="measure-btn">Measure</button>
+    </div>
+
+    <!-- Velocity Readout -->
+    <div class="readout">
+      <div class="readout-label">Electron Velocity Readout</div>
+      <div class="readout-value no-signal" id="readout-value">—</div>
+    </div>
+
+    <!-- Spectrum Reference -->
+    <div class="spectrum-ref">
+      <span>UV: &lt;380 nm</span>
+      <span class="violet">Violet: 380–450</span>
+      <span class="blue">Blue: 450–495</span>
+      <span class="green">Green: 495–570</span>
+      <span class="yellow">Yellow: 570–590</span>
+      <span class="orange">Orange: 590–620</span>
+      <span class="red">Red: 620–750</span>
+      <span>IR: &gt;750 nm</span>
+    </div>
+  </div>
+
+  <script>
+    // Physical constants
+    const HC_EV_NM = 1239.84;          // hc in eV·nm
+    const ELECTRON_MASS = 9.109e-31;   // kg
+    const EV_TO_JOULES = 1.602e-19;    // J/eV
+    const SIGNAL_BUFFER = 0.05;        // eV above work function needed for signal
+
+    // Work functions in eV
+    const MATERIALS = {
+      cesium: { name: 'Cesium', workFunction: 2.14 },
+      potassium: { name: 'Potassium', workFunction: 2.30 },
+      calcium: { name: 'Calcium', workFunction: 2.71 },
+      unknown: { name: 'Unknown', workFunction: 2.52 }  // Default: Barium
+    };
+
+    // Get unknown work function from URL parameter
+    function getUnknownWorkFunction() {
+      const params = new URLSearchParams(window.location.search);
+      const unknownParam = params.get('unknown');
+      if (unknownParam) {
+        const parsed = parseFloat(unknownParam);
+        if (!isNaN(parsed) && parsed > 0 && parsed < 10) {
+          return parsed;
+        }
+      }
+      return 2.52; // Default to Barium
+    }
+
+    // Initialize unknown work function
+    MATERIALS.unknown.workFunction = getUnknownWorkFunction();
+
+    // Convert wavelength to visible color
+    function wavelengthToColor(wavelength) {
+      let r, g, b;
+      
+      if (wavelength < 380) {
+        r = 180; g = 130; b = 255;
+      } else if (wavelength < 440) {
+        r = Math.round(((440 - wavelength) / 60) * 180 + 75);
+        g = 0;
+        b = 255;
+      } else if (wavelength < 490) {
+        r = 0;
+        g = Math.round(((wavelength - 440) / 50) * 255);
+        b = 255;
+      } else if (wavelength < 510) {
+        r = 0;
+        g = 255;
+        b = Math.round(((510 - wavelength) / 20) * 255);
+      } else if (wavelength < 580) {
+        r = Math.round(((wavelength - 510) / 70) * 255);
+        g = 255;
+        b = 0;
+      } else if (wavelength < 645) {
+        r = 255;
+        g = Math.round(((645 - wavelength) / 65) * 255);
+        b = 0;
+      } else if (wavelength <= 750) {
+        r = 255;
+        g = 0;
+        b = 0;
+      } else {
+        const fade = Math.min(1, (wavelength - 750) / 250);
+        r = Math.round(255 * (1 - fade) + 80 * fade);
+        g = Math.round(40 * fade);
+        b = Math.round(40 * fade);
+      }
+      
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // Format number to 3 significant figures in scientific notation
+    function formatScientific(num) {
+      if (num === 0) return '0.00 × 10⁰';
+      const exp = Math.floor(Math.log10(Math.abs(num)));
+      const mantissa = num / Math.pow(10, exp);
+      const superscripts = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻' };
+      const expStr = exp.toString().split('').map(c => superscripts[c] || c).join('');
+      return `${mantissa.toFixed(2)} × 10${expStr} m/s`;
+    }
+
+    // Calculate velocity
+    function calculateVelocity(wavelength, material) {
+      const photonEnergy = HC_EV_NM / wavelength;
+      const workFunction = MATERIALS[material].workFunction;
+      const threshold = workFunction + SIGNAL_BUFFER;
+      
+      if (photonEnergy <= threshold) {
+        return null;
+      }
+      
+      const kineticEnergyEV = photonEnergy - workFunction;
+      const kineticEnergyJ = kineticEnergyEV * EV_TO_JOULES;
+      const v = Math.sqrt(2 * kineticEnergyJ / ELECTRON_MASS);
+      
+      return v;
+    }
+
+    // DOM elements
+    const wavelengthSlider = document.getElementById('wavelength-slider');
+    const wavelengthValue = document.getElementById('wavelength-value');
+    const materialSelect = document.getElementById('material-select');
+    const measureBtn = document.getElementById('measure-btn');
+    const readoutValue = document.getElementById('readout-value');
+    const lampHousing = document.getElementById('lamp-housing');
+    const lampBulb = document.getElementById('lamp-bulb');
+    const targetPlate = document.getElementById('target-plate');
+    const targetLabel = document.getElementById('target-label');
+    const photonContainer = document.getElementById('photon-container');
+    const electronContainer = document.getElementById('electron-container');
+
+    let currentWavelength = 500;
+    let currentMaterial = 'cesium';
+    let isEmitting = false;
+    let measureTimeout = null;
+    let animationInterval = null;
+
+    // Update wavelength display
+    function updateWavelength(wavelength) {
+      currentWavelength = wavelength;
+      const color = wavelengthToColor(wavelength);
+      wavelengthValue.textContent = wavelength;
+      wavelengthValue.style.color = color;
+      document.documentElement.style.setProperty('--photon-color', color);
+    }
+
+    // Update material
+    function updateMaterial(material) {
+      currentMaterial = material;
+      const materialData = MATERIALS[material];
+      targetLabel.innerHTML = `${materialData.name.toUpperCase()}<br>TARGET`;
+    }
+
+    // Create photon element
+    function createPhoton(delay) {
+      const photon = document.createElement('div');
+      photon.className = 'photon';
+      const color = wavelengthToColor(currentWavelength);
+      photon.style.backgroundColor = color;
+      photon.style.boxShadow = `0 0 8px ${color}, 0 0 12px ${color}`;
+      photon.style.left = '120px';
+      photon.style.top = `${115 + (Math.random() - 0.5) * 20}px`;
+      photon.style.animationDelay = `${delay}ms`;
+      photonContainer.appendChild(photon);
+      
+      setTimeout(() => {
+        photon.remove();
+      }, 1000 + delay);
+    }
+
+    // Create electron element
+    function createElectron(delay) {
+      const electron = document.createElement('div');
+      electron.className = 'electron';
+      electron.style.left = '360px';
+      electron.style.top = `${110 + Math.random() * 30}px`;
+      electron.style.animationDelay = `${delay}ms`;
+      electronContainer.appendChild(electron);
+      
+      setTimeout(() => {
+        electron.remove();
+      }, 800 + delay);
+    }
+
+    // Start emission animation
+    function startEmission() {
+      isEmitting = true;
+      lampHousing.classList.add('emitting');
+      lampBulb.classList.add('emitting');
+      lampBulb.style.backgroundColor = wavelengthToColor(currentWavelength);
+      
+      // Create initial photons
+      for (let i = 0; i < 5; i++) {
+        createPhoton(i * 200);
+      }
+    }
+
+    // Stop emission animation
+    function stopEmission() {
+      isEmitting = false;
+      lampHousing.classList.remove('emitting');
+      lampBulb.classList.remove('emitting');
+      lampBulb.style.backgroundColor = '#333';
+      targetPlate.classList.remove('electrons');
+    }
+
+    // Handle measure button click
+    function handleMeasure() {
+      // Clear any existing timeout
+      if (measureTimeout) {
+        clearTimeout(measureTimeout);
+      }
+      
+      // Reset state
+      readoutValue.textContent = '...';
+      readoutValue.className = 'readout-value no-signal';
+      
+      // Start emission
+      startEmission();
+      
+      // After delay, show result
+      measureTimeout = setTimeout(() => {
+        const velocity = calculateVelocity(currentWavelength, currentMaterial);
+        
+        if (velocity !== null) {
+          readoutValue.textContent = formatScientific(velocity);
+          readoutValue.className = 'readout-value signal';
+          targetPlate.classList.add('electrons');
+          
+          // Create electrons
+          for (let i = 0; i < 3; i++) {
+            createElectron(i * 300);
+          }
+        } else {
+          readoutValue.textContent = 'Not enough signal';
+          readoutValue.className = 'readout-value no-signal';
+        }
+        
+        // Stop emission after showing result
+        measureTimeout = setTimeout(() => {
+          stopEmission();
+        }, 2000);
+      }, 600);
+    }
+
+    // Event listeners
+    wavelengthSlider.addEventListener('input', (e) => {
+      updateWavelength(parseInt(e.target.value));
+    });
+
+    materialSelect.addEventListener('change', (e) => {
+      updateMaterial(e.target.value);
+    });
+
+    measureBtn.addEventListener('click', handleMeasure);
+
+    // Initialize
+    updateWavelength(500);
+    updateMaterial('cesium');
+  </script>
+</body>
+</html>
