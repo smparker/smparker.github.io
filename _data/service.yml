@@ -1,7 +1,19 @@
+- title: Graduate Affairs Committee
+  level: Department of Chemistry
+  role: Chair
+  when: "2025--"
+- title: STEM Artificial Intelligence Search Committee
+  level: College of Arts and Sciences
+  role: Member
+  when: 2024-25
+  what: The CWRU College of Arts and Sciences formed a search committee
+        to evaluate applications for two new faculty positions in the
+        college, one focusing on AI Ethics and the other focusing on
+        applications of AI in the sciences.
 - title: Faculty Search Committee
   level: Department of Chemistry
-  when: AY2023-24
-  role: Member
+  when: AY2024-25
+  role: Chair
   what: Search committee to evaluate candidates in applications of
         AI/ML in computation-guided chemistry or drug discovery.
 - title: Artificial Intelligence Screening Committee
@@ -44,7 +56,7 @@
   when: "2019--"
 - title: Colloquium Committee
   level: Department of Chemistry
-  when: "2019--"
+  when: "2019--2025"
   role: Co-chair
 - title: Expanding Horizons Initiative
   level: College of Arts and Sciences

@@ -105,7 +105,7 @@
   \noindent \textbf{Shane M. Parker, PhD} } \hfill { \small (#6) }\\
 
 \begin{minipage}{0.7\textwidth}
-  \noindent Frank Hovorka Assistant Professor of Chemistry \\
+  \noindent Associate Professor of Chemistry \\
   \noindent Case Western Reserve University \\
   \noindent Department of Chemistry \\
   \noindent 10900 Euclid Ave., Cleveland, OH 44106

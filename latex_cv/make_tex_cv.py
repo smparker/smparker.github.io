@@ -17,7 +17,7 @@ def pull_data(name):
 
 # search-replace pairs to convert html special characters to latex
 de_html_impl = [ ("--", re.compile(r"&ndash;")),
-                 ("\\\&", re.compile(r"&amp;")),
+                 ("\\\\&", re.compile(r"&amp;")),
                  ("\\%", re.compile(r"%")),
                  ("\\\"{a}", re.compile(r"&auml;")),
                  ("\\\"{o}", re.compile(r"&ouml;")),
@@ -122,7 +122,7 @@ def section_header(name, env = "entrylist"):
     print("\\begin{%s}" % (env))
 
 def section_footer(env = "entrylist"):
-    print("\end{%s}" % (env))
+    print("\\end{%s}" % (env))
     print()
 
 def positions():
@@ -143,7 +143,7 @@ def positions():
         print("{")
         print("%s \\\\" % (institution))
         if advisor:
-            print("\emph{Advisor}: %s \\\\" % (advisor))
+            print("\\emph{Advisor}: %s \\\\" % (advisor))
         #if interest:
         #    print("\emph{Interest}: %s \\\\" % (interest))
         print("}")
@@ -189,7 +189,7 @@ def papers():
         if not url and "doi" in pub:
             url = "https://dx.doi.org/{}".format(pub["doi"])
         if url and not SIMPLE:
-            title_str = "\href{%s}{%s}" % (url, title_str)
+            title_str = "\\href{%s}{%s}" % (url, title_str)
 
         gets_index = (not has_notes) or (has_notes and pub["note"] == "in print")
         index_str = f"{ir:d}" if gets_index else "---"
@@ -225,7 +225,7 @@ def papers():
             preprint = de_html(pub["preprint"])
             preprint_url = pub.get("preprint_url", "")
             if preprint_url:
-                preprint = "\href{%s}{%s}" % (preprint_url, preprint)
+                preprint = "\\href{%s}{%s}" % (preprint_url, preprint)
             print(f", {preprint:s}")
 
         print()
@@ -276,7 +276,7 @@ def chapters():
         title = de_html(pub["title"])
         url = pub.get("url","")
         if url:
-            title = "\href{%s}{%s}" % (url, title)
+            title = "\\href{%s}{%s}" % (url, title)
 
         print("\\item[%d] %s \\\\" % (ir, authors))
         bepy = ", ".join(filter(None, [book, editor, publisher])) + " " + year
@@ -324,7 +324,7 @@ def media():
         if url == "":
             print("{%s} {\\normalfont %s}" % (name, des))
         else:
-            print("{\href{%s}{%s}} {\\normalfont %s}" % (url, name, des))
+            print("{\\href{%s}{%s}} {\\normalfont %s}" % (url, name, des))
         print("{}")
         print("{}")
         print()
@@ -426,16 +426,19 @@ def support(include_support="public"):
         print_support(a)
     print(r"\end{itemize}")
 
-    if "pending" in include:
-        print()
-        print(r"\subsection{pending support}")
+    do_pending = "pending" in include and check_support("pending")
+    if do_pending:
         pending = [a for a in supp if a["status"] == "pending"]
-        print(r"\begin{itemize}[noitemsep]")
-        for a in pending:
-            print_support(a)
-        print(r"\end{itemize}")
+        if len(pending) > 0:
+            print()
+            print(r"\subsection{pending support}")
+            print(r"\begin{itemize}[noitemsep]")
+            for a in pending:
+                print_support(a)
+            print(r"\end{itemize}")
 
-    if "declined" in include:
+    do_declined = "declined" in include and check_support("declined")
+    if do_declined:
         # also include discouraged in here
         print()
         print(r"\subsection{declined support}")

@@ -1,5 +1,15 @@
+- title: "DMREF: Spatial and Temporal Control of Energy Transfer at the Atomic Scale in DNA Photonic Materials"
+  status: declined
+  source: NSF
+  amount: $2,000,000
+  location: Case Western Reserve University
+  objective: DNA stuff
+  submitted: 2025/03/01
+  share: 33%
+  role: "PI (co-PIs: Carlos Crespo, Divita Mathur)"
+
 - title: Exploratory Optoelectronic Characterization and Simulation of Graphyne
-  status: pending
+  status: current
   source: Case Western Reserve University
   amount: $40,000
   location: Case Western Reserve University
@@ -9,7 +19,7 @@
   role: "PI (co-PIs: Clemens Burda, Valentin Rodionov)"
 
 - title: Spatial and Temporal Control of Energy Transfer at the Atomic Scale in DNA Photonic Materials
-  status: pending
+  status: declined
   source: Case Western Reserve University
   amount: $40,000
   location: Case Western Reserve University

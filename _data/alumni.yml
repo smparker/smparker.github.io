@@ -1,3 +1,20 @@
+- name: Thomas-Ethan Kaji
+  email: tak112@case.edu
+  interests: resonance energy transfer in biopolymers
+  photo: ethan.jpg
+  start: 2022
+  left: 2025
+  was: undergraduate
+
+- name: Abhijith Kumar
+  email: axk1473@case.edu
+  photo: abhijith.jpg
+  office: Millis 226
+  interests: nonlinear response theory, excited-state quantum chemistry
+  start: 2021
+  left: 2025
+  was: Ph.D.
+
 - name: Ericka Miller
   email: erickamiller@case.edu
   photo: ericka.jpg
