@@ -1,3 +1,10 @@
+- authors: [D. Jiang, S. M. Parker ]
+  title: "Accurate Molecular Nonlinear Properties On A Semiempirical Budget Using The TDDFT-ris Model"
+  year: 2026
+  corresponding: true
+  preprint: chemrxiv.10002108
+  preprint_url: "https://doi.org/10.26434/chemrxiv.10002108/v1"
+
 - authors: [ K. Raheja, A. Shorin, D. Gagnon, R. Lutz, B. Hasan, M. Singh,
     S. M. Parker, S. Morozova, M. Karayilan ]
   title: Thermoresponsive and Flow Behavior of Hyperbranched Poylmers from ATRP Inimer
