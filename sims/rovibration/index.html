@@ -3,79 +3,312 @@ layout: simulation
 title: CO Rovibrational Spectrum
 permalink: /sims/rovibration/
 ---
-<script>
-window.onload = function () {
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	animationEnabled: true,
-	zoomEnabled: true,
-	title: {
-		text: "CO Rovibrational Spectrum"
-	},
-  axisX: {
-    title: "Frequency (wavenumbers)"
-  },
-  axisY: {
-    title: "Intensity (arb.)"
-  },
-	data: [{
-		type: "area",
-		dataPoints: []
-	}]
-});
-
-addDataPoints(500000);
-chart.render();
-
-function addDataPoints(noOfDps) {
-  var nnoise = 10;
-  var noise_start = 1/0.1;
-  var noise_end = 1/0.01;
-  var noises = []
-  for (var inoise = 0; inoise < nnoise; inoise++) {
-    var freq = noise_start + Math.random() * (noise_end - noise_start);
-    var phase = Math.random() * 2 * 3.14;
-    var amp = 0.0005 * Math.random() / nnoise;
-    noises.push({ freq: freq, phase: phase, amplitude: amp});
+<style>
+  #sim-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
   }
-  var dataout = new Array(noOfDps);
-spec = {"frequencies": [2098.8346057299996, 2103.4635947941397, 2108.0574190869193, 2112.61592678338, 2117.13896605856, 2121.6263850875002, 2126.0780320452395, 2130.4937551068206, 2134.8734024472797, 2139.2168222416603, 2143.523862665, 2147.7943718923398, 2152.02819809872, 2156.22518945918, 2160.38519414876, 2164.5080603424994, 2168.59363621544, 2172.6417699426192, 2176.6523096990795, 2180.6251036598596, 2188.45684689454, 2192.3154925185195, 2196.1357850469794, 2199.9175726549593, 2203.6607035175, 2207.3650258096395, 2211.03038770642, 2214.65663738288, 2218.24362301406, 2221.791192775, 2225.29919484074, 2228.76747738632, 2232.1958885867793, 2235.58427661716, 2238.9324896525, 2242.24037586784, 2245.507783438219, 2248.73456053868, 2251.92055534426, 2255.06561603, 4245.601718402, 4250.95599619894, 4256.236936133319, 4261.444386380181, 4266.57819511456, 4271.6382105115, 4276.62428074604, 4281.536253993221, 4286.373978428081, 4291.13730222566, 4295.826073561, 4300.440140609139, 4304.97935154512, 4309.44355454398, 4313.83259778076, 4318.1463294304995, 4322.3845976682405, 4326.54725066902, 4330.6341366078805, 4334.64510365986, 4342.43867380334, 4346.22097324492, 4349.926746499781, 4353.55584174296, 4357.1081071495, 4360.5833908944405, 4363.98154115282, 4367.3024060996795, 4370.5458339100605, 4373.711672759, 4376.799770821541, 4379.809976272721, 4382.74213728758, 4385.5961020411605, 4388.3717187085, 4391.06883546464, 4393.687300484619, 4396.226961943479, 4398.6876680162595, 4401.069266877999, 6361.80533841, 6367.887254206138, 6373.857535402919, 6379.716030175379, 6385.462586698559, 6391.0970531474995, 6396.61927769724, 6402.02910852282, 6407.32639379928, 6412.51098170166, 6417.582720405, 6422.541458084339, 6427.387042914719, 6432.11932307118, 6436.73814672876, 6441.2433620625, 6445.63481724744, 6449.912360458619, 6454.07583987108, 6458.12510365986, 6465.880377066539, 6469.586083034519, 6473.1769660789805, 6476.6528743749595, 6480.0136560975, 6483.259159421639, 6486.389232522419, 6489.403723574879, 6492.30248075406, 6495.085352235, 6497.75218619274, 6500.3028308023195, 6502.73713423878, 6505.05494467716, 6507.256110292499, 6509.340479259839, 6511.307899754219, 6513.158219950679, 6514.89128802426, 6516.506952149999, 8447.445465753999, 8454.257368815737, 8460.91921689572, 8467.430858168978, 8473.79214081056, 8480.002912995498, 8486.063022898838, 8491.972318695618, 8497.730648560879, 8503.337860669657, 8508.793803196999, 8514.09832431794, 8519.251272207519, 8524.252495040779, 8529.101840992758, 8533.799158238498, 8538.344294953038, 8542.73709931142, 8546.97741948868, 8551.065103659857, 8558.781956684139, 8562.410821887319, 8565.886443784579, 8569.20867055096, 8572.377350361498, 8575.392331391238, 8578.253461815219, 8580.96058980848, 8583.51356354606, 8585.912231202998, 8588.156440954339, 8590.246040975118, 8592.180879440379, 8593.960804525157, 8595.585664404498, 8597.055307253439, 8598.36958124702, 8599.528334560278, 8600.53141536826, 8601.378671845998, 10502.522100434002, 10510.066340027739, 10517.42198061172, 10524.58887036098, 10531.566857450562, 10538.3557900555, 10544.955516350841, 10551.365884511619, 10557.58674271288, 10563.61793912966, 10569.459321937, 10575.110739309941, 10580.572039423521, 10585.84307045278, 10590.92368057276, 10595.8137179585, 10600.51303078504, 10605.021467227421, 10609.33887546068, 10613.465103659859, 10621.14341265614, 10624.695189803322, 10628.05517961658, 10631.22323027096, 10634.199189941499, 10636.98290680324, 10639.574229031221, 10641.97300480048, 10644.17908228606, 10646.192309663, 10648.01253510634, 10649.63960679112, 10651.07337289238, 10652.31368158516, 10653.360381044502, 10654.21331944544, 10654.87234496302, 10655.33730577228, 10655.608050048262, 10655.684425966], "intensities": [0.00021952505526510248, 0.0004577924651141645, 0.0009156843553656462, 0.0017562076541671016, 0.003228474479924896, 0.005686189704696265, 0.009590118379635684, 0.015478762962094888, 0.02389076047497676, 0.035228785759991596, 0.04957052137723006, 0.06645679214115553, 0.08471433568366137, 0.10238967434953533, 0.11686772612194106, 0.1252146301774483, 0.12472022924739917, 0.11353819562876374, 0.09125957206081367, 0.05923891483060408, 0.020538791077422725, 0.05923891483060408, 0.09125957206081367, 0.11353819562876374, 0.12472022924739917, 0.1252146301774483, 0.11686772612194106, 0.10238967434953533, 0.08471433568366137, 0.06645679214115553, 0.04957052137723006, 0.035228785759991596, 0.02389076047497676, 0.015478762962094888, 0.009590118379635684, 0.005686189704696265, 0.003228474479924896, 0.0017562076541671016, 0.0009156843553656462, 0.0004577924651141645, 0.00010976252763255124, 0.00022889623255708226, 0.0004578421776828231, 0.0008781038270835508, 0.001614237239962448, 0.0028430948523481326, 0.004795059189817842, 0.007739381481047444, 0.01194538023748838, 0.017614392879995798, 0.02478526068861503, 0.033228396070577766, 0.04235716784183068, 0.051194837174767666, 0.05843386306097053, 0.06260731508872415, 0.062360114623699586, 0.05676909781438187, 0.045629786030406835, 0.02961945741530204, 0.010269395538711363, 0.02961945741530204, 0.045629786030406835, 0.05676909781438187, 0.062360114623699586, 0.06260731508872415, 0.05843386306097053, 0.051194837174767666, 0.04235716784183068, 0.033228396070577766, 0.02478526068861503, 0.017614392879995798, 0.01194538023748838, 0.007739381481047444, 0.004795059189817842, 0.0028430948523481326, 0.001614237239962448, 0.0008781038270835508, 0.0004578421776828231, 0.00022889623255708226, 3.6587509210850414e-05, 7.629874418569409e-05, 0.0001526140592276077, 0.00029270127569451694, 0.0005380790799874827, 0.0009476982841160441, 0.001598353063272614, 0.0025797938270158147, 0.003981793412496127, 0.005871464293331932, 0.008261753562871677, 0.011076132023525921, 0.014119055947276894, 0.017064945724922554, 0.019477954353656842, 0.020869105029574717, 0.020786704874566526, 0.018923032604793957, 0.015209928676802278, 0.009873152471767347, 0.0034231318462371206, 0.009873152471767347, 0.015209928676802278, 0.018923032604793957, 0.020786704874566526, 0.020869105029574717, 0.019477954353656842, 0.017064945724922554, 0.014119055947276894, 0.011076132023525921, 0.008261753562871677, 0.005871464293331932, 0.003981793412496127, 0.0025797938270158147, 0.001598353063272614, 0.0009476982841160441, 0.0005380790799874827, 0.00029270127569451694, 0.0001526140592276077, 7.629874418569409e-05, 9.146877302712603e-06, 1.907468604642352e-05, 3.815351480690193e-05, 7.317531892362924e-05, 0.00013451976999687067, 0.00023692457102901103, 0.0003995882658181535, 0.0006449484567539537, 0.0009954483531240317, 0.001467866073332983, 0.002065438390717919, 0.0027690330058814804, 0.0035297639868192236, 0.0042662364312306385, 0.0048694885884142105, 0.005217276257393679, 0.005196676218641632, 0.004730758151198489, 0.0038024821692005696, 0.0024682881179418368, 0.0008557829615592801, 0.0024682881179418368, 0.0038024821692005696, 0.004730758151198489, 0.005196676218641632, 0.005217276257393679, 0.0048694885884142105, 0.0042662364312306385, 0.0035297639868192236, 0.0027690330058814804, 0.002065438390717919, 0.001467866073332983, 0.0009954483531240317, 0.0006449484567539537, 0.0003995882658181535, 0.00023692457102901103, 0.00013451976999687067, 7.317531892362924e-05, 3.815351480690193e-05, 1.907468604642352e-05, 1.8293754605425207e-06, 3.814937209284704e-06, 7.630702961380386e-06, 1.4635063784725846e-05, 2.6903953999374134e-05, 4.738491420580221e-05, 7.99176531636307e-05, 0.00012898969135079072, 0.00019908967062480632, 0.0002935732146665966, 0.0004130876781435838, 0.0005538066011762961, 0.0007059527973638447, 0.0008532472862461277, 0.0009738977176828421, 0.0010434552514787358, 0.0010393352437283263, 0.0009461516302396979, 0.0007604964338401139, 0.0004936576235883674, 0.00017115659231185603, 0.0004936576235883674, 0.0007604964338401139, 0.0009461516302396979, 0.0010393352437283263, 0.0010434552514787358, 0.0009738977176828421, 0.0008532472862461277, 0.0007059527973638447, 0.0005538066011762961, 0.0004130876781435838, 0.0002935732146665966, 0.00019908967062480632, 0.00012898969135079072, 7.99176531636307e-05, 4.738491420580221e-05, 2.6903953999374134e-05, 1.4635063784725846e-05, 7.630702961380386e-06, 3.814937209284704e-06]}
-  var nfreq = spec.frequencies.length;
-  var minfreq = 1800;
-  var maxfreq = 11000;
-  var df = (maxfreq - minfreq) / noOfDps;
-  s = 0.5;
-  var startfreq = 0;
-	for (var i = 0; i < noOfDps; i++) {
-    v = minfreq + i * df;
-    // start with noise
-    var yval = 0.000;
-    for (var inoise = 0; inoise < nnoise; inoise++) {
-      yval += noises[inoise].amplitude * 0.5 * (1 + Math.sin(noises[inoise].freq * v + noises[inoise].phase));
-    }
-    var foundfirst = 0;
-    for (var ifreq = startfreq; ifreq < nfreq; ifreq++) {
-      w = spec.frequencies[ifreq]
-      if (Math.abs(w - v) < 3*s) {
-        if (foundfirst == 0) {
-          foundfirst = 1;
-          startfreq = ifreq;
-        }
-        I = spec.intensities[ifreq]
-        yval += I * Math.exp(-(w - v)*(w - v) / s / s)
-      }
-      else if ( (w - v) > 3 * s ) {
-        break;
-      }
-    }
-		dataout[i] = {x: v, y: yval};
-	}
-  chart.options.data[0].dataPoints = dataout;
-}
+  #sim-controls label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+  }
+  #tempSlider { width: 180px; }
+  #tempDisplay {
+    display: inline-block;
+    min-width: 3ch;
+    text-align: right;
+    font-weight: 600;
+  }
+  #peakSection { margin-top: 1rem; }
+  #peakSection h4 { margin: 0 0 0.5rem 0; }
+  #peakTableWrap {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  #peakTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  #peakTable th, #peakTable td {
+    padding: 0.25rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  #peakTable th {
+    position: sticky;
+    top: 0;
+    background: #f5f5f5;
+  }
+  .peak-remove {
+    cursor: pointer;
+    color: #c00;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    padding: 0 0.25rem;
+  }
+  #peakButtons { display: flex; gap: 0.5rem; }
+  #peakButtons button {
+    padding: 0.3rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f8f8f8;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  #peakButtons button:hover { background: #e8e8e8; }
+</style>
 
-}
-</script>
+<div id="sim-controls">
+  <label>
+    Temperature:
+    <input type="range" id="tempSlider" min="50" max="1000" value="296" step="1">
+    <span><span id="tempDisplay">296</span> K</span>
+  </label>
+  <label>
+    <input type="checkbox" id="logScale"> Log scale
+  </label>
+</div>
 
 <div id="chartContainer" class="responsive-chart"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<div id="peakSection">
+  <h4>Collected Peaks</h4>
+  <div id="peakTableWrap">
+    <table id="peakTable">
+      <thead><tr><th>#</th><th>Frequency (cm⁻¹)</th><th></th></tr></thead>
+      <tbody id="peakBody"></tbody>
+    </table>
+  </div>
+  <div id="peakButtons">
+    <button id="copyPeaks">Copy</button>
+    <button id="clearPeaks">Clear</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var we    = 2169.814;   // harmonic frequency, cm⁻¹
+  var wexe  = 13.288;     // anharmonicity, cm⁻¹
+  var Be    = 1.93128;    // equilibrium rotational constant, cm⁻¹
+  var ae    = 0.01750;    // rotation-vibration coupling, cm⁻¹
+  var De    = 6.121e-6;   // centrifugal distortion, cm⁻¹
+  var HC_K  = 1.4388;     // hc/k, cm·K
+
+  var SIGMA   = 0.5;
+  var NPOINTS = 50000;
+  var FMIN    = 1900;
+  var FMAX    = 10800;
+  var MAX_V   = 5;
+  var MAX_J   = 50;
+
+  var urlT = parseFloat(new URLSearchParams(window.location.search).get('T'));
+  var T0 = (urlT > 0) ? urlT : 296;
+  T0 = Math.max(50, Math.min(1000, Math.round(T0)));
+  document.getElementById('tempSlider').value = T0;
+  document.getElementById('tempDisplay').textContent = T0;
+
+  var df = (FMAX - FMIN) / NPOINTS;
+  var xGrid = new Float64Array(NPOINTS);
+  for (var i = 0; i < NPOINTS; i++) xGrid[i] = FMIN + i * df;
+
+  // Generate noise once so the baseline doesn't jitter when temperature changes
+  var noiseY = new Float64Array(NPOINTS);
+  (function () {
+    var nnoise = 10;
+    var noises = [];
+    for (var n = 0; n < nnoise; n++) {
+      noises.push({
+        freq:  10 + Math.random() * 90,
+        phase: Math.random() * 2 * Math.PI,
+        amp:   0.0005 * Math.random() / nnoise
+      });
+    }
+    for (var i = 0; i < NPOINTS; i++) {
+      var y = 0;
+      for (var n = 0; n < nnoise; n++)
+        y += noises[n].amp * 0.5 * (1 + Math.sin(noises[n].freq * xGrid[i] + noises[n].phase));
+      noiseY[i] = y;
+    }
+  })();
+
+  function computeLines(T) {
+    var B0 = Be - ae * 0.5;
+    var kTcm = T / HC_K;
+
+    var Q = 0;
+    for (var J = 0; J <= MAX_J + 10; J++)
+      Q += (2 * J + 1) * Math.exp(-B0 * J * (J + 1) / kTcm);
+
+    var lines = [];
+    for (var v = 1; v <= MAX_V; v++) {
+      var nu0 = we * v - wexe * v * (v + 1);
+      var Bv  = Be - ae * (v + 0.5);
+
+      var ovScale = 1;
+      for (var k = 2; k <= v; k++) ovScale /= k;
+
+      for (var J = 0; J <= MAX_J; J++) {
+        var Elower = B0 * J * (J + 1) - De * J * J * (J + 1) * (J + 1);
+        var boltz  = Math.exp(-B0 * J * (J + 1) / kTcm);
+
+        // R branch: J" = J  ->  J' = J + 1
+        var Jr = J + 1;
+        var EupR = Bv * Jr * (Jr + 1) - De * Jr * Jr * (Jr + 1) * (Jr + 1);
+        lines.push({ freq: nu0 + EupR - Elower, intensity: ovScale * (J + 1) * boltz / Q });
+
+        // P branch: J" = J  ->  J' = J - 1  (J > 0)
+        if (J > 0) {
+          var Jp = J - 1;
+          var EupP = Bv * Jp * (Jp + 1) - De * Jp * Jp * (Jp + 1) * (Jp + 1);
+          lines.push({ freq: nu0 + EupP - Elower, intensity: ovScale * J * boltz / Q });
+        }
+      }
+    }
+    lines.sort(function (a, b) { return a.freq - b.freq; });
+    return lines;
+  }
+
+  function computeSpectrum(lines) {
+    var y = new Float64Array(NPOINTS);
+    for (var i = 0; i < NPOINTS; i++) y[i] = noiseY[i];
+
+    var cutoff   = 3 * SIGMA;
+    var invSigSq = 1 / (SIGMA * SIGMA);
+
+    for (var k = 0; k < lines.length; k++) {
+      var lf = lines[k].freq;
+      if (lf < FMIN - cutoff || lf > FMAX + cutoff) continue;
+      var li = lines[k].intensity;
+      var ic = Math.round((lf - FMIN) / df);
+      var hw = Math.ceil(cutoff / df);
+      var lo = ic - hw; if (lo < 0) lo = 0;
+      var hi = ic + hw; if (hi >= NPOINTS) hi = NPOINTS - 1;
+      for (var i = lo; i <= hi; i++) {
+        var dv = xGrid[i] - lf;
+        y[i] += li * Math.exp(-dv * dv * invSigSq);
+      }
+    }
+    return y;
+  }
+
+  // --- Initial computation ---
+  var currentLines = computeLines(T0);
+  var currentY     = computeSpectrum(currentLines);
+
+  // --- Plotly chart ---
+  var chartDiv = document.getElementById('chartContainer');
+
+  var trace = {
+    x: Array.from(xGrid),
+    y: Array.from(currentY),
+    type: 'scatter',
+    mode: 'lines',
+    fill: 'tozeroy',
+    line: { color: '#1f77b4', width: 1 },
+    hovertemplate: '%{x:.2f} cm\u207b\u00b9<br>%{y:.5f}<extra></extra>'
+  };
+
+  var layout = {
+    title: 'CO Rovibrational Spectrum',
+    xaxis: { title: 'Frequency (cm\u207b\u00b9)', range: [FMIN, FMAX] },
+    yaxis: { title: 'Intensity (arb.)',  rangemode: 'tozero' },
+    margin: { t: 50, r: 30, b: 50, l: 70 },
+    dragmode: 'zoom'
+  };
+
+  Plotly.newPlot(chartDiv, [trace], layout, {
+    responsive: true,
+    displaylogo: false,
+    modeBarButtonsToRemove: ['lasso2d', 'select2d']
+  });
+
+  // --- Temperature slider ---
+  var slider   = document.getElementById('tempSlider');
+  var tempDisp = document.getElementById('tempDisplay');
+
+  slider.addEventListener('input', function () {
+    var T = parseFloat(this.value);
+    tempDisp.textContent = Math.round(T);
+    currentLines = computeLines(T);
+    currentY     = computeSpectrum(currentLines);
+    Plotly.restyle(chartDiv, { y: [Array.from(currentY)] }, [0]);
+  });
+
+  // --- Log scale toggle ---
+  document.getElementById('logScale').addEventListener('change', function () {
+    Plotly.relayout(chartDiv, { 'yaxis.type': this.checked ? 'log' : 'linear' });
+  });
+
+  // --- Axis constraints ---
+  chartDiv.on('plotly_relayout', function (ev) {
+    if (!ev) return;
+    var fix = {};
+    var need = false;
+    if (ev['yaxis.range[0]'] !== undefined && ev['yaxis.range[0]'] < 0) {
+      fix['yaxis.range[0]'] = 0; need = true;
+    }
+    if (ev['xaxis.range[0]'] !== undefined && ev['xaxis.range[0]'] < FMIN) {
+      fix['xaxis.range[0]'] = FMIN; need = true;
+    }
+    if (ev['xaxis.range[1]'] !== undefined && ev['xaxis.range[1]'] > FMAX) {
+      fix['xaxis.range[1]'] = FMAX; need = true;
+    }
+    if (need) Plotly.relayout(chartDiv, fix);
+  });
+
+  // --- Peak picker ---
+  var peaks    = [];
+  var peakBody = document.getElementById('peakBody');
+
+  function renderPeaks() {
+    peakBody.innerHTML = '';
+    for (var i = 0; i < peaks.length; i++) {
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + (i + 1) + '</td>' +
+        '<td>' + peaks[i].toFixed(2) + '</td>' +
+        '<td><button class="peak-remove" data-idx="' + i + '">\u00d7</button></td>';
+      peakBody.appendChild(tr);
+    }
+  }
+
+  chartDiv.on('plotly_click', function (data) {
+    if (data.points && data.points.length > 0) {
+      peaks.push(data.points[0].x);
+      renderPeaks();
+    }
+  });
+
+  peakBody.addEventListener('click', function (e) {
+    if (e.target.classList.contains('peak-remove')) {
+      peaks.splice(parseInt(e.target.dataset.idx), 1);
+      renderPeaks();
+    }
+  });
+
+  document.getElementById('copyPeaks').addEventListener('click', function () {
+    var text = peaks.map(function (f) { return f.toFixed(2); }).join('\n');
+    navigator.clipboard.writeText(text);
+    var btn = this;
+    btn.textContent = 'Copied!';
+    setTimeout(function () { btn.textContent = 'Copy'; }, 1200);
+  });
+
+  document.getElementById('clearPeaks').addEventListener('click', function () {
+    peaks.length = 0;
+    renderPeaks();
+  });
+})();
+</script>
