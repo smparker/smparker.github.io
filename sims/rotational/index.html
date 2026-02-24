@@ -178,6 +178,15 @@ permalink: /sims/rotational/
     return Q;
   }
 
+  function randGauss() {
+    var u = 0, v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  }
+
+  var NOISE_FRAC = 0.012;
+
   function computeSpectrum(temperature) {
     var y = new Array(npoints);
     for (var i = 0; i < npoints; i++) y[i] = 0;
@@ -205,8 +214,15 @@ permalink: /sims/rotational/
       }
     }
 
+    var yMax = 0;
+    for (var i = 0; i < npoints; i++) {
+      if (y[i] > yMax) yMax = y[i];
+    }
+    var noiseSigma = NOISE_FRAC * yMax;
+
     var floor = 1e-10;
     for (var i = 0; i < npoints; i++) {
+      y[i] += noiseSigma * randGauss();
       if (y[i] < floor) y[i] = floor;
     }
     return y;

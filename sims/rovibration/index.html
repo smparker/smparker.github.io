@@ -123,25 +123,14 @@ permalink: /sims/rovibration/
   var xGrid = new Float64Array(NPOINTS);
   for (var i = 0; i < NPOINTS; i++) xGrid[i] = FMIN + i * df;
 
-  // Generate noise once so the baseline doesn't jitter when temperature changes
-  var noiseY = new Float64Array(NPOINTS);
-  (function () {
-    var nnoise = 10;
-    var noises = [];
-    for (var n = 0; n < nnoise; n++) {
-      noises.push({
-        freq:  10 + Math.random() * 90,
-        phase: Math.random() * 2 * Math.PI,
-        amp:   0.0005 * Math.random() / nnoise
-      });
-    }
-    for (var i = 0; i < NPOINTS; i++) {
-      var y = 0;
-      for (var n = 0; n < nnoise; n++)
-        y += noises[n].amp * 0.5 * (1 + Math.sin(noises[n].freq * xGrid[i] + noises[n].phase));
-      noiseY[i] = y;
-    }
-  })();
+  function randGauss() {
+    var u = 0, v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  }
+
+  var NOISE_FRAC = 0.012;
 
   function computeLines(T) {
     var B0 = Be - ae * 0.5;
@@ -182,7 +171,6 @@ permalink: /sims/rovibration/
 
   function computeSpectrum(lines) {
     var y = new Float64Array(NPOINTS);
-    for (var i = 0; i < NPOINTS; i++) y[i] = noiseY[i];
 
     var cutoff   = 3 * SIGMA;
     var invSigSq = 1 / (SIGMA * SIGMA);
@@ -199,6 +187,18 @@ permalink: /sims/rovibration/
         var dv = xGrid[i] - lf;
         y[i] += li * Math.exp(-dv * dv * invSigSq);
       }
+    }
+
+    var yMax = 0;
+    for (var i = 0; i < NPOINTS; i++) {
+      if (y[i] > yMax) yMax = y[i];
+    }
+    var noiseSigma = NOISE_FRAC * yMax;
+
+    var floor = 1e-10;
+    for (var i = 0; i < NPOINTS; i++) {
+      y[i] += noiseSigma * randGauss();
+      if (y[i] < floor) y[i] = floor;
     }
     return y;
   }
