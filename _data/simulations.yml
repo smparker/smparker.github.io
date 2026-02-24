@@ -1,0 +1,29 @@
+- name: HCl Rotational Spectrum
+  url: /sims/rotational/
+  description: Simulate the pure rotational absorption spectrum of HCl.
+    Adjust temperature, toggle units, and click peaks to collect frequencies.
+  image: rotational.png
+  alt: Screenshot of the HCl rotational spectrum simulator showing evenly spaced peaks.
+
+- name: CO Rovibrational Spectrum
+  url: /sims/rovibration/
+  description: Explore the rovibrational (IR) spectrum of carbon monoxide with
+    P and R branches across multiple vibrational overtones.
+  image: rovibration.png
+  alt: Screenshot of the CO rovibrational spectrum simulator showing P and R branch structure.
+
+- name: Photoelectric Effect
+  url: /sims/photoelectric/
+  description: Measure the photoelectric effect with different target metals
+    and light wavelengths. Determine electron velocities from photon energy
+    and material work function.
+  image: photoelectric.png
+  alt: Screenshot of the photoelectric effect simulator showing a light source, metal target, and detector.
+
+- name: Quantum Particle in a Box
+  url: /sims/qpib/
+  description: Draw or select wavefunctions for a particle in a 1-D box, then
+    watch the time evolution and see how quantum number and box length affect
+    the solutions.
+  image: qpib.png
+  alt: Screenshot of the quantum particle in a box simulator showing a wavefunction curve.

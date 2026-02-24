@@ -1,0 +1,20 @@
+---
+layout: default
+title: simulations
+permalink: /sims/
+header_order: 5
+icon: fa-atom
+---
+<div class="row">
+  {% for sim in site.data.simulations %}
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card border-0">
+        <a href="{{sim.url}}">
+          <img src="{{base.url}}/assets/sims/{{sim.image}}" class="card-img-top img-fluid rounded center-block" alt="{{ sim.alt }}">
+        </a>
+        <h3 class="card-title">{{sim.name}}</h3>
+        <p class="card-text">{{sim.description}}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
