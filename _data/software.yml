@@ -6,7 +6,7 @@
   image_base: true
 
 - name: mudslide
-  url: https://www.github.com/smparker/mudslide
+  url: https://www.gitlab.com/team-parker/mudslide
   description: Python framework for running surface hopping simulations
     using model problems
   image: mudslide-logo.jpg
