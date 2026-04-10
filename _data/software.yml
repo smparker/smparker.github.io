@@ -32,3 +32,10 @@
     (translate, rotate, align, etc.)
   image: orient-logo.jpg
   alt: Orient molecule is a standalone python script that helps manipulate molecular structures
+
+- name: unit converters
+  url: /units/
+  description: Energy unit conversion tools (NIST-based), including copy-to-clipboard constants
+  image: units-logo.svg
+  image_base: true
+  alt: Unit converters page

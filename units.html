@@ -1,0 +1,378 @@
+---
+layout: default
+title: Unit Converters
+permalink: /units/
+header_order: 0
+use_math: true
+---
+
+<style>
+  .units-copy-constant {
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+  }
+  .units-copy-constant:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+  }
+  .units-energy-input {
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+</style>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center">Energy Unit Converters</h1>
+    <p class="text-center text-muted">
+      Click any constant cell below to copy the full-precision conversion factor to your clipboard.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Energy conversion constants</h3>
+    <p class="text-muted small">
+      <code>1 [from] is ??? [to]</code>.
+    </p>
+    <p id="conversionHoverText" class="text-muted small mb-2" aria-live="polite">
+      Hover a cell to see what it means (example format: <code>1 Hartree is 27.2 eV</code>).
+    </p>
+    <div class="table-responsive">
+      <table id="conversionTable" class="table table-bordered table-sm align-middle">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="tableCopyStatus" class="mt-2 text-muted small" aria-live="polite"></div>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Energy converter</h3>
+    <p class="text-muted small">
+      Type an energy in any unit to auto-fill the other units. Use the copy buttons to copy the computed values.
+    </p>
+    <div class="table-responsive">
+      <table id="converterTable" class="table table-bordered table-sm align-middle">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Unit</th>
+            <th style="width: 72%;">Energy</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="converterCopyStatus" class="mt-2 text-muted small" aria-live="polite"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/decimal.js@10.5.0/decimal.min.js"></script>
+
+<script>
+  (function () {
+    'use strict';
+
+    Decimal.set({ precision: 80 });
+
+    // Base constants used to construct the conversion matrix.
+    // Hartree value from NIST (CODATA-recommended); SI constants are exact.
+    const NIST = {
+      hartree_J: new Decimal('4.3597447222060e-18'),
+      eV_J: new Decimal('1.602176634e-19'), // exact via e
+      h_Js: new Decimal('6.62607015e-34'),   // exact
+      c_m_s: new Decimal('299792458'),     // exact
+      NA: new Decimal('6.02214076e23')     // exact
+    };
+
+    const units = [
+      { key: 'hartree', label: 'Hartree (E<sub>h</sub>)', plainLabel: 'Hartree', jPerUnit: NIST.hartree_J },
+      { key: 'ev', label: 'eV', plainLabel: 'eV', jPerUnit: NIST.eV_J },
+      { key: 'cm-1', label: 'cm<sup>-1</sup>', plainLabel: 'cm^-1', jPerUnit: NIST.h_Js.mul(NIST.c_m_s).mul(100) },
+      { key: 'kjmol', label: 'kJ/mol', plainLabel: 'kJ/mol', jPerUnit: new Decimal('1000').div(NIST.NA) },
+      { key: 'kcalmol', label: 'kcal/mol', plainLabel: 'kcal/mol', jPerUnit: new Decimal('4184').div(NIST.NA) }
+    ];
+
+    const jPer = Object.fromEntries(units.map(u => [u.key, u.jPerUnit]));
+
+    function formatSig(dec, sig) {
+      if (dec.isZero()) return '0';
+      // toSignificantDigits returns a rounded Decimal; toString preserves exponent/scientific notation.
+      return dec.toSignificantDigits(sig).toString();
+    }
+
+    function formatSci(dec, sig) {
+      if (dec.isZero()) return '0e+0';
+      // Always scientific notation (used for the conversion constants display).
+      return dec.toSignificantDigits(sig).toExponential().toString();
+    }
+
+    function formatClipboard(dec) {
+      // Use Decimal's string representation to preserve as much precision as our Decimal context allows
+      // (and avoid trailing zeros for "1.000...").
+      return dec.toString();
+    }
+
+    function writeStatus(elId, msg) {
+      const el = document.getElementById(elId);
+      if (!el) return;
+      el.textContent = msg;
+      // Clear after a moment.
+      window.setTimeout(function () {
+        // Only clear if nothing new has been written since.
+        if (el.textContent === msg) el.textContent = '';
+      }, 1500);
+    }
+
+    // ---------------------------
+    // Build the conversion matrix
+    // ---------------------------
+    const table = document.getElementById('conversionTable');
+    const thead = table.querySelector('thead');
+    const tbody = table.querySelector('tbody');
+
+    // Header row: blank + To units
+    const headerRow = document.createElement('tr');
+    const blankTh = document.createElement('th');
+    blankTh.textContent = 'From \\ To';
+    headerRow.appendChild(blankTh);
+    for (const toU of units) {
+      const th = document.createElement('th');
+      th.innerHTML = toU.label;
+      headerRow.appendChild(th);
+    }
+    thead.appendChild(headerRow);
+
+    // Body rows
+    for (const fromU of units) {
+      const tr = document.createElement('tr');
+      const fromTh = document.createElement('th');
+      fromTh.innerHTML = fromU.label;
+      tr.appendChild(fromTh);
+
+      for (const toU of units) {
+        const td = document.createElement('td');
+        const factor = jPer[fromU.key].div(jPer[toU.key]); // 1 [from] = factor [to]
+        const display = formatSci(factor, 6);
+
+        td.classList.add('units-copy-constant');
+        td.setAttribute('role', 'button');
+        td.setAttribute('tabindex', '0');
+        td.dataset.clipboardValue = formatClipboard(factor);
+
+        // Hover affordance (example: "1 Hartree is 27.2 eV")
+        const humanValue = factor.toSignificantDigits(3).toString();
+        const hoverText = `1 ${fromU.plainLabel} is ${humanValue} ${toU.plainLabel}`;
+        td.dataset.hoverText = hoverText;
+        td.title = hoverText;
+        td.textContent = display;
+
+        tr.appendChild(td);
+      }
+
+      tbody.appendChild(tr);
+    }
+
+    // Click-to-copy for every constant cell
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      // Fallback for older browsers.
+      return new Promise(function (resolve, reject) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          resolve();
+        } catch (e) {
+          reject(e);
+        }
+      });
+    }
+
+    table.addEventListener('click', function (e) {
+      const td = e.target.closest('.units-copy-constant');
+      if (!td) return;
+      const val = td.dataset.clipboardValue;
+      if (!val) return;
+      copyText(val).then(function () {
+        writeStatus('tableCopyStatus', 'Copied conversion factor: ' + val);
+      }).catch(function () {
+        writeStatus('tableCopyStatus', 'Copy failed. You may need to allow clipboard access.');
+      });
+    });
+
+    table.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const td = e.target.closest('.units-copy-constant');
+      if (!td) return;
+      e.preventDefault();
+      td.click();
+    });
+
+    // Update the line above the table on hover.
+    const hoverTextEl = document.getElementById('conversionHoverText');
+    if (hoverTextEl) {
+      table.addEventListener('mouseover', function (e) {
+        const td = e.target.closest('.units-copy-constant');
+        if (!td) return;
+        if (td.dataset && td.dataset.hoverText) {
+          hoverTextEl.innerHTML = td.dataset.hoverText;
+        }
+      });
+      table.addEventListener('mouseout', function (e) {
+        const related = e.relatedTarget;
+        if (related && table.contains(related) && related.closest && related.closest('.units-copy-constant')) {
+          return; // still within another cell
+        }
+        hoverTextEl.textContent = 'Hover a cell to see what it means (example format: 1 Hartree is 27.2 eV).';
+      });
+    }
+
+    // -----------------------------------
+    // Build the interactive converter table
+    // -----------------------------------
+    const converterTableBody = document.querySelector('#converterTable tbody');
+    const inputEls = {};
+    const currentVals = {};
+
+    for (const u of units) {
+      const tr = document.createElement('tr');
+
+      const unitTd = document.createElement('td');
+      unitTd.innerHTML = u.label;
+      tr.appendChild(unitTd);
+
+      const inputTd = document.createElement('td');
+      const rowDiv = document.createElement('div');
+      rowDiv.classList.add('d-flex', 'align-items-center', 'gap-2');
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.classList.add('form-control', 'units-energy-input');
+      input.inputMode = 'decimal';
+      input.autocomplete = 'off';
+      input.spellcheck = false;
+      input.placeholder = 'e.g. 1.0';
+      input.dataset.unitKey = u.key;
+      rowDiv.appendChild(input);
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.classList.add('btn', 'btn-link', 'btn-sm', 'p-0', 'units-copy-value');
+      btn.setAttribute('aria-label', `Copy ${u.plainLabel}`);
+      btn.title = `Copy ${u.plainLabel}`;
+      btn.textContent = '⧉';
+      btn.dataset.unitKey = u.key;
+      rowDiv.appendChild(btn);
+
+      inputTd.appendChild(rowDiv);
+      tr.appendChild(inputTd);
+
+      converterTableBody.appendChild(tr);
+
+      inputEls[u.key] = input;
+      currentVals[u.key] = null;
+    }
+
+    let lastEditedKey = null;
+    let isUpdating = false;
+
+    function parseDecimal(s) {
+      if (s === null || s === undefined) return null;
+      const t = String(s).trim();
+      if (!t) return null;
+      try {
+        return new Decimal(t);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function setInputValue(unitKey, decOrNull, sigDigits) {
+      const input = inputEls[unitKey];
+      if (!input) return;
+      if (decOrNull === null) {
+        input.value = '';
+        currentVals[unitKey] = null;
+        return;
+      }
+      // Display with a reasonable digit count; clipboard/copy buttons still use higher precision.
+      const display = decOrNull.toSignificantDigits(sigDigits).toString();
+      input.value = display;
+      currentVals[unitKey] = decOrNull;
+    }
+
+    function computeFrom(sourceKey) {
+      const srcInput = inputEls[sourceKey];
+      const srcVal = parseDecimal(srcInput.value);
+      if (srcVal === null) {
+        for (const u of units) setInputValue(u.key, null, 12);
+        return;
+      }
+
+      // Convert input -> Joules (per particle).
+      const energyJ = srcVal.mul(jPer[sourceKey]);
+
+      for (const targetU of units) {
+        const targetVal = energyJ.div(jPer[targetU.key]);
+        setInputValue(targetU.key, targetVal, 12);
+      }
+    }
+
+    // Input handler (autofill)
+    for (const u of units) {
+      inputEls[u.key].addEventListener('focus', function () {
+        lastEditedKey = u.key;
+      });
+      inputEls[u.key].addEventListener('input', function () {
+        if (isUpdating) return;
+        lastEditedKey = u.key;
+        isUpdating = true;
+        try {
+          computeFrom(lastEditedKey);
+        } finally {
+          isUpdating = false;
+        }
+      });
+    }
+
+    // Copy button handler
+    converterTableBody.addEventListener('click', function (e) {
+      const btn = e.target.closest('.units-copy-value');
+      if (!btn) return;
+      const unitKey = btn.dataset.unitKey;
+      if (!unitKey) return;
+
+      const dec = currentVals[unitKey];
+      if (!dec) {
+        writeStatus('converterCopyStatus', 'Nothing to copy for ' + unitKey + ' yet. Enter a value first.');
+        return;
+      }
+      const text = formatClipboard(dec);
+      copyText(text).then(function () {
+        writeStatus('converterCopyStatus', 'Copied ' + unitKey + ': ' + text);
+      }).catch(function () {
+        writeStatus('converterCopyStatus', 'Copy failed. You may need to allow clipboard access.');
+      });
+    });
+  })();
+</script>
+
+<p class="text-muted small mt-3">
+  Constants are constructed from NIST CODATA-recommended values (hartree, eV) and exact SI definitions (h, c, NA).
+  Source: <a href="https://physics.nist.gov/cuu/Constants/energy.html" target="_blank" rel="noreferrer">NIST Energy Equivalents</a>.
+</p>
+
