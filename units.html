@@ -56,14 +56,14 @@ use_math: true
   <div class="col-md-12">
     <h3>Energy converter</h3>
     <p class="text-muted small">
-      Type an energy in any unit to auto-fill the other units. Use the copy buttons to copy the computed values.
+      Type an energy (or a wavelength in `nm`) to auto-fill the other values. Use the copy buttons to copy the computed results.
     </p>
     <div class="table-responsive">
       <table id="converterTable" class="table table-bordered table-sm align-middle">
         <thead>
           <tr>
             <th style="width: 28%;">Unit</th>
-            <th style="width: 72%;">Energy</th>
+            <th style="width: 72%;">Value</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -91,7 +91,7 @@ use_math: true
       NA: new Decimal('6.02214076e23')     // exact
     };
 
-    const units = [
+    const energyUnits = [
       { key: 'hartree', label: 'Hartree (E<sub>h</sub>)', plainLabel: 'Hartree', jPerUnit: NIST.hartree_J },
       { key: 'ev', label: 'eV', plainLabel: 'eV', jPerUnit: NIST.eV_J },
       { key: 'cm-1', label: 'cm<sup>-1</sup>', plainLabel: 'cm^-1', jPerUnit: NIST.h_Js.mul(NIST.c_m_s).mul(100) },
@@ -99,7 +99,15 @@ use_math: true
       { key: 'kcalmol', label: 'kcal/mol', plainLabel: 'kcal/mol', jPerUnit: new Decimal('4184').div(NIST.NA) }
     ];
 
-    const jPer = Object.fromEntries(units.map(u => [u.key, u.jPerUnit]));
+    const jPer = Object.fromEntries(energyUnits.map(u => [u.key, u.jPerUnit]));
+    const hcTimes1e9 = NIST.h_Js.mul(NIST.c_m_s).mul(new Decimal('1e9')); // hc * 1e9 (J*nm)
+    const converterUnits = energyUnits.concat([
+      {
+        key: 'nm',
+        label: 'nm',
+        plainLabel: 'nm'
+      }
+    ]);
 
     function formatSig(dec, sig) {
       if (dec.isZero()) return '0';
@@ -142,7 +150,7 @@ use_math: true
     const blankTh = document.createElement('th');
     blankTh.textContent = 'From \\ To';
     headerRow.appendChild(blankTh);
-    for (const toU of units) {
+    for (const toU of energyUnits) {
       const th = document.createElement('th');
       th.innerHTML = toU.label;
       headerRow.appendChild(th);
@@ -150,13 +158,13 @@ use_math: true
     thead.appendChild(headerRow);
 
     // Body rows
-    for (const fromU of units) {
+    for (const fromU of energyUnits) {
       const tr = document.createElement('tr');
       const fromTh = document.createElement('th');
       fromTh.innerHTML = fromU.label;
       tr.appendChild(fromTh);
 
-      for (const toU of units) {
+      for (const toU of energyUnits) {
         const td = document.createElement('td');
         const factor = jPer[fromU.key].div(jPer[toU.key]); // 1 [from] = factor [to]
         const display = formatSci(factor, 6);
@@ -248,7 +256,7 @@ use_math: true
     const inputEls = {};
     const currentVals = {};
 
-    for (const u of units) {
+    for (const u of converterUnits) {
       const tr = document.createElement('tr');
 
       const unitTd = document.createElement('td');
@@ -292,9 +300,16 @@ use_math: true
 
     function parseDecimal(s) {
       if (s === null || s === undefined) return null;
-      const t = String(s).trim();
+      let t = String(s).trim();
       if (!t) return null;
       try {
+        // Handle common "in-progress" decimals like `.` or `1.`.
+        // Decimal.js can't parse those directly, but users expect them to behave like `0.0` / `1.0`.
+        if (t === '.' || t === '-.') {
+          t = t.startsWith('-') ? '-0.0' : '0.0';
+        } else if (/^-?\d+\.$/.test(t)) {
+          t = t + '0';
+        }
         return new Decimal(t);
       } catch (e) {
         return null;
@@ -317,23 +332,68 @@ use_math: true
 
     function computeFrom(sourceKey) {
       const srcInput = inputEls[sourceKey];
-      const srcVal = parseDecimal(srcInput.value);
+      const raw = String(srcInput.value).trim();
+      const srcVal = parseDecimal(raw);
       if (srcVal === null) {
-        for (const u of units) setInputValue(u.key, null, 12);
+        // If the source input is temporarily "in progress" (e.g. just `.` or `1.`),
+        // don't blank out the entire converter while the user is still typing.
+        //
+        // Decimal.js can't parse those intermediate states, but we can avoid wiping the UI.
+        currentVals[sourceKey] = null;
+        const raw = String(srcInput.value).trim();
+        const inProgress = /^-?\d*\.?\d*$/.test(raw) && raw !== '';
+        if (!inProgress) {
+          for (const u of converterUnits) {
+            if (u.key === sourceKey) continue;
+            setInputValue(u.key, null, 12);
+          }
+        }
         return;
       }
 
-      // Convert input -> Joules (per particle).
-      const energyJ = srcVal.mul(jPer[sourceKey]);
+      // Keep "current value" in sync for copy buttons even when we skip
+      // overwriting the active input while mid-typing (e.g. `.`).
+      currentVals[sourceKey] = srcVal;
 
-      for (const targetU of units) {
-        const targetVal = energyJ.div(jPer[targetU.key]);
-        setInputValue(targetU.key, targetVal, 12);
+      // Convert input -> Joules (per particle).
+      let energyJ;
+      if (sourceKey === 'nm') {
+        // E = hc/λ, with λ in nm. So E(J) = (hc*1e9)/λ_nm
+        if (srcVal.isZero()) {
+          for (const targetU of converterUnits) {
+            if (targetU.key === sourceKey) continue;
+            setInputValue(targetU.key, null, 12);
+          }
+          return;
+        }
+        energyJ = hcTimes1e9.div(srcVal);
+      } else {
+        energyJ = srcVal.mul(jPer[sourceKey]);
+      }
+
+      // When the user is mid-typing a trailing dot (e.g. `.`, `1.`, `-1.`),
+      // skip overwriting the active input value so the UI doesn't "fight" typing.
+      const isTrailingDotInput = /^-?(?:\d+)?\.$/.test(raw);
+
+      for (const targetU of converterUnits) {
+        if (isTrailingDotInput && targetU.key === sourceKey) continue;
+        if (targetU.key === 'nm') {
+          // λ_nm = (hc*1e9)/E_J
+          if (energyJ.isZero()) {
+            setInputValue('nm', null, 12);
+          } else {
+            const targetVal = hcTimes1e9.div(energyJ);
+            setInputValue('nm', targetVal, 12);
+          }
+        } else {
+          const targetVal = energyJ.div(jPer[targetU.key]);
+          setInputValue(targetU.key, targetVal, 12);
+        }
       }
     }
 
     // Input handler (autofill)
-    for (const u of units) {
+    for (const u of converterUnits) {
       inputEls[u.key].addEventListener('focus', function () {
         lastEditedKey = u.key;
       });
