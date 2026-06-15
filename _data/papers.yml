@@ -3,6 +3,8 @@
   journal: The Journal of Chemical Physics
   year: 2026
   corresponding: false
+  preprint: "arXiv:2604.12749"
+  preprint_url: "https://arxiv.org/abs/2604.12749"
 
 - authors: [D. Jiang, S. M. Parker ]
   title: "Accurate Molecular Nonlinear Properties On A Semiempirical Budget Using The TDDFT-ris Model"
@@ -23,6 +25,7 @@
   corresponding: false
   preprint: "chemrxiv-2025-btj2g"
   preprint_url: "https://doi.org/10.26434/chemrxiv-2025-btj2g"
+  graphic: thermoresponsive.jpg
 
 - authors: [E. Roy Miller, S. M. Parker]
   title: Numerically Stable Resonating Hartree-Fock
