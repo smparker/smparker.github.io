@@ -1,7 +1,16 @@
+- authors: [Jiří Janoš, Nanna List, Andrew Orr-Ewing, Jiri Suchan, Mario Barbatti, Olivia Bennett, Marcus Brady, Javier Carmona-García, Rachel Crespo-Otero, Julien Eng, Otto Fajen, Marco Garavelli, Sandra Gómez, Alice Green, Federico Hernandez, Daniel Hollas, Lewis Hutton, Lea M. Ibele, Adam Kirrander, Zhenggang Lan, Yorick Lassmann, Joseph Lawrence, Benjamin Levine, Dmitry Makhov, Jonathan Mannouch, Xincheng Miao, Roland Mitric, Shane Parker, tom penfold, Jiawei Peng, Jeremy Richardson, Dmitrii Shalashilin, Petr Slavicek, K Eryn Spinlove, Patricia Vindel-Zandbergen, Federica Agostini, Sara Bonella, Todd Martinez, Graham Worth, Basile Curchod]
+  title: "Perspective on a challenge: predicting the photochemistry of cyclobutanone"
+  journal: The Journal of Chemical Physics
+  year: 2026
+  corresponding: false
+
 - authors: [D. Jiang, S. M. Parker ]
   title: "Accurate Molecular Nonlinear Properties On A Semiempirical Budget Using The TDDFT-ris Model"
+  journal: Journal of Physical Chemistry C
   year: 2026
   corresponding: true
+  doi: 10.1021/acs.jpcc.6c01175
+  graphic: rispol.jpg
   preprint: chemrxiv.10002108
   preprint_url: "https://doi.org/10.26434/chemrxiv.10002108/v1"
 
