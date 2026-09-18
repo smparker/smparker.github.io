@@ -1,3 +1,12 @@
+- name: Anton Perera
+  email: anton.perera@case.edu
+  was: postdoc
+  where: Ixora Scientific
+  position: senior computational scientist
+  start: 2024
+  left: 2026
+  photo: anton.jpg
+
 - name: Thomas-Ethan Kaji
   email: tak112@case.edu
   interests: resonance energy transfer in biopolymers

@@ -34,9 +34,11 @@ icon: fa-users
       <ul>
   </div>
 </div>
+{% if site.data.postdocs.size > 0 %}
 <div class="row">
   <h2>Postdoctoral Scholars</h2>
 </div>
+{% endif %}
 {% for postdoc in site.data.postdocs %}
 {% assign modindex = forloop.index0 | modulo: 4 %}
 {% if modindex == 0 %}
@@ -66,9 +68,11 @@ icon: fa-users
 {% endif %}
 {% endfor %}
 
+{% if site.data.grad_students.size > 0 %}
 <div class="row">
   <h2>Graduate Students</h2>
 </div>
+{% endif %}
 {% for student in site.data.grad_students %}
 {% assign modindex = forloop.index0 | modulo: 4 %}
 {% if modindex == 0 %}
@@ -98,9 +102,11 @@ icon: fa-users
 {% endif %}
 {% endfor %}
 
+{% if site.data.undergrad_students.size > 0 %}
 <div class="row">
   <h2>Undergraduate Students</h2>
 </div>
+{% endif %}
 {% for student in site.data.undergrad_students %}
 {% assign modindex = forloop.index0 | modulo: 4 %}
 {% if modindex == 0 %}
