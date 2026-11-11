@@ -9,17 +9,15 @@ end
 
 desc "Test the website"
 task :test => [:build] do
+  # html-proofer 5.x options
   options = {
-    :check_html => true,
-    :check_favicon => true,
-    :check_img_http => true,
-    :check_opengraph => true,
-    :empty_alt_ignore => false,
+    :checks => ['Links', 'Images', 'Scripts', 'Favicon', 'OpenGraph'],
+    :ignore_empty_alt => false,
     :enforce_https => true,
-    :url_ignore => ['https://scholar.google.com/citations?user=OqC2Vc8AAAAJ&hl=en'],
-    :url_swap => { 'https://quantumparker.com' => '' },
+    :ignore_urls => ['https://scholar.google.com/citations?user=OqC2Vc8AAAAJ&hl=en'],
+    :swap_urls => { %r{^https://quantumparker\.com} => '' },
     :cache => {
-      :timeframe => '6w'
+      :timeframe => { :external => '6w' }
     },
     :typhoeus => {
       :timeout => 500

@@ -159,13 +159,13 @@ ul.vita-cats {
 
 li.cat-item {
   font-size: 112.5%;
-  a {color: lighten(black, 10%);}
+  a {color: #1a1a1a;}
   padding: 0 0 0 0.2em!important;
   margin: 0 !important;
 }
 
 li.cat-item.active {
-  border-left: 0.2em solid lighten(black, 40%);
+  border-left: 0.2em solid #666666;
   padding: 0 !important;
 }
 
@@ -203,7 +203,7 @@ li.cat-item.active {
 }
 
 .main-news-date {
-  color: lighten(black, 50%);
+  color: #808080;
 
 }
 

@@ -17,6 +17,9 @@ google_scholar: smparker
 sass:
   sass_dir: _sass
   style: compress
+  # vendored Bootstrap in _sass/ triggers many Dart Sass deprecation warnings
+  quiet_deps: true
+  silence_deprecations: [import]
 
 # Build settings
 markdown: kramdown
