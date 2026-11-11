@@ -1,3 +1,11 @@
+- authors: [R. Mathew, A. Perera, K. Liu, D. Mathur, S. M. Parker, C. E. Crespo-Hernández]
+  title: "Ultrafast Non-Förster Energy Transfer in a DNA-Templated Cy3-Cy5 Assembly"
+  year: 2026
+  note: submitted
+  corresponding: true
+  preprint: chemrxiv.15011960
+  preprint_url: "https://doi.org/10.26434/chemrxiv.15011960/v1"
+
 - authors: [Jiří Janoš, Nanna List, Andrew Orr-Ewing, Jiri Suchan, Mario Barbatti, Olivia Bennett, Marcus Brady, Javier Carmona-García, Rachel Crespo-Otero, Julien Eng, Otto Fajen, Marco Garavelli, Sandra Gómez, Alice Green, Federico Hernandez, Daniel Hollas, Lewis Hutton, Lea M. Ibele, Adam Kirrander, Zhenggang Lan, Yorick Lassmann, Joseph Lawrence, Benjamin Levine, Dmitry Makhov, Jonathan Mannouch, Xincheng Miao, Roland Mitric, Shane Parker, tom penfold, Jiawei Peng, Jeremy Richardson, Dmitrii Shalashilin, Petr Slavicek, K Eryn Spinlove, Patricia Vindel-Zandbergen, Federica Agostini, Sara Bonella, Todd Martinez, Graham Worth, Basile Curchod]
   title: "Perspective on a challenge: predicting the photochemistry of cyclobutanone"
   journal: The Journal of Chemical Physics
@@ -37,7 +45,7 @@
   journal: The Journal of Chemical Physics
   page: 104115
   doi: 10.1063/5.0246790
-  preprint: "arXiv:2411.00712"
+  preprint: arXiv:2411.00712
   preprint_url: https://arxiv.org/abs/2411.00712
   corresponding: true
   special: 2024 JCP Emerging Investigator
@@ -68,9 +76,9 @@
 - authors: [E. Roy Miller, S. J. Hoehn, A. Kumar, D. Jiang, S. M. Parker]
   title: "Ultrafast Photochemistry and Electron Diffraction for Cyclobutanone in the S<sub>2</sub> State: Surface Hopping with Time-Dependent Density Functional Theory"
   year: 2024
-  journal:  The Journal of Chemical Physics
+  journal: The Journal of Chemical Physics
   preprint: arXiv:2402.10336
-  preprint_url: http://arxiv.org/abs/2402.10336
+  preprint_url: https://arxiv.org/abs/2402.10336
   doi: 10.1063/5.0203679
   volume: 161
   page: "034105"
@@ -114,7 +122,7 @@
   journal: Journal of the American Chemical Society
   doi: 10.1021/jacs.2c06583
   preprint: arXiv:2301.05291
-  preprint_url: https://doi.org/10.48550/arXiv.2301.05291
+  preprint_url: https://arxiv.org/abs/2301.05291
   corresponding: false
 
 - authors: [Z. Zhou, S. M. Parker]
@@ -125,7 +133,7 @@
   volume: 155
   page: 204111
   preprint: accepted version
-  preprint_url: http://hdl.handle.net/2186/ksl:2006080578
+  preprint_url: https://hdl.handle.net/2186/ksl:2006080578
   corresponding: true
 
 - authors:
