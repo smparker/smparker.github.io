@@ -29,6 +29,11 @@ p {
   font-weight: 300; /* Light */
 }
 
+// Header: breathing room between the navbar and page content
+.site-header {
+  margin-bottom: 1.5rem;
+}
+
 // Footer
 .site-footer {
   margin-top: 0;
