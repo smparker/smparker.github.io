@@ -11,7 +11,7 @@ icon: fa-users
 </div>
 <div class="row">
   <div class="col-sm-3 col-md-3">
-    <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/smp.jpg" alt="Shane M. Parker">
+    <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/smp.jpg" alt="Shane M. Parker">
   </div>
   <div class="col-sm-8 col-md-8">
       <p>Shane is an associate professor of chemistry at CWRU. Shane grew up in
@@ -30,7 +30,7 @@ icon: fa-users
         <li>e-mail: <a href="mailto:shane.parker@case.edu">shane.parker@case.edu</a></li>
         <li>office: 228 Millis Hall</li>
         <li>phone: ‭(216) 368-3697‬</li>
-        <li><a href="{{base.url}}/{{site.data.cv.path}}">CV</a> (last updated {{site.data.cv.date}})</li>
+        <li><a href="{{ site.baseurl }}/{{site.data.cv.path}}">CV</a> (last updated {{site.data.cv.date}})</li>
       <ul>
   </div>
 </div>
@@ -46,9 +46,9 @@ icon: fa-users
 {% endif %}
     <div class="col-xs-offset-2 col-xs-8 col-xs-clear col-sm-6 col-sm-offset-0 col-md-3">
       {% if postdoc.photo %}
-        <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/{{postdoc.photo}}" alt="{{postdoc.name}}">
+        <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/{{postdoc.photo}}" alt="{{postdoc.name}}">
       {% else %}
-      <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{postdoc.name}} not pictured">
+      <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{postdoc.name}} not pictured">
       {% endif %}
       <h3>{{postdoc.name}}</h3>
       <ul class="list-unstyled">
@@ -80,9 +80,9 @@ icon: fa-users
 {% endif %}
     <div class="col-xs-offset-2 col-xs-8 col-xs-clear col-sm-6 col-sm-offset-0 col-md-3">
       {% if student.photo %}
-        <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/{{student.photo}}" alt="{{student.name}}">
+        <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/{{student.photo}}" alt="{{student.name}}">
       {% else %}
-        <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{student.name}} not pictured">
+        <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{student.name}} not pictured">
       {% endif %}
       <h3>{{student.name}}</h3>
       <ul class="list-unstyled">
@@ -114,9 +114,9 @@ icon: fa-users
 {% endif %}
     <div class="col-xs-offset-2 col-xs-8 col-xs-clear col-sm-6 col-sm-offset-0 col-md-3">
       {% if student.photo %}
-        <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/{{student.photo}}" alt="{{student.name}}">
+        <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/{{student.photo}}" alt="{{student.name}}">
       {% else %}
-        <img class="img-fluid rounded center-block" src="{{base.url}}/assets/members/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{student.name}} not pictured">
+        <img class="img-fluid rounded center-block" src="{{ site.baseurl }}/assets/members/no-photo-{% increment nophotos | modulo: 3 %}.jpg" alt="{{student.name}} not pictured">
       {% endif %}
       <h3>{{student.name}}</h3>
       <ul class="list-unstyled">

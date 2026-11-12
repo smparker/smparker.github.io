@@ -11,7 +11,7 @@ icon: fa-code
     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
       <div class="card border-0">
         <a href="{% if code.url contains '://' %}{{ code.url }}{% else %}{{ code.url | prepend: site.baseurl }}{% endif %}">
-          <img src="{{base.url}}/assets/logos/{{code.image}}" class="card-img-top img-fluid rounded center-block" alt="{{ code.alt }}">
+          <img src="{{ site.baseurl }}/assets/logos/{{code.image}}" class="card-img-top img-fluid rounded center-block" alt="{{ code.alt }}">
         </a>
         <h3 class="card-title">{{code.name}}</h3>
         <p class="card-text">{{code.description}}</p>

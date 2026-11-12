@@ -22,14 +22,14 @@ icon: fa-book
                                    ({{paper.year}})
          {% if paper.note %} {{paper.note}} {% endif %}
     {% if paper.doi %}<br>doi: {{paper.doi}} {% endif %}
-    <br> {% if paper.doi %}<a href="https://dx.doi.org/{{paper.doi}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.doi %}</a>{% endif %}
-    {% if paper.preprint_pdf %}(<a href="{{base.url}}/preprints/{{paper.preprint_pdf}}" target="_blank">{{paper.preprint}}</a>)
+    <br> {% if paper.doi %}<a href="https://doi.org/{{paper.doi}}" target="_blank">{% endif %}"{{paper.title}}"{% if paper.doi %}</a>{% endif %}
+    {% if paper.preprint_pdf %}(<a href="{{ site.baseurl }}/preprints/{{paper.preprint_pdf}}" target="_blank">{{paper.preprint}}</a>)
     {% elsif paper.preprint_url %} (<a href="{{paper.preprint_url}}" target="_blank">{{paper.preprint}}</a>){% endif %}
     {% if paper.special %} ({% if paper.special_url %}<a href="{{paper.special_url}}" target="_blank">{% endif %}{{paper.special}}{% if paper.special_url %}</a> {% endif %}) {% endif %}
     </div>
     {% if paper.graphic %}
     <div class="col-sm-3 col-md-2">
-      <img class="img-fluid" src="{{base.url}}/assets/toc/{{paper.graphic}}" alt="{{paper.title}}">
+      <img class="img-fluid" src="{{ site.baseurl }}/assets/toc/{{paper.graphic}}" alt="{{paper.title}}">
     </div>
     {% endif %}
   {% endfor %}
@@ -44,8 +44,8 @@ icon: fa-book
       {% endfor %}
         <br>
         {{chapter.page}}, ({{chapter.year}}){% if chapter.doi %}, doi: {{chapter.doi}} {% endif %} <br>
-        {% if chapter.doi %}<a href="https://dx.doi.org/{{chapter.doi}}" target="_blank">{% endif %}"{{chapter.title}}"{% if chapter.doi %}</a>{% endif %} <br>
-        in {% if chapter.bookdoi %} <a href="https://dx.doi.org/{{chapter.bookdoi}}" target="_blank"> {% endif %}
+        {% if chapter.doi %}<a href="https://doi.org/{{chapter.doi}}" target="_blank">{% endif %}"{{chapter.title}}"{% if chapter.doi %}</a>{% endif %} <br>
+        in {% if chapter.bookdoi %} <a href="https://doi.org/{{chapter.bookdoi}}" target="_blank"> {% endif %}
           <i>{{chapter.book}}</i>{% if chapter.bookdoi %}</a>{% endif %}, edited by {{chapter.editor}}, {{chapter.publisher}} <br>
   {% endfor %}
 </ol>

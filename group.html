@@ -1,32 +1,79 @@
 ---
 layout: default
 title:  group
-use_slide: true
 categories: cv
 header_order: 0
 permalink: /group/
 icon: fa-images
 ---
-<div class="demo">
-    <ul id="lightSlider">
-        {% for i in site.data.gallery %}
-        <li data-thumb="{{base.url}}/gallery/thumb/{{i.name}}">
-          <img class="img-fluid" src="{{base.url}}/gallery/{{i.name}}" alt="{{i.alt}}"/>
-        </li>
-        {% endfor %}
-    </ul>
+<style>
+  #groupCarousel .carousel-item img {
+    height: min(70vh, 640px);
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+  .gallery-thumbs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 8px 0;
+  }
+  .gallery-thumbs button {
+    flex: 0 0 auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .gallery-thumbs button:hover,
+  .gallery-thumbs button.active {
+    opacity: 1;
+  }
+  .gallery-thumbs img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
+</style>
+
+<div id="groupCarousel" class="carousel slide" data-bs-theme="dark">
+  <div class="carousel-inner">
+    {% for i in site.data.gallery %}
+    <div class="carousel-item{% if forloop.first %} active{% endif %}">
+      <img class="d-block w-100" src="{{ site.baseurl }}/gallery/{{i.name}}" alt="{{i.alt}}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#groupCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#groupCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-  <script>
-    $('#lightSlider').lightSlider({
-    gallery: true,
-    item: 1,
-    loop: true,
-    slideMargin: 0,
-    responsive: [
-      { breakpoint: 768,
-        settings: { thumbItem: 5 }
+<div class="gallery-thumbs" id="groupThumbs">
+  {% for i in site.data.gallery %}
+  <button type="button" data-bs-target="#groupCarousel" data-bs-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active" aria-current="true"{% endif %}>
+    <img src="{{ site.baseurl }}/gallery/thumb/{{i.name}}" alt="{{i.alt}}" loading="lazy">
+  </button>
+  {% endfor %}
+</div>
+
+<script>
+  document.getElementById('groupCarousel').addEventListener('slid.bs.carousel', function (e) {
+    document.querySelectorAll('#groupThumbs button').forEach(function (b, n) {
+      var on = n === e.to;
+      b.classList.toggle('active', on);
+      if (on) {
+        b.setAttribute('aria-current', 'true');
+        b.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      } else {
+        b.removeAttribute('aria-current');
       }
-    ]
-});
-  </script>
+    });
+  });
+</script>

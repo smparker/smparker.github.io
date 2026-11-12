@@ -9,16 +9,16 @@ bold_title: true
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
-	<img class="img-fluid" src="{{base.url}}/assets/logos/CWRU_Logo.svg" alt="CWRU logo">
+	<img class="img-fluid" src="{{ site.baseurl }}/assets/logos/CWRU_Logo.svg" alt="CWRU logo">
   </div>
 </div>
 
 <div class="row">
     <div class="col-md-offset-2 col-md-8 text-center">
-        <img class="img-fluid rounded" src="{{base.url}}/assets/conical.png" alt="Conical Intersection">
+        <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/conical.png" alt="Conical Intersection">
     </div>
   <div class="col-md-2 main-news">
-    <h3><a href="{{base.url}}/news">Recent News</a></h3>
+    <h3><a href="{{ site.baseurl }}/news">Recent News</a></h3>
     {% assign recent_news = site.news | reverse %}
     {% for e in recent_news limit:4 %}
     <li> <span class="main-news-date">{{e.date | date:"(%-d %b %y)"}}</span> <span class="main-news-title">{{e.title}}</span> </li>
