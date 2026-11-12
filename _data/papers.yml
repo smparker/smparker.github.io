@@ -6,14 +6,21 @@
   preprint: chemrxiv.15011960
   preprint_url: "https://doi.org/10.26434/chemrxiv.15011960/v1"
 
-- authors: [Jiří Janoš, Nanna List, Andrew Orr-Ewing, Jiri Suchan, Mario Barbatti, Olivia Bennett, Marcus Brady, Javier Carmona-García, Rachel Crespo-Otero, Julien Eng, Otto Fajen, Marco Garavelli, Sandra Gómez, Alice Green, Federico Hernandez, Daniel Hollas, Lewis Hutton, Lea M. Ibele, Adam Kirrander, Zhenggang Lan, Yorick Lassmann, Joseph Lawrence, Benjamin Levine, Dmitry Makhov, Jonathan Mannouch, Xincheng Miao, Roland Mitric, Shane Parker, tom penfold, Jiawei Peng, Jeremy Richardson, Dmitrii Shalashilin, Petr Slavicek, K Eryn Spinlove, Patricia Vindel-Zandbergen, Federica Agostini, Sara Bonella, Todd Martinez, Graham Worth, Basile Curchod]
+- authors: [J. Janoš, N. H. List, A. J. Orr-Ewing, J. Suchan, M. Barbatti,
+    O. Bennett, M. Brady, J. Carmona-García, R. Crespo-Otero, J. Eng,
+    O. J. Fajen, M. Garavelli, S. Gómez, A. E. Green, F. J. Hernández,
+    D. Hollas, L. Hutton, L. M. Ibele, A. Kirrander, Z. Lan, Y. Lassmann,
+    J. E. Lawrence, B. G. Levine, D. V. Makhov, J. R. Mannouch, X. Miao,
+    R. Mitrić, S. M. Parker, T. J. Penfold, J. Peng, J. O. Richardson,
+    D. Shalashilin, P. Slavíček, K. E. Spinlove, P. Vindel-Zandbergen,
+    F. Agostini, S. Bonella, T. J. Martínez, G. A. Worth, B. F. E. Curchod]
   title: "Perspective on a challenge: predicting the photochemistry of cyclobutanone"
   journal: The Journal of Chemical Physics
   year: 2026
   corresponding: false
   doi: 10.1063/5.0338792
   volume: 165
-  page: 020902
+  page: "020902"
   graphic: cyclobutanone_perspective.jpg
   preprint: "arXiv:2604.12749"
   preprint_url: "https://arxiv.org/abs/2604.12749"
