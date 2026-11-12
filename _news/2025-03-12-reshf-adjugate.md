@@ -15,4 +15,4 @@ With this approach, ResHF becomes fully numerically stable, and can thus be appl
 to a wider variety of systems than has been possible previously.
 
 This paper was published in the Journal of Chemical Physics,
-["Numerically Stable Resonating Hartree-Fock"](https://dx.doi.org/10.1063/5.0246790).
+["Numerically Stable Resonating Hartree-Fock"](https://doi.org/10.1063/5.0246790).

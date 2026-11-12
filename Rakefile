@@ -14,7 +14,13 @@ task :test => [:build] do
     :checks => ['Links', 'Images', 'Scripts', 'Favicon', 'OpenGraph'],
     :ignore_empty_alt => false,
     :enforce_https => true,
-    :ignore_urls => ['https://scholar.google.com/citations?user=OqC2Vc8AAAAJ&hl=en'],
+    :ignore_urls => [
+      'https://scholar.google.com/citations?user=OqC2Vc8AAAAJ&hl=en',
+      # <link rel="preconnect"> hints, not real links
+      %r{^https://fonts\.(googleapis|gstatic)\.com/?$},
+      # publishers (ACS, AIP, RSC, ...) answer 403 to any non-browser client
+      %r{^https://(dx\.)?doi\.org/},
+    ],
     :swap_urls => { %r{^https://quantumparker\.com} => '' },
     :cache => {
       :timeframe => { :external => '6w' }
