@@ -22,11 +22,12 @@ GEM
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
-    ethon (0.19.1)
+    ethon (0.19.2)
       ffi (>= 1.15.0)
       logger
     eventmachine (1.2.7)
     ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-darwin)
     ffi (1.17.4-x86_64-linux-gnu)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
@@ -34,6 +35,9 @@ GEM
     fiber-storage (1.0.1)
     forwardable-extended (2.6.0)
     google-protobuf (4.36.2-arm64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86_64-darwin)
       bigdecimal
       rake (~> 13.3)
     google-protobuf (4.36.2-x86_64-linux-gnu)
@@ -98,6 +102,8 @@ GEM
     mustermann (3.1.1)
     nokogiri (1.19.7-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.19.7-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.19.7-x86_64-linux-gnu)
       racc (~> 1.4)
     pathutil (0.16.2)
@@ -129,6 +135,8 @@ GEM
     safe_yaml (1.0.5)
     sass-embedded (1.108.2-arm64-darwin)
       google-protobuf (~> 4.31)
+    sass-embedded (1.108.2-x86_64-darwin)
+      google-protobuf (~> 4.31)
     sass-embedded (1.108.2-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     sinatra (4.2.1)
@@ -158,6 +166,8 @@ GEM
 PLATFORMS
   arm64-darwin
   arm64-darwin-27
+  x86_64-darwin
+  x86_64-darwin-24
   x86_64-linux
 
 DEPENDENCIES
