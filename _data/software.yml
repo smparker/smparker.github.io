@@ -26,6 +26,14 @@
   image: molecularblender-logo.png
   alt: Molecular blender is a Blender plugin for quantum chemistry
 
+- name: xap
+  url: https://www.gitlab.com/team-parker/xap
+  description: Lightweight, responsive X11 molecular viewer for quickly checking
+    quantum chemistry results over ssh
+  image: xap-logo.svg
+  image_base: true
+  alt: Xap is a lightweight molecular visualizer for viewing quantum chemistry results over ssh
+
 - name: orient molecule
   url: https://www.github.com/smparker/orient-molecule
   description: Standalone python script to manipulate molecular structures
