@@ -3,14 +3,12 @@
   description: Parker group quantum chemistry development code
   alt: Yucca is an open source quantum chemistry code developed by the Parker group.
   image: yucca-logo.jpg
-  image_base: true
 
 - name: mudslide
   url: https://www.gitlab.com/team-parker/mudslide
   description: Python framework for running surface hopping simulations
     using model problems
   image: mudslide-logo.jpg
-  image_base: true
   alt: The mudslide code
 
 - name: qleve
@@ -18,7 +16,6 @@
   description: Math library co-developed with yucca
   alt: Qleve is a math library co-developed with yucca
   image: qleve-logo.png
-  image_base: true
 
 - name: molecular blender
   url: https://smparker.github.io/molecular-blender
@@ -31,7 +28,6 @@
   description: Lightweight, responsive X11 molecular viewer for quickly checking
     quantum chemistry results over ssh
   image: xap-logo.svg
-  image_base: true
   alt: Xap is a lightweight molecular visualizer for viewing quantum chemistry results over ssh
 
 - name: orient molecule
@@ -45,5 +41,4 @@
   url: /units/
   description: Energy unit conversion tools (NIST-based), including copy-to-clipboard constants
   image: units-logo.svg
-  image_base: true
   alt: Unit converters page
